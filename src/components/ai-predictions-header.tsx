@@ -51,7 +51,6 @@ export function AIPredictionsHeader() {
       toast({
         title: "No models selected",
         description: "Please select at least one AI model to generate a prediction.",
-        variant: "destructive",
       })
       return
     }
@@ -72,7 +71,7 @@ export function AIPredictionsHeader() {
           toast({
             title: "Failed to generate prediction",
             description: error || "An unknown error occurred.",
-            variant: "destructive",
+            // variant: "destructive",
           })
         }
       }
@@ -81,7 +80,7 @@ export function AIPredictionsHeader() {
       toast({
         title: "Error",
         description: "Failed to generate prediction. Please try again.",
-        variant: "destructive",
+        // variant: "destructive",
       })
     } finally {
       setIsGenerating(false)

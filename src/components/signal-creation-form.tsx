@@ -11,8 +11,8 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Slider } from "@/components/ui/slider"
-import { Switch } from "@/components/ui/switch"
 import { BrainCircuit } from "lucide-react"
+import { Switch } from "./ui/switch"
 
 export function SignalCreationForm() {
   const router = useRouter()
@@ -103,7 +103,6 @@ export function SignalCreationForm() {
               <span className="text-sm text-muted-foreground">{confidence[0]}%</span>
             </div>
             <Slider id="confidence" min={0} max={100} step={1} value={confidence} onValueChange={setConfidence} />
-            <div min={0} max={100} step={1} value={confidence} onValueChange={setConfidence} />
             <div className="flex justify-between text-xs text-muted-foreground">
               <span>Low</span>
               <span>Medium</span>

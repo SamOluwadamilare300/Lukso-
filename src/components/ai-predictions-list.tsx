@@ -55,7 +55,7 @@ export function AIPredictionsList({ selectedModels = [] }: AIPredictionsListProp
           toast({
             title: "Failed to load predictions",
             description: error || "An unknown error occurred",
-            variant: "destructive",
+          
           })
         }
       } catch (error) {
@@ -63,7 +63,7 @@ export function AIPredictionsList({ selectedModels = [] }: AIPredictionsListProp
         toast({
           title: "Error",
           description: "Failed to load predictions. Please try again.",
-          variant: "destructive",
+       
         })
       } finally {
         setLoading(false)

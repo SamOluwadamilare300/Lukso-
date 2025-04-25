@@ -57,7 +57,7 @@ export function SiteHeader({ pathname = "" }: SiteHeaderProps) {
 
      
       if (!foundItem) {
-        navigationData.navSecondary.forEach(item => {
+        navigationData.navSecondary.items.forEach(item => {
           if (item.url === currentPath) {
             foundItem = { name: item.title, url: item.url };
           }

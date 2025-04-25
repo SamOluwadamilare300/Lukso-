@@ -49,7 +49,7 @@ export default function AIModelsPage() {
         toast({
           title: "Error",
           description: "Failed to load AI models. Please try again.",
-          variant: "destructive",
+         
         })
       } finally {
         setLoading(false)
@@ -64,7 +64,7 @@ export default function AIModelsPage() {
       toast({
         title: "Not connected",
         description: "Please connect your Universal Profile to manage AI models.",
-        variant: "destructive",
+      
       })
       return
     }
@@ -91,7 +91,7 @@ export default function AIModelsPage() {
       toast({
         title: "Error",
         description: "Failed to update model status. Please try again.",
-        variant: "destructive",
+    
       })
     }
   }
