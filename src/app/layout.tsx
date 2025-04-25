@@ -1,22 +1,36 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { SharedLayout } from "@/components/shared-layout";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+// import { Inter, Roboto_Mono } from "next/font/google";
+import { Inter, Roboto_Mono } from "next/font/google";
 
-const geistSans = Geist({
+const GeistSans = Inter({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+const GeistMono = Roboto_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+import "./globals.css";
+import { Providers } from "@/hooks/providers/providers";
+import { LuksoProvider } from "@/components/lukso-provider"
+
+
+// const geistSans = Inter({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
+
+// const geistMono = Roboto_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 export const metadata: Metadata = {
-  title: "Stock Analysis",
-  description: "Stock analysis application",
+  title: "LUKSO Grid Signal",
+  description: "Social DeFi Analytics Dashboard powered by LUKSO Universal Profiles",
 };
 
 export default function RootLayout({
@@ -25,22 +39,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    <html lang="en"  className="dark" suppressHydrationWarning>
+   
+      <body  className={`${GeistSans.variable} ${GeistMono.variable}`}
+        
       >
+         <Providers> 
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
+           <LuksoProvider> 
           <SharedLayout>
             <main className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
               {children}
             </main>
           </SharedLayout>
+          </LuksoProvider>
         </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

@@ -75,7 +75,7 @@ export function SectionCards({ onSelectIndex }: SectionCardsProps) {
               <Badge
                 variant="outline"
                 className={
-                  index.changePercent > 0 ? "text-green-500" : "text-red-500"
+                  index.changePercent > 0 ? "text-green-500" : "text-green-500"
                 }
               >
                 {index.changePercent > 0 ? (
@@ -97,7 +97,7 @@ export function SectionCards({ onSelectIndex }: SectionCardsProps) {
               ) : (
                 <>
                   Down {formatNumber(Math.abs(index.change))} points{" "}
-                  <IconTrendingDown className="size-4 text-red-500" />
+                  <IconTrendingDown className="size-4 text-green-500" />
                 </>
               )}
             </div>

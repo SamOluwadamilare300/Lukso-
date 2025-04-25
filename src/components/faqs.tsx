@@ -9,44 +9,36 @@ export default function FAQs() {
               <br className="hidden lg:block" />
               Questions
             </h2>
-            <p>Common questions about our stock analysis platform</p>
+            <p>Common questions about our Social DeFi Analytics Platform</p>
           </div>
 
           <div className="divide-y divide-dashed sm:mx-auto sm:max-w-lg lg:mx-0">
             <div className="pb-6">
               <h3 className="font-medium">
-                How accurate is your stock analysis?
+                How reliable are the social trading signals?
               </h3>
               <p className="text-muted-foreground mt-4">
-                Our AI-driven stock analysis platform maintains a 98.7% accuracy
-                rate for market predictions based on historical data patterns
-                and real-time market indicators.
+                Our platform verifies all signal providers through their Universal Profiles and maintains a 98.7% accuracy rate for top-rated signals based on historical performance and community validation.
               </p>
 
               <ol className="list-outside list-decimal space-y-2 pl-4">
                 <li className="text-muted-foreground mt-4">
-                  We use advanced algorithms that analyze thousands of data
-                  points across global markets.
+                  We analyze thousands of data points across LUKSO's ecosystem including LYXe, LSPs, and DeFi protocols
                 </li>
                 <li className="text-muted-foreground mt-4">
-                  Our platform is continuously learning and improving through
-                  machine learning techniques.
+                  Each signal provider has transparent performance metrics and risk scores
                 </li>
                 <li className="text-muted-foreground mt-4">
-                  While we strive for maximum accuracy, all investments carry
-                  inherent risks, and past performance doesn't guarantee future
-                  results.
+                  While we verify signals, all DeFi trades carry inherent risks and past performance doesn't guarantee future results
                 </li>
               </ol>
             </div>
             <div className="py-6">
               <h3 className="font-medium">
-                How do I access real-time market data?
+                How do I connect my Universal Profile?
               </h3>
               <p className="text-muted-foreground mt-4">
-                Real-time market data is available on all subscription plans.
-                Simply log into your dashboard and navigate to the "Market Data"
-                section to view live updates from global exchanges.
+                Connecting your Universal Profile is simple and secure. Just click "Connect UP" in the dashboard and authenticate with your wallet. Your profile data remains private - we only access public on-chain information.
               </p>
             </div>
             <div className="py-6">
@@ -54,31 +46,34 @@ export default function FAQs() {
                 Can I upgrade my subscription plan?
               </h3>
               <p className="text-muted-foreground my-4">
-                Yes, you can upgrade your plan at any time through your account
-                settings to access additional features like advanced technical
-                analysis tools and personalized investment recommendations.
+                Yes, you can upgrade your plan at any time through your account settings to access premium features like advanced signal filtering and automated trade execution.
               </p>
               <ul className="list-outside list-disc space-y-2 pl-4">
                 <li className="text-muted-foreground">
-                  You'll be charged the difference between your current plan and
-                  the upgraded plan.
+                  Upgrade payments can be made in LYXe or stablecoins
                 </li>
                 <li className="text-muted-foreground">
-                  Premium features become available immediately after upgrading,
-                  with no need to wait for the next billing cycle.
+                  Premium features activate immediately with no waiting period
+                </li>
+                <li className="text-muted-foreground">
+                  You'll be charged the difference between plans pro-rated for the remaining billing period
                 </li>
               </ul>
             </div>
             <div className="py-6">
               <h3 className="font-medium">
-                How do I connect with financial analysts?
+                How do I share my own trading signals?
               </h3>
               <p className="text-muted-foreground mt-4">
-                Premium and Enterprise subscribers can connect with our team of
-                financial analysts through the in-app messaging system. Our
-                experts are available during market hours to provide
-                personalized investment guidance and answer your questions about
-                market trends.
+                Verified Universal Profile holders can share signals through our platform. After connecting your UP, navigate to the "Share Signal" section to publish your trades and analysis. Top signal providers may earn rewards in LYXe.
+              </p>
+            </div>
+            <div className="py-6">
+              <h3 className="font-medium">
+                Is my DeFi portfolio data secure?
+              </h3>
+              <p className="text-muted-foreground mt-4">
+                We use non-custodial wallet connections that never require your private keys. Portfolio data is read-only and encrypted. You maintain full control of your assets at all times.
               </p>
             </div>
           </div>

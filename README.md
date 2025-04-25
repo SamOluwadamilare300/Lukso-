@@ -1,184 +1,54 @@
-# Stock Analysis Dashboard
+# LUKSO Grid Signal: Social DeFi Analytics Dashboard
 
-<img width="1547" alt="image" src="https://github.com/user-attachments/assets/7916cb41-3b10-42f4-b4f7-7e3f890495e0" />
+<img width="1547" alt="social-defi-dashboard" src="https://github.com/user-attachments/assets/7916cb41-3b10-42f4-b4f7-7e3f890495e0" />
 
-A comprehensive stock market analysis application built with Next.js and TypeScript. This dashboard provides real-time market data, interactive charts, sector analysis, and technical indicators to help investors make informed decisions.
+A next-generation DeFi analytics platform that bridges on-chain data with social trading signals through LUKSO's Universal Profiles. Built with Next.js and TypeScript, this dashboard provides real-time DeFi metrics, crowd-sourced trade signals, and portfolio tracking for the LUKSO ecosystem.
 
 ## 📋 Table of Contents
-
 - [Features](#-features)
+- [Why Grid Signal?](#-why-grid-signal)
 - [Tech Stack](#-tech-stack)
 - [Project Structure](#-project-structure)
 - [Getting Started](#-getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Running the Application](#running-the-application)
-- [UI Components](#-ui-components)
+- [Universal Profile Integration](#-universal-profile-integration)
 - [Data Architecture](#-data-architecture)
-- [Animations](#-animations)
 - [Contributing](#-contributing)
 - [License](#-license)
 
 ## ✨ Features
 
-- **Market Overview**: Real-time market indices, heatmaps, and summary statistics
-- **Stock Analysis**: Detailed stock information with price history and key metrics
-- **Sector Analysis**: Performance breakdown by market sectors
-- **Interactive Charts**: Visualize stock price movements and technical indicators
-- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
-- **Animated UI**: Smooth transitions and interactive elements
-- **Dark/Light Mode**: Theme support for different viewing preferences
+### 🟣 Social Trading
+- **Verified Signals**: Trade alerts shared via Universal Profiles with reputation scoring
+- **Signal Mirroring**: One-click execution of top-performing strategies
+- **Community Leaderboards**: Rank signal providers by historical accuracy
+
+### 📊 DeFi Analytics
+- **LYXe & LSP Tracking**: Real-time price charts and liquidity metrics
+- **Portfolio Manager**: Unified view across LUKSO DeFi protocols
+- **Yield Optimizer**: Automated strategy suggestions for staking/LSPs
+
+### 🔐 Identity-Centric
+- **UP Login**: Non-custodial access via Universal Profiles
+- **Profile Badges**: Visual trust indicators for signal providers
+- **On-Chain Reputation**: Transparent performance history
+
+### 🎨 UX Highlights
+- **Animated Data Viz**: Interactive charts with social sentiment layers
+- **Dark/Light Mode**: Theme support with LUKSO brand colors
+- **Mobile-Ready**: Responsive design for trading on-the-go
+
+## 🟣 Why Grid Signal?
+
+Unlike traditional DeFi dashboards, Grid Signal uniquely combines:
+1. **Social Proof**: Verified signals from real Universal Profiles
+2. **LUKSO-Native**: Built specifically for LYXe, LSPs, and ecosystem protocols
+3. **Actionable Intel**: From analytics to execution in one click
 
 ## 🛠 Tech Stack
 
-- **Framework**: [Next.js 15](https://nextjs.org/)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **UI Components**:
-  - [Radix UI](https://www.radix-ui.com/)
-  - Custom UI components
-- **Charts**: [Recharts](https://recharts.org/)
+- **Core**: [Next.js 15](https://nextjs.org/) + [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) + [Radix UI](https://www.radix-ui.com/)
+- **Charts**: [Recharts](https://recharts.org/) + [Lightweight Charts](https://tradingview.github.io/lightweight-charts/)
+- **Wallet Integration**: [Universal Profile SDK](https://docs.lukso.tech/)
+- **Data**: [The Graph](https://thegraph.com/) + Custom LUKSO Indexers
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **State Management**: React Hooks
-- **Linting**: [Biome](https://biomejs.dev/)
-- **Package Manager**: npm/yarn/pnpm/bun
-
-## 📁 Project Structure
-
-```
-stock-analysis/
-├── public/              # Static assets
-├── src/
-│   ├── app/             # Next.js app router pages
-│   ├── components/      # React components
-│   │   ├── markets/     # Market-related components
-│   │   ├── ui/          # Reusable UI components
-│   │   └── ...          # Other component categories
-│   ├── data/            # Mock data and data utilities
-│   ├── hooks/           # Custom React hooks
-│   └── lib/             # Utility functions and services
-│       └── data/        # Data services and types
-├── .next/               # Next.js build output
-├── README.md            # Project documentation
-└── ...                  # Configuration files
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 18.x or later
-- npm, yarn, pnpm, or bun
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/stock-analysis.git
-   cd stock-analysis
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   # or
-   bun install
-   ```
-
-### Running the Application
-
-Start the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
-
-## 🧩 UI Components
-
-The application includes a variety of reusable UI components:
-
-- **Data Visualization**: Charts, heatmaps, and data tables
-- **Navigation**: Headers, sidebars, and navigation menus
-- **Interactive Elements**: Buttons, forms, and modals
-- **Layout Components**: Grids, cards, and containers
-- **Animated Components**: Transitions and interactive animations
-
-### Animated Group Component
-
-The `AnimatedGroup` component provides easy-to-use animations for lists and groups of elements:
-
-```tsx
-import { AnimatedGroup } from "@/components/ui/animated-group";
-
-// Example usage
-<AnimatedGroup preset="fade">
-  <div>Item 1</div>
-  <div>Item 2</div>
-  <div>Item 3</div>
-</AnimatedGroup>
-```
-
-Available animation presets include:
-- fade
-- slide
-- scale
-- blur
-- blur-slide
-- zoom
-- flip
-- bounce
-- rotate
-- swing
-
-## 📊 Data Architecture
-
-The application uses a centralized data architecture designed for easy transition from mock data to real API integration.
-
-For detailed information about the data architecture, see [README-DATA-ARCHITECTURE.md](./README-DATA-ARCHITECTURE.md).
-
-Key components:
-- **Type Definitions**: Strong typing for all data structures
-- **Mock Data**: Realistic sample data for development
-- **Data Services**: Interface between components and data sources
-- **Formatting Utilities**: Consistent data formatting across the application
-
-## ✨ Animations
-
-The application uses Framer Motion for smooth, performant animations:
-
-- **Page Transitions**: Smooth transitions between pages
-- **UI Feedback**: Subtle animations for user interactions
-- **Data Visualization**: Animated charts and graphs
-- **Component Animations**: Entrance and exit animations for components
-
-The `AnimatedGroup` component provides a simple way to add staggered animations to lists of elements with various animation presets.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
----
-
-Built with ❤️ using Next.js and TypeScript

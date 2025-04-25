@@ -7,6 +7,7 @@ import {
 	TechnicalIndicator,
 } from "./types";
 
+
 // Generate historical data for market indices
 export const generateHistoricalData = (
 	baseValue: number,
@@ -54,25 +55,31 @@ export const generateHistoricalData = (
 // Mock data for the dashboard
 export const mockMarketIndices: MarketIndex[] = [
 	{
-		name: "S&P 500",
+		name: "Total ROI",
 		value: 5248.75,
 		change: 32.64,
 		changePercent: 0.63,
 	},
 	{
-		name: "Dow Jones",
+		name: "Win/Loss Ratio",
 		value: 39807.37,
 		change: 134.21,
 		changePercent: 0.34,
 	},
 	{
-		name: "Nasdaq",
-		value: 16379.92,
+		name:"Followers",
+		value: 192,
 		change: 78.81,
 		changePercent: 0.48,
 	},
 	{
-		name: "Russell 2000",
+		name: "AI Predictions",
+		value: 74,
+		change: -5.93,
+		changePercent: -0.28,
+	},
+	{
+		name:  "Signal Value",
 		value: 2092.74,
 		change: -5.93,
 		changePercent: -0.28,

@@ -1,10 +1,13 @@
 "use client";
 import Link from "next/link";
-import { Logo } from "./logo";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { cn, smoothScrollTo } from "@/lib/utils";
+import { useAccount, useConnect } from "wagmi";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { MdOutlineSecurity } from "react-icons/md";
 
 const menuItems = [
   { name: "Features", href: "#features" },
@@ -16,6 +19,10 @@ const menuItems = [
 export const HeroHeader = () => {
   const [menuState, setMenuState] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
+  const [isConnecting, setIsConnecting] = React.useState(false);
+  const { isConnected } = useAccount();
+  const { connectors, connect } = useConnect();
+  const router = useRouter();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +31,37 @@ export const HeroHeader = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleConnect = async () => {
+    if (isConnected) {
+      router.push("/app");
+      return;
+    }
+
+    setIsConnecting(true);
+    try {
+      // Check if connectors are available
+      if (!connectors || connectors.length === 0) {
+        throw new Error("No wallet connectors available");
+      }
+
+      // Connect to the first available connector
+      await connect({ connector: connectors[0] });
+      
+      // Only redirect if connection was successful
+      if (isConnected) {
+        router.push("/app");
+      }
+    } catch (error) {
+      console.error("Connection error:", error);
+      toast.error("Wallet connection failed", {
+        description: error instanceof Error ? error.message : "Unknown error occurred",
+      });
+    } finally {
+      setIsConnecting(false);
+    }
+  };
+
   return (
     <header>
       <nav
@@ -34,7 +72,7 @@ export const HeroHeader = () => {
           className={cn(
             "mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12",
             isScrolled &&
-              "bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-5",
+              "bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-5"
           )}
         >
           <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
@@ -44,7 +82,7 @@ export const HeroHeader = () => {
                 aria-label="home"
                 className="flex items-center space-x-2"
               >
-                <Logo />
+               <MdOutlineSecurity  size={40} />
               </Link>
 
               <button
@@ -64,7 +102,7 @@ export const HeroHeader = () => {
                     <Link
                       href={item.href}
                       className="text-muted-foreground hover:text-accent-foreground block duration-150"
-                      onClick={e => {
+                      onClick={(e) => {
                         e.preventDefault();
                         setMenuState(false);
                         smoothScrollTo(item.href);
@@ -85,7 +123,7 @@ export const HeroHeader = () => {
                       <Link
                         href={item.href}
                         className="text-muted-foreground hover:text-accent-foreground block duration-150"
-                        onClick={e => {
+                        onClick={(e) => {
                           e.preventDefault();
                           setMenuState(false);
                           smoothScrollTo(item.href);
@@ -115,7 +153,7 @@ export const HeroHeader = () => {
                                         <span>Sign Up</span>
                                     </Link>
                                 </Button> */}
-                <Button
+                {/* <Button
                   asChild
                   size="sm"
                   className={cn(isScrolled && "lg:hidden")}
@@ -128,13 +166,44 @@ export const HeroHeader = () => {
                   asChild
                   size="sm"
                   className={cn(
-                    isScrolled ? "lg:inline-flex hidden" : "hidden",
+                    isScrolled ? "lg:inline-flex hidden" : "hidden"
                   )}
                 >
                   <Link href="/app">
                     <span>Dashboard</span>
                   </Link>
-                </Button>
+                </Button> */}
+                {/* <Button
+                  size="sm"
+                  onClick={handleConnect}
+                  disabled={isConnecting}
+                  className={cn(isScrolled && "lg:hidden")}
+                >
+                  {isConnecting ? "Connecting..." : "Dashboard"}
+                </Button> */}
+                <Button
+                 size="sm"
+                onClick={handleConnect}
+                disabled={isConnecting}
+               className={cn(isScrolled && "lg:hidden")}
+                   >
+                  {isConnecting
+                   ? "Connecting..."
+                 : isConnected
+                  ? "See Dashboard"
+                  : "Connect UPs"}
+                 </Button>
+
+                {/* <Button
+                  size="sm"
+                  onClick={handleConnect}
+                  disabled={isConnecting}
+                  className={cn(
+                    isScrolled ? "lg:inline-flex hidden" : "hidden"
+                  )}
+                >
+                  {isConnecting ? "Connecting..." : "Dashboard"}
+                </Button> */}
               </div>
             </div>
           </div>

@@ -1,3 +1,4 @@
+'use client';
 import Link from "next/link";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -85,7 +86,7 @@ export default function HeroSection() {
                     className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-zinc-950/5 transition-colors duration-300 dark:border-t-white/5 dark:shadow-zinc-950"
                   >
                     <span className="text-foreground text-sm">
-                      Introducing Stock Analysis
+                    Introducing LUKSO AI Analysis
                     </span>
                     <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
 
@@ -106,9 +107,10 @@ export default function HeroSection() {
                   preset="fade-in-blur"
                   speedSegment={0.3}
                   as="h1"
-                  className="mt-8 text-balance text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem]"
+                  className="mt-8 text-balance text-blue-600 font-bold text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem]"
                 >
-                  Smart Stock Analysis for Smarter Investments
+              
+                   LUKSO Social DeFi Analytics Dashboard 
                 </TextEffect>
                 <TextEffect
                   per="line"
@@ -118,9 +120,7 @@ export default function HeroSection() {
                   as="p"
                   className="mx-auto mt-8 max-w-2xl text-balance text-lg"
                 >
-                  Advanced analytics and AI-driven insights to help you make
-                  data-informed investment decisions in today's volatile
-                  markets.
+                   Leverage advanced analytics and AI-driven insights to explore trading signal, Universal Profiles, and digital assets on the LUKSO blockchain.
                 </TextEffect>
 
                 <AnimatedGroup
@@ -146,9 +146,10 @@ export default function HeroSection() {
                       size="lg"
                       className="rounded-xl px-5 text-base"
                     >
-                      <Link href="/app">
+                      {/* <Link href="/app">
                         <span className="text-nowrap">Start Analyzing</span>
-                      </Link>
+                      </Link> */}
+                      {/* <Connect/>  */}
                     </Button>
                   </div>
                   <Button
@@ -187,7 +188,7 @@ export default function HeroSection() {
                 <div className="inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-6xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1">
                   <Image
                     className="bg-background aspect-15/8 relative hidden w-full rounded-2xl dark:block"
-                    src="/stock.png"
+                    src="https://res.cloudinary.com/durtjwxjs/image/upload/v1745563358/chrome_lZ0Eg913v2_s8w9us.png"
                     alt="app screen"
                     width="2700"
                     height="1440"

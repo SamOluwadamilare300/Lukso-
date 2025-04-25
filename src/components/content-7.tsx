@@ -11,11 +11,11 @@ import {
 
 const chartConfig = {
   price: {
-    label: "Price",
+    label: "LYXe Price",
     color: "hsl(var(--chart-1))",
   },
   volume: {
-    label: "Volume",
+    label: "Trade Volume",
     color: "hsl(var(--chart-2))",
   },
 } satisfies ChartConfig;
@@ -35,41 +35,40 @@ export default function ContentSection() {
     <section className="py-12 md:py-24 lg:py-32">
       <div className="mx-auto max-w-5xl space-y-6 px-4 sm:px-6 md:space-y-16">
         <h2 className="relative z-10 max-w-xl text-3xl font-medium md:text-4xl lg:text-5xl">
-          Advanced stock analysis for informed decisions.
+          Social DeFi analytics powered by Universal Profiles.
         </h2>
         <div className="grid gap-8 md:grid-cols-2 md:gap-12 lg:gap-24">
           <div className="relative space-y-4">
             <p className="text-muted-foreground text-sm sm:text-base">
-              Our platform is more than just stock charts.{" "}
+              Our platform bridges DeFi and social trading.{" "}
               <span className="text-accent-foreground font-bold">
                 It provides a comprehensive ecosystem
               </span>{" "}
-              — from real-time market data to advanced technical analysis.
+              — from real-time token data to community-powered signals.
             </p>
             <p className="text-muted-foreground text-sm sm:text-base">
-              Access global market coverage, expert insights, and powerful
-              analytical tools to help investors make data-driven decisions in
-              today's dynamic financial markets.
+              Access LUKSO market coverage, crowd-sourced insights, and powerful
+              analytical tools to make data-driven decisions in DeFi through
+              Universal Profile integrations.
             </p>
 
             <div className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2 sm:gap-4 sm:pt-6">
               <div className="space-y-2 sm:space-y-3">
                 <div className="flex items-center gap-2">
                   <TrendingUp className="size-4" />
-                  <h3 className="text-sm font-medium">Real-time</h3>
+                  <h3 className="text-sm font-medium">Social Signals</h3>
                 </div>
                 <p className="text-muted-foreground text-xs sm:text-sm">
-                  Instant market updates and stock tracking across global
-                  exchanges.
+                  Real-time trading signals shared by verified Universal Profiles.
                 </p>
               </div>
               <div className="space-y-2 sm:space-y-3">
                 <div className="flex items-center gap-2">
                   <ChartLine className="size-4" />
-                  <h3 className="text-sm font-medium">Analytical</h3>
+                  <h3 className="text-sm font-medium">DeFi Analytics</h3>
                 </div>
                 <p className="text-muted-foreground text-xs sm:text-sm">
-                  Powerful technical indicators and pattern recognition tools.
+                  Advanced metrics for LYXe, LSPs and LUKSO ecosystem tokens.
                 </p>
               </div>
             </div>

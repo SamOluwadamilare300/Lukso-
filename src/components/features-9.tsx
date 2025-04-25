@@ -18,20 +18,18 @@ export default function FeaturesSection() {
           <div className="p-6 sm:p-12">
             <span className="text-muted-foreground flex items-center gap-2">
               <MapIcon className="size-4" />
-              Global Market Coverage
+              DeFi Market Coverage
             </span>
 
             <p className="mt-8 text-2xl font-semibold">
-              Comprehensive market data, instantly track stocks across global
-              exchanges.
+              Comprehensive DeFi data, instantly track assets across LUKSO and major blockchains.
             </p>
           </div>
 
           <div aria-hidden className="relative">
             <div className="absolute inset-0 z-10 m-auto size-fit">
               <div className="rounded-(--radius) bg-background z-1 dark:bg-muted relative flex size-fit w-fit items-center gap-2 border px-3 py-1 text-xs font-medium shadow-md shadow-zinc-950/5">
-                <span className="text-lg">🇨🇩</span> Latest update: NYSE market
-                Surge
+                <span className="text-lg">🌐</span> Latest update: LYXe price surge
               </div>
               <div className="rounded-(--radius) bg-background absolute inset-2 -bottom-2 mx-auto border px-3 py-4 text-xs font-medium shadow-md shadow-zinc-950/5 dark:bg-zinc-900"></div>
             </div>
@@ -46,12 +44,11 @@ export default function FeaturesSection() {
           <div className="relative z-10">
             <span className="text-muted-foreground flex items-center gap-2">
               <MessageCircle className="size-4" />
-              Expert Financial Support
+              Social Trading Signals
             </span>
 
             <p className="my-8 text-2xl font-semibold">
-              Connect with financial analysts for personalized investment
-              guidance.
+              Connect with top traders via Universal Profiles for proven strategies.
             </p>
           </div>
           <div aria-hidden className="flex flex-col gap-8">
@@ -61,19 +58,17 @@ export default function FeaturesSection() {
                   <Logo className="m-auto size-3" />
                 </span>
                 <span className="text-muted-foreground text-xs">
-                  Sat 22 Feb
+                  Today
                 </span>
               </div>
               <div className="rounded-(--radius) bg-background mt-1.5 w-3/5 border p-3 text-xs">
-                What's your analysis on the tech sector this quarter?
+                What's your analysis on the LUKSO DeFi ecosystem this week?
               </div>
             </div>
 
             <div>
               <div className="rounded-(--radius) mb-1 ml-auto w-3/5 bg-blue-600 p-3 text-xs text-white">
-                Our analysis shows strong growth potential in cloud computing
-                and semiconductor stocks. We recommend increasing allocation in
-                these areas.
+                Our signals show strong momentum in LSP swaps. We recommend increasing exposure to LYXe with a target of +15% this cycle.
               </div>
               <span className="text-muted-foreground block text-right text-xs">
                 Now
@@ -83,21 +78,21 @@ export default function FeaturesSection() {
         </div>
         <div className="col-span-full border-y p-12">
           <p className="text-center text-4xl font-semibold lg:text-7xl">
-            98.7% Accuracy
+            98.7% Signal Accuracy
           </p>
         </div>
         <div className="relative col-span-full">
           <div className="absolute z-10 max-w-lg px-6 pr-12 pt-6 md:px-12 md:pt-12">
             <span className="text-muted-foreground flex items-center gap-2">
               <Activity className="size-4" />
-              Market Performance
+              Portfolio Performance
             </span>
 
             <p className="my-8 text-2xl font-semibold">
-              Track stock performance in real-time.{" "}
+              Track DeFi positions in real-time.{" "}
               <span className="text-muted-foreground">
                 {" "}
-                Instantly identify trends and investment opportunities.
+                Instantly identify trends and trading opportunities.
               </span>
             </p>
           </div>
@@ -137,11 +132,11 @@ const Map = () => {
 
 const chartConfig = {
   stocks: {
-    label: "Stocks",
+    label: "LYXe",
     color: "#2563eb",
   },
   indices: {
-    label: "Market Indices",
+    label: "LSPs",
     color: "#60a5fa",
   },
 } satisfies ChartConfig;

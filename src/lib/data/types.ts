@@ -11,7 +11,21 @@ export interface StockData {
   sector: string;
   lastUpdated: string;
 }
+export interface TokenData {
+  symbol: string;
+  name: string;
+  price: number;
+  change: number;
+  changePercent: number;
+  volume: number;
+  marketCap: number;
+  signalStrength: number;
+  category: string;
+  lastUpdated: string;
+  socialSentiment?: number;
+}
 
+// Update other interfaces as needed...
 export interface MarketIndex {
   name: string;
   value: number;
