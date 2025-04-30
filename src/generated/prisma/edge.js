@@ -168,7 +168,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\USER\\Desktop\\ethers\\client\\lukso\\src\\generated\\prisma",
+      "value": "/workspaces/Lukso-/src/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -177,12 +177,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "debian-openssl-1.1.x",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\USER\\Desktop\\ethers\\client\\lukso\\prisma\\schema.prisma",
+    "sourceFilePath": "/workspaces/Lukso-/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

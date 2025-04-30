@@ -34,6 +34,8 @@ model AIPrediction {
   id          Int      @id @default(autoincrement())
   model       AIModel  @relation(fields: [modelId], references: [id])
   modelId     Int
+   modelType    String 
+    p0           Float?  
   asset       String
   action      String   // 'buy' | 'sell' | 'hold'
   confidence  Float
@@ -46,6 +48,24 @@ model AIPrediction {
   createdAt   DateTime @default(now()) @map("created_at")
 
   @@map("ai_predictions")
+}
+
+model AIPrediction {
+  id           Int      @id @default(autoincrement())
+  modelId      Int
+  modelType    String   // Make sure these fields exist
+  model        String   //
+  asset        String
+  action       String
+  confidence   Float
+  reasoning    String
+  p0           Float?   // Nullable if optional
+  timeframe    String
+  priceTarget  Float?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  performance  Float?
+  verified     Boolean  @default(false)
 }
 
 model UserModelPreference {
