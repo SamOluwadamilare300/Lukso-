@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AIModel {
+  id              Int                   @id @default(autoincrement())
+  name            String
+  description     String?
+  model_type      String                @default("deepseek") // Now specific to DeepSeek
+  model_name      String                @default("DeepSeek-V3-0324") // Specific model version
+  is_active       Boolean               @default(true)
+  parameters      Json?                 @default("{}") // Can store temperature, maxTokens etc.
+  predictions     AIPrediction[]
+  userPreferences UserModelPreference[]
+  createdAt       DateTime              @default(now()) @map("created_at")
+  updatedAt       DateTime              @updatedAt @map("updated_at")
+
+  @@map("ai_models")
+}
+
+model AIPrediction {
+  id          Int      @id @default(autoincrement())
+  model       AIModel  @relation(fields: [modelId], references: [id])
+  modelId     Int
+  asset       String
+  action      String // 'buy' | 'sell' | 'hold'
+  confidence  Float
+  timeframe   String // '1h' | '4h' | '1d' | '1w'
+  reasoning   String
+  priceTarget Float?
+  performance Float?
+  verified    Boolean  @default(false)
+  modelSource String   @default("deepseek") // Tracks which AI generated this
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("ai_predictions")
+}
+
+model UserModelPreference {
+  id          Int      @id @default(autoincrement())
+  userAddress String
+  model       AIModel  @relation(fields: [modelId], references: [id])
+  modelId     Int
+  isDefault   Boolean  @default(false)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@unique([userAddress, modelId], name: "userAddress_modelId")
+  @@map("user_model_preferences")
+}

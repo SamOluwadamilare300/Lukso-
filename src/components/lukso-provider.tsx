@@ -8,7 +8,7 @@ type UniversalProfile = {
   avatar: string
   isConnected: boolean
 }
-
+       
 type LuksoContextType = {
   universalProfile: UniversalProfile | null
   connect: () => Promise<void>

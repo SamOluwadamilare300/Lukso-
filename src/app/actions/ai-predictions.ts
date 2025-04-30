@@ -1,8 +1,8 @@
 "use server"
 
 import { revalidatePath } from "next/cache"
-import { getAIPredictions, saveAIPrediction, getAIModel } from "@/lib/db"
-import { generatePrediction } from "@/lib/ai"
+import { getAIModel, saveAIPrediction, getAIPredictions } from "@/lib/db"
+import { generatePrediction, fetchCoinMarketCapData } from "@/lib/ai"
 
 export async function fetchAIPredictions(modelIds: number[] = [], limit = 10) {
   try {
@@ -22,25 +22,53 @@ export async function createAIPrediction(modelId: number, asset: string, timefra
       return { success: false, error: "Model not found" }
     }
 
-    // Generate prediction using Grok
-    const prediction = await generatePrediction(asset, timeframe, model.model_type, model.parameters)
+    // Fetch market data from CoinMarketCap
+    let marketData = null
+    try {
+      if (process.env.COINMARKETCAP_API_KEY) {
+        marketData = await fetchCoinMarketCapData(asset, process.env.COINMARKETCAP_API_KEY)
+      }
+    } catch (error) {
+      console.warn("Failed to fetch market data, continuing with prediction:", error)
+    }
+
+    // Generate prediction using DeepSeek
+    const prediction = await generatePrediction(asset, timeframe, modelId, {
+      marketData,
+    })
 
     // Save prediction to database
     const savedPrediction = await saveAIPrediction(
       modelId,
+      prediction.modelType,
       asset,
-      prediction.action,
       prediction.confidence,
-      timeframe,
+      prediction.action,
       prediction.reasoning,
+      0, // p0 parameter (not used)
+      prediction.model,
+      timeframe,
       prediction.priceTarget,
     )
 
     revalidatePath("/dashboard/ai-predictions")
 
-    return { success: true, prediction: savedPrediction[0] }
+    return { success: true, prediction: savedPrediction }
   } catch (error) {
     console.error("Error creating AI prediction:", error)
     return { success: false, error: "Failed to create prediction" }
+  }
+}
+
+// Function to fetch historical predictions for performance analysis
+export async function fetchHistoricalPredictions(asset: string, modelId?: number, limit = 30) {
+  try {
+    // Implementation would depend on your database schema
+    // This is a placeholder for the actual implementation
+    const predictions = await getAIPredictions(modelId ? [modelId] : [], limit)
+    return { success: true, predictions }
+  } catch (error) {
+    console.error("Error fetching historical predictions:", error)
+    return { success: false, error: "Failed to fetch historical predictions" }
   }
 }

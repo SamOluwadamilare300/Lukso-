@@ -9,11 +9,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { BrainCircuit, Plus, Search } from "lucide-react"
 import { fetchAIModels, toggleModelPreference } from "@/app/actions/ai-models"
 import { useLukso } from "@/components/lukso-provider"
-import type { AIModel } from "@/components/ai-model-selector"
 import { useToast } from "@/hooks/use-toast"
+import type { AIModel } from "@/components/ai-model-selector"
 
 export default function AIModelsPage() {
-  const [models, setModels] = useState<AIModel[]>([])
+  const [models, setModels] = useState< AIModel[]>([])
   const [activeModels, setActiveModels] = useState<number[]>([])
   const [loading, setLoading] = useState(true)
   const { universalProfile } = useLukso()
@@ -26,18 +26,7 @@ export default function AIModelsPage() {
         const { success, models: fetchedModels } = await fetchAIModels()
 
         if (success && fetchedModels) {
-          setModels(
-            fetchedModels.map((model: Record<string, any>) => ({
-              id: model.id,
-              name: model.name,
-              description: model.description,
-              model_type: model.model_type,
-              is_active: model.is_active,
-              created_at: model.created_at,
-              parameters: model.parameters || {}, // Ensure parameters are included
-              updated_at: model.updated_at || null, // Ensure updated_at is included
-            }))
-          )
+          setModels(fetchedModels)
 
           // Set initial active models (in a real app, this would come from user preferences)
           const initialActive = fetchedModels.filter((m: any) => m.is_active !== false).map((m: any) => m.id)
@@ -49,7 +38,7 @@ export default function AIModelsPage() {
         toast({
           title: "Error",
           description: "Failed to load AI models. Please try again.",
-         
+          // variant: "destructive",
         })
       } finally {
         setLoading(false)
@@ -64,7 +53,7 @@ export default function AIModelsPage() {
       toast({
         title: "Not connected",
         description: "Please connect your Universal Profile to manage AI models.",
-      
+        // variant: "destructive",
       })
       return
     }
@@ -91,7 +80,7 @@ export default function AIModelsPage() {
       toast({
         title: "Error",
         description: "Failed to update model status. Please try again.",
-    
+        // variant: "destructive",
       })
     }
   }

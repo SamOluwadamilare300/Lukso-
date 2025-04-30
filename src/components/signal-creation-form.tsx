@@ -23,7 +23,7 @@ export function SignalCreationForm() {
     e.preventDefault()
     // In a real implementation, this would create a signal
     // and store it on-chain using LUKSO's standards
-    router.push("/dashboard/signals")
+    router.push("/app/signals")
   }
 
   return (
@@ -146,3 +146,176 @@ export function SignalCreationForm() {
     </Card>
   )
 }
+
+
+
+// "use client"
+
+// import React, { useState } from "react"
+// import { useRouter } from "next/navigation"
+// import Web3 from "web3"
+// import { Button } from "@/components/ui/button"
+// import { Card, CardContent } from "@/components/ui/card"
+// import { Input } from "@/components/ui/input"
+// import { Label } from "@/components/ui/label"
+// import { Textarea } from "@/components/ui/textarea"
+// import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+// import { Slider } from "@/components/ui/slider"
+// import { toast } from "sonner"
+
+// // Replace with your deployed contract address and ABI
+// const TRADING_SIGNALS_ADDRESS = "0xYourContractAddressHere"
+// const TRADING_SIGNALS_ABI = [/* ... ABI array ... */]
+
+// export function SignalCreationForm() {
+//   const router = useRouter()
+//   const [confidence, setConfidence] = useState([50])
+//   const [isLoading, setIsLoading] = useState(false)
+//   const [formData, setFormData] = useState({
+//     asset: "",
+//     action: "",
+//     timeframe: "",
+//     priceTarget: "",
+//     analysis: ""
+//   })
+
+//   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+//     const { name, value } = e.target
+//     setFormData(prev => ({ ...prev, [name]: value }))
+//   }
+
+//   const handleSelectChange = (name: string, value: string) => {
+//     setFormData(prev => ({ ...prev, [name]: value }))
+//   }
+
+//   const handleSubmit = async (e: React.FormEvent) => {
+//     e.preventDefault()
+//     setIsLoading(true)
+//     try {
+//       // Connect to wallet
+//       const web3 = new Web3(window.ethereum)
+//       await window.ethereum.request({ method: "eth_requestAccounts" })
+//       const accounts = await web3.eth.getAccounts()
+//       const account = accounts[0]
+
+//       // Connect to contract
+//       const contract = new web3.eth.Contract(TRADING_SIGNALS_ABI, TRADING_SIGNALS_ADDRESS)
+
+//       // Call createSignal
+//       await contract.methods.createSignal(
+//         formData.asset,
+//         formData.action,
+//         formData.timeframe,
+//         formData.priceTarget,
+//         confidence[0],
+//         formData.analysis
+//       ).send({ from: account })
+
+//       toast.success("Signal created successfully on LUKSO blockchain!")
+//       router.push("/app/signals")
+//     } catch (error) {
+//       console.error("Error creating signal:", error)
+//       toast.error("Failed to create signal")
+//     } finally {
+//       setIsLoading(false)
+//     }
+//   }
+
+//   return (
+//     <Card>
+//       <CardContent className="pt-6">
+//         <form onSubmit={handleSubmit} className="space-y-6">
+//           <div className="grid gap-4 md:grid-cols-2">
+//             <div className="space-y-2">
+//               <Label htmlFor="asset">Asset</Label>
+//               <Select
+//                 required
+//                 onValueChange={value => handleSelectChange("asset", value)}
+//                 value={formData.asset}
+//               >
+//                 <SelectTrigger id="asset">
+//                   <SelectValue placeholder="Select asset" />
+//                 </SelectTrigger>
+//                 <SelectContent>
+//                   <SelectItem value="btc">Bitcoin (BTC)</SelectItem>
+//                   <SelectItem value="eth">Ethereum (ETH)</SelectItem>
+//                   <SelectItem value="lyx">LUKSO (LYX)</SelectItem>
+//                   <SelectItem value="other">Other</SelectItem>
+//                 </SelectContent>
+//               </Select>
+//             </div>
+//             <div className="space-y-2">
+//               <Label htmlFor="action">Action</Label>
+//               <Select
+//                 required
+//                 onValueChange={value => handleSelectChange("action", value)}
+//                 value={formData.action}
+//               >
+//                 <SelectTrigger id="action">
+//                   <SelectValue placeholder="Select action" />
+//                 </SelectTrigger>
+//                 <SelectContent>
+//                   <SelectItem value="buy">Buy</SelectItem>
+//                   <SelectItem value="sell">Sell</SelectItem>
+//                   <SelectItem value="hold">Hold</SelectItem>
+//                 </SelectContent>
+//               </Select>
+//             </div>
+//             <div className="space-y-2">
+//               <Label htmlFor="timeframe">Timeframe</Label>
+//               <Input
+//                 required
+//                 id="timeframe"
+//                 name="timeframe"
+//                 placeholder="e.g. 1D, 1W, 1M"
+//                 value={formData.timeframe}
+//                 onChange={handleChange}
+//               />
+//             </div>
+//             <div className="space-y-2">
+//               <Label htmlFor="priceTarget">Price Target</Label>
+//               <Input
+//                 id="priceTarget"
+//                 name="priceTarget"
+//                 placeholder="Optional"
+//                 value={formData.priceTarget}
+//                 onChange={handleChange}
+//               />
+//             </div>
+//           </div>
+//           <div className="space-y-2">
+//             <Label htmlFor="confidence">Confidence</Label>
+//             <Slider
+//               min={0}
+//               max={100}
+//               value={confidence}
+//               onValueChange={setConfidence}
+//               step={1}
+//             />
+//             <div>{confidence[0]}%</div>
+//           </div>
+//           <div className="space-y-2">
+//             <Label htmlFor="analysis">Analysis</Label>
+//             <Textarea
+//               required
+//               id="analysis"
+//               name="analysis"
+//               placeholder="Describe your reasoning..."
+//               value={formData.analysis}
+//               onChange={handleChange}
+//             />
+//           </div>
+//           <div className="flex items-center gap-2">
+//             <Button type="submit" size="lg" disabled={isLoading}>
+//               {isLoading ? "Creating..." : "Create Signal"}
+//             </Button>
+//             <Button type="button" variant="outline" size="lg">
+//               Preview
+//             </Button>
+//           </div>
+//         </form>
+//       </CardContent>
+//     </Card>
+//   )
+// }
+

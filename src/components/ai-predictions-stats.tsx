@@ -23,7 +23,7 @@ export function AIPredictionsStats() {
     },
     {
       title: "Active Models",
-      value: "3",
+      value: "1",
       icon: <BrainCircuit className="h-4 w-4" />,
       description: "AI models currently generating signals",
     },

@@ -17,15 +17,17 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { createAIPrediction } from "@/app/actions/ai-predictions"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Label } from "@/components/ui/label"
 import { useToast } from "@/hooks/use-toast"
-
 
 export function AIPredictionsHeader() {
   const [timeframe, setTimeframe] = useState("1d")
   const [selectedModels, setSelectedModels] = useState<number[]>([])
-  const [asset, setAsset] = useState("BTC")
+  const [asset, setAsset] = useState("LYX")
   const [isGenerating, setIsGenerating] = useState(false)
   const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const [useMarketData, setUseMarketData] = useState(true)
   const { universalProfile } = useLukso()
   const { toast } = useToast()
 
@@ -33,9 +35,11 @@ export function AIPredictionsHeader() {
     async function loadUserPreferences() {
       if (universalProfile) {
         try {
-          const { success, preferences } = await fetchUserModelPreferences(universalProfile.address)
-          if (success && preferences) {
-            setSelectedModels(preferences.map((p: any) => p.id))
+          const preferences = await fetchUserModelPreferences(universalProfile.address)
+          if (preferences && Array.isArray(preferences) && preferences.length > 0) {
+            if (Array.isArray(preferences)) {
+              setSelectedModels(preferences.map((p: any) => p.model.id))
+            }
           }
         } catch (error) {
           console.error("Failed to load user preferences:", error)
@@ -51,6 +55,7 @@ export function AIPredictionsHeader() {
       toast({
         title: "No models selected",
         description: "Please select at least one AI model to generate a prediction.",
+        // variant: "destructive",
       })
       return
     }
@@ -96,9 +101,7 @@ export function AIPredictionsHeader() {
             AI-Powered Predictions
             <Sparkles className="ml-2 h-5 w-5 text-purple-500" />
           </h1>
-          <p className="text-muted-foreground">
-            Machine learning models trained on market data to generate trading signals
-          </p>
+          <p className="text-muted-foreground">DeepSeek AI model trained on market data to generate trading signals</p>
         </div>
         <div className="flex items-center gap-2">
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
@@ -121,9 +124,9 @@ export function AIPredictionsHeader() {
                       <SelectValue placeholder="Select asset" />
                     </SelectTrigger>
                     <SelectContent>
+                      <SelectItem value="LYX">LUKSO (LYX)</SelectItem>
                       <SelectItem value="BTC">Bitcoin (BTC)</SelectItem>
                       <SelectItem value="ETH">Ethereum (ETH)</SelectItem>
-                      <SelectItem value="LYX">LUKSO (LYX)</SelectItem>
                       <SelectItem value="SOL">Solana (SOL)</SelectItem>
                       <SelectItem value="AVAX">Avalanche (AVAX)</SelectItem>
                     </SelectContent>
@@ -152,6 +155,25 @@ export function AIPredictionsHeader() {
                   <div className="col-span-3">
                     <AIModelSelector selectedModels={selectedModels} setSelectedModels={setSelectedModels} />
                   </div>
+                </div>
+
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <div className="text-right">Data Sources</div>
+                  <div className="col-span-3 space-y-2">
+                    <div className="flex items-center space-x-2">
+                      <Checkbox
+                        id="market-data"
+                        checked={useMarketData}
+                        onCheckedChange={(checked) => setUseMarketData(checked === true)}
+                      />
+                      <Label htmlFor="market-data">Use CoinMarketCap data</Label>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-span-4">
+                  <p className="text-xs text-muted-foreground">
+                    DeepSeek models leverage CoinMarketCap metrics for more accurate predictions.
+                  </p>
                 </div>
               </div>
 

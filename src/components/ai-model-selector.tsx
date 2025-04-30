@@ -8,17 +8,19 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
-import { fetchAIModels } from "@/app/actions/ai-models"
-import { useLukso } from "@/components/lukso-provider"
+import { useToast } from "@/hooks/use-toast"
+
 
 export type AIModel = {
+  updated_at: string | number | Date
   id: number
   name: string
-  description: string
+  description?: string
   model_type: string
   parameters: any
-  created_at: string
-  updated_at: string
+  is_active: boolean
+  createdAt?: string
+  updatedAt?: string
 }
 
 interface AIModelSelectorProps {
@@ -30,32 +32,34 @@ export function AIModelSelector({ selectedModels, setSelectedModels }: AIModelSe
   const [open, setOpen] = useState(false)
   const [models, setModels] = useState<AIModel[]>([])
   const [loading, setLoading] = useState(true)
-  const { universalProfile } = useLukso()
+  const { toast } = useToast()
 
   useEffect(() => {
     async function loadModels() {
       try {
-        const { success, models: fetchedModels } = await fetchAIModels()
-        if (success && fetchedModels) {
-          setModels(fetchedModels.map(model => ({
-            id: model.id,
-            name: model.name,
-            description: model.description,
-            model_type: model.model_type,
-            parameters: model.parameters,
-            created_at: model.created_at,
-            updated_at: model.updated_at,
-          } as AIModel)))
+        const response = await fetch("/api/ai-models")
+        if (!response.ok) {
+          throw new Error(`Failed to fetch models: ${response.statusText}`)
+        }
+
+        const data = await response.json()
+        if (data.success && data.models) {
+          setModels(data.models)
         }
       } catch (error) {
         console.error("Failed to load AI models:", error)
+        toast({
+          title: "Error loading models",
+          description: "Could not load AI models. Please try again later.",
+          // variant: "destructive",
+        })
       } finally {
         setLoading(false)
       }
     }
 
     loadModels()
-  }, [])
+  }, [toast])
 
   const toggleModel = (modelId: number) => {
     if (selectedModels.includes(modelId)) {
@@ -108,7 +112,7 @@ export function AIModelSelector({ selectedModels, setSelectedModels }: AIModelSe
                           </Button>
                         </TooltipTrigger>
                         <TooltipContent side="left" className="max-w-[250px]">
-                          <p className="text-xs">{model.description}</p>
+                          <p className="text-xs">{model.description || "No description available"}</p>
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>

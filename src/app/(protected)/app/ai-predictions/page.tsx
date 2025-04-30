@@ -1,7 +1,8 @@
 import { AIPredictionsHeader } from "@/components/ai-predictions-header"
 import { AIPredictionsList } from "@/components/ai-predictions-list"
 import { AIPredictionsStats } from "@/components/ai-predictions-stats"
-import { AIPredictionsCompare } from "@/components/ai-predictions-compare"
+import { MarketData } from "@/components/market-data"
+// import { MarketData } from "@/components/market-data"
 import { Button } from "@/components/ui/button"
 import { BrainCircuit } from "lucide-react"
 import Link from "next/link"
@@ -21,7 +22,9 @@ export default function AIPredictionsPage() {
       <AIPredictionsStats />
       <div className="grid gap-6 md:grid-cols-2">
         <AIPredictionsList />
-        <AIPredictionsCompare />
+        <div className="space-y-6">
+          <MarketData />
+        </div>
       </div>
     </div>
   )

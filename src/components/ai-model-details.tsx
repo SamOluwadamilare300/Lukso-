@@ -10,6 +10,18 @@ import { BrainCircuit, ChevronDown, ChevronUp, Clock, Code, Settings } from "luc
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts"
 import type { AIModel } from "@/components/ai-model-selector"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Slider } from "@/components/ui/slider"
 
 const performanceData = [
   { month: "Jan", accuracy: 76, signals: 24 },
@@ -28,9 +40,18 @@ interface AIModelDetailsProps {
 
 export function AIModelDetails({ model, isActive, onToggleActive }: AIModelDetailsProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false)
+  const [temperature, setTemperature] = useState(model.parameters?.temperature || 0.7)
+  const [huggingFaceToken, setHuggingFaceToken] = useState(model.parameters?.huggingFaceToken || "")
 
   // Calculate mock accuracy based on model id
   const accuracy = 75 + (model.id % 15)
+
+  const handleSaveSettings = () => {
+    // In a real app, this would update the model parameters in the database
+    console.log("Saving settings:", { temperature, huggingFaceToken })
+    setIsSettingsOpen(false)
+  }
 
   return (
     <Card className="mb-4">
@@ -46,10 +67,70 @@ export function AIModelDetails({ model, isActive, onToggleActive }: AIModelDetai
             <Button variant={isActive ? "default" : "outline"} size="sm" onClick={() => onToggleActive(model.id)}>
               {isActive ? "Deactivate" : "Activate"}
             </Button>
-            <Button variant="outline" size="icon">
-              <Settings className="h-4 w-4" />
-              <span className="sr-only">Model settings</span>
-            </Button>
+            <Dialog open={isSettingsOpen} onOpenChange={setIsSettingsOpen}>
+              <DialogTrigger asChild>
+                <Button variant="outline" size="icon">
+                  <Settings className="h-4 w-4" />
+                  <span className="sr-only">Model settings</span>
+                </Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Model Settings</DialogTitle>
+                  <DialogDescription>Configure parameters for {model.name}</DialogDescription>
+                </DialogHeader>
+                <div className="grid gap-4 py-4">
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="temperature" className="text-right">
+                      Temperature
+                    </Label>
+                    <div className="col-span-3">
+                      <div className="flex items-center gap-4">
+                        <Slider
+                          id="temperature"
+                          min={0}
+                          max={1}
+                          step={0.1}
+                          value={[temperature]}
+                          onValueChange={(values) => setTemperature(values[0])}
+                          className="flex-1"
+                        />
+                        <span className="w-12 text-center">{temperature}</span>
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Higher values produce more creative results, lower values are more deterministic.
+                      </p>
+                    </div>
+                  </div>
+
+                  {model.model_type === "deepseek" && (
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="huggingface-token" className="text-right">
+                        HuggingFace Token
+                      </Label>
+                      <div className="col-span-3">
+                        <Input
+                          id="huggingface-token"
+                          type="password"
+                          value={huggingFaceToken}
+                          onChange={(e) => setHuggingFaceToken(e.target.value)}
+                          placeholder="Enter your HuggingFace token"
+                        />
+                        <p className="text-xs text-muted-foreground mt-1">
+                          Required for DeepSeek models. Get your token from huggingface.co.
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <DialogFooter>
+                  <Button variant="outline" onClick={() => setIsSettingsOpen(false)}>
+                    Cancel
+                  </Button>
+                  <Button onClick={handleSaveSettings}>Save Changes</Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
         <CardDescription className="flex items-center justify-between mt-1">
@@ -67,6 +148,19 @@ export function AIModelDetails({ model, isActive, onToggleActive }: AIModelDetai
           </div>
           <Progress value={accuracy} className="h-2" />
         </div>
+
+        {model.model_type === "deepseek" && (
+          <div className="mb-4 p-3 bg-purple-500/10 rounded-md border border-purple-500/20">
+            <div className="flex items-center text-sm font-medium text-purple-500 mb-2">
+              <BrainCircuit className="mr-2 h-4 w-4" />
+              LUKSO Blockchain Integration
+            </div>
+            <p className="text-sm text-muted-foreground">
+              This model uses DeepSeek AI to analyze LUKSO blockchain data and CoinMarketCap metrics for more accurate
+              predictions.
+            </p>
+          </div>
+        )}
 
         <Collapsible open={isOpen} onOpenChange={setIsOpen}>
           <CollapsibleTrigger asChild>

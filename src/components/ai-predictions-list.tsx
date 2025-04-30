@@ -12,15 +12,17 @@ import { useToast } from "@/hooks/use-toast"
 
 type Prediction = {
   id: number
-  model_id: number
-  model_name: string
+  modelId: number
+  model: {
+    name: string
+  }
   asset: string
   action: string
   confidence: number
   timeframe: string
   reasoning: string
-  price_target: number | null
-  created_at: string
+  priceTarget: number | null
+  createdAt: string
   performance: number | null
   verified: boolean
   liked?: boolean
@@ -55,7 +57,7 @@ export function AIPredictionsList({ selectedModels = [] }: AIPredictionsListProp
           toast({
             title: "Failed to load predictions",
             description: error || "An unknown error occurred",
-          
+            // variant: "destructive",
           })
         }
       } catch (error) {
@@ -63,7 +65,7 @@ export function AIPredictionsList({ selectedModels = [] }: AIPredictionsListProp
         toast({
           title: "Error",
           description: "Failed to load predictions. Please try again.",
-       
+          // variant: "destructive",
         })
       } finally {
         setLoading(false)
@@ -71,7 +73,7 @@ export function AIPredictionsList({ selectedModels = [] }: AIPredictionsListProp
     }
 
     loadPredictions()
-  }, [selectedModels])
+  }, [selectedModels, toast])
 
   const toggleLike = (id: number) => {
     setPredictions(
@@ -188,9 +190,9 @@ export function AIPredictionsList({ selectedModels = [] }: AIPredictionsListProp
                 <div className="flex items-center justify-between text-xs text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <BrainCircuit className="h-3 w-3" />
-                    <span>{prediction.model_name}</span>
+                    <span>{prediction.model.name}</span>
                   </div>
-                  <span>{formatDate(prediction.created_at)}</span>
+                  <span>{formatDate(prediction.createdAt)}</span>
                 </div>
                 <div className="flex items-center gap-2 mt-3">
                   <Button

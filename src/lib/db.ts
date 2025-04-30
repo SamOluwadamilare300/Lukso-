@@ -1,111 +1,133 @@
-import { neon } from "@neondatabase/serverless"
+import { PrismaClient } from "@prisma/client"
 
-// Create a SQL client with the pooled connection
-export const sql = neon(process.env.DATABASE_URL!)
+const prisma = new PrismaClient()
 
-// Helper function to get all AI models
-export async function getAIModels() {
-  const models = await sql`
-    SELECT * FROM ai_models ORDER BY name ASC
-  `
-  return models
+async function getAIModels() {
+  return prisma.aIModel.findMany({
+    where: {
+      is_active: true,
+    },
+    select: {
+      id: true,
+      name: true,
+      model_type: true,
+      parameters: true,
+      description: true,
+      is_active: true,
+      createdAt: true,
+      updatedAt: true,
+    },
+    orderBy: {
+      name: "asc",
+    },
+  })
 }
 
-// Helper function to get a specific AI model
-export async function getAIModel(id: number) {
-  const [model] = await sql`
-    SELECT * FROM ai_models WHERE id = ${id}
-  `
-  return model
+async function getUserModelPreferences(userAddress: string) {
+  return prisma.userModelPreference.findMany({
+    where: {
+      user_address: userAddress,
+    },
+    include: {
+      model: true,
+    },
+  })
 }
 
-// Helper function to get user's preferred models
-export async function getUserModelPreferences(userAddress: string) {
-  const preferences = await sql`
-    SELECT m.* FROM ai_models m
-    JOIN user_model_preferences p ON m.id = p.model_id
-    WHERE p.user_address = ${userAddress}
-    ORDER BY m.name ASC
-  `
-  return preferences
+async function setUserModelPreference(userAddress: string, modelId: number, isDefault = false) {
+  return prisma.userModelPreference.upsert({
+    where: {
+      user_address_model_id: {
+        user_address: userAddress,
+        model_id: modelId,
+      },
+    },
+    update: {
+      is_default: isDefault,
+    },
+    create: {
+      user_address: userAddress,
+      model_id: modelId,
+      is_default: isDefault,
+    },
+  })
 }
 
-// Helper function to set user's model preference
-export async function setUserModelPreference(userAddress: string, modelId: number, isDefault = false) {
-  const result = await sql`
-    INSERT INTO user_model_preferences (user_address, model_id, is_default)
-    VALUES (${userAddress}, ${modelId}, ${isDefault})
-    ON CONFLICT (user_address, model_id) 
-    DO UPDATE SET is_default = ${isDefault}
-    RETURNING *
-  `
-  return result
+async function removeUserModelPreference(userAddress: string, modelId: number) {
+  return prisma.userModelPreference.delete({
+    where: {
+      user_address_model_id: {
+        user_address: userAddress,
+        model_id: modelId,
+      },
+    },
+  })
 }
 
-// Helper function to remove user's model preference
-export async function removeUserModelPreference(userAddress: string, modelId: number) {
-  const result = await sql`
-    DELETE FROM user_model_preferences
-    WHERE user_address = ${userAddress} AND model_id = ${modelId}
-    RETURNING *
-  `
-  return result
+async function getAIModel(modelId: number) {
+  return prisma.aIModel.findUnique({
+    where: {
+      id: modelId,
+    },
+  })
 }
 
-// Helper function to get AI predictions
-export async function getAIPredictions(modelIds: number[] = [], limit = 10) {
-  let predictions
-
-  if (modelIds.length > 0) {
-    predictions = await sql`
-      SELECT p.*, m.name as model_name 
-      FROM ai_predictions p
-      JOIN ai_models m ON p.model_id = m.id
-      WHERE p.model_id = ANY(${modelIds})
-      ORDER BY p.created_at DESC
-      LIMIT ${limit}
-    `
-  } else {
-    predictions = await sql`
-      SELECT p.*, m.name as model_name 
-      FROM ai_predictions p
-      JOIN ai_models m ON p.model_id = m.id
-      ORDER BY p.created_at DESC
-      LIMIT ${limit}
-    `
-  }
-
-  return predictions
-}
-
-// Helper function to save an AI prediction
-export async function saveAIPrediction(
+async function saveAIPrediction(
   modelId: number,
+  modelType: string,
   asset: string,
-  action: string,
   confidence: number,
-  timeframe: string,
+  action: string,
   reasoning: string,
-  priceTarget?: number,
+  p0: number,
+  model: string,
+  timeframe: string,
+  priceTarget: number | null,
 ) {
-  const prediction = await sql`
-    INSERT INTO ai_predictions (
-      model_id, asset, action, confidence, timeframe, reasoning, price_target
-    ) VALUES (
-      ${modelId}, ${asset}, ${action}, ${confidence}, ${timeframe}, ${reasoning}, ${priceTarget || null}
-    )
-    RETURNING *
-  `
-  return prediction
+  return prisma.aIPrediction.create({
+    data: {
+      modelId,
+      modelType,
+      asset,
+      confidence,
+      action,
+      reasoning,
+      p0,
+      model,
+      timeframe,
+      priceTarget,
+    },
+  })
 }
 
-// Helper function to update prediction performance
-export async function updatePredictionPerformance(id: number, performance: number, verified = true) {
-  const result = await sql`
-    UPDATE ai_predictions
-    SET performance = ${performance}, verified = ${verified}
-    WHERE id = ${id}
-    RETURNING *
-  `
-  return result
+async function getAIPredictions(modelIds: number[] = [], limit = 10) {
+  return prisma.aIPrediction.findMany({
+    where: {
+      modelId: {
+        in: modelIds.length > 0 ? modelIds : undefined,
+      },
+    },
+    include: {
+      model: {
+        select: {
+          name: true,
+        },
+      },
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+    take: limit,
+  })
+}
+
+export {
+  prisma,
+  getAIModels,
+  getUserModelPreferences,
+  setUserModelPreference,
+  removeUserModelPreference,
+  getAIModel,
+  saveAIPrediction,
+  getAIPredictions,
 }

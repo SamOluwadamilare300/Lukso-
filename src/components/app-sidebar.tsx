@@ -20,6 +20,7 @@ import {
   LogOut,
   BrainCircuit,
   BarChart3,
+  Bot,
 } from "lucide-react";
 import {
   Sidebar,
@@ -58,13 +59,13 @@ export const navigationData = {
       ],
     },
     {
-      label: "Markets",
+      label: "Market Insights",
       items: [
-        {
-          name: "Global Markets",
-          url: "/app/global",
-          icon: Globe,
-        },
+        // {
+        //   name: "Global Markets",
+        //   url: "/app/global",
+        //   icon: Globe,
+        // },
         {
           name: "Signal Feed",
           url: "/app/signals",
@@ -80,42 +81,51 @@ export const navigationData = {
           url: "/app/ai-predictions",
           icon: BrainCircuit,
         },
+        {
+          name: "AI Trading Bot",
+          url: "/app/ai-trading-bot",
+          icon: Bot,
+          disabled: true,
+          tooltip: "AI-powered trading bot — launching soon!",
+        },
+        
       ],
     },
     {
-      label: "Analysis",
+      label: "Financial Tools",
       items: [
-        {
-          name: "Leaderboard",
-          url: "/app/leaderboard",
-          icon: BarChart3,
-        },
+       
         {
           name: "Financial Reports",
           url: "/app/fundamentals/reports",
           icon: FileText,
           disabled: true,
-          tooltip: "Coming Soon",
+          tooltip: "Access real-time financial reports — coming soon!",
         },
         {
           name: "Balance Sheets",
           url: "/app/fundamentals/balance",
           icon: DollarSign,
           disabled: true,
-          tooltip: "Coming Soon",
+          tooltip: "Comprehensive balance sheet overview — launching soon!",
         },
         {
           name: "Profit and Loss",
           url: "/app/fundamentals/profit-loss",
           icon: TrendingUp,
           disabled: true,
-          tooltip: "Coming Soon",
+          tooltip: "Track profit and loss margins — coming soon!",
         },
       ],
     },
     {
-      label: "Community",
+      label: "Community & Engagement",
       items: [
+        {
+          name: "Leaderboard",
+          url: "/app/leaderboard",
+          icon: BarChart3,
+        },
         {
           name: "Achievements",
           url: "/app/achievements",
