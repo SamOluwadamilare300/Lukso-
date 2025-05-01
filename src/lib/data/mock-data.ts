@@ -78,12 +78,6 @@ export const mockMarketIndices: MarketIndex[] = [
 		change: -5.93,
 		changePercent: -0.28,
 	},
-	{
-		name:  "Signal Value",
-		value: 2092.74,
-		change: -5.93,
-		changePercent: -0.28,
-	},
 ];
 
 // Mock data for Indian markets

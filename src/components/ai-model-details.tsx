@@ -240,7 +240,7 @@ export function AIModelDetails({ model, isActive, onToggleActive }: AIModelDetai
               <div className="mt-4 grid grid-cols-2 gap-4">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Clock className="h-4 w-4" />
-                  <span>Updated {new Date(model.updated_at).toLocaleDateString()}</span>
+                  {/* <span>Updated {new Date(model.updated_at).toLocaleDateString()}</span> */}
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Code className="h-4 w-4" />

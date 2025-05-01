@@ -197,7 +197,7 @@ export function AIModelSelector({ selectedModels, setSelectedModels }: AIModelSe
         toast({
           title: "Error",
           description: "Could not load AI models",
-          // variant: "destructive",
+          variant: "destructive",
         })
       } finally {
         setLoading(false)

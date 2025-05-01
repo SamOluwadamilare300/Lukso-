@@ -10,7 +10,7 @@ export const TRADING_SIGNALS_ABI = [
 ]
 
 // Replace with your actual contract address
-export const TRADING_SIGNALS_ADDRESS = "0x1234567890123456789012345678901234567890" // Replace with your actual contract address
+export const TRADING_SIGNALS_ADDRESS = "0xBEcee847A7F51693bdB02CBA4C57A75372278103" // Replace with your actual contract address
 
 export type Signal = {
   id: number

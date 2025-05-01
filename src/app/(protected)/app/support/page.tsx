@@ -50,7 +50,7 @@ export default function SupportPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm font-medium">support@stockanalysis.com</p>
+                <p className="text-sm font-medium">support@luksoanalysis.com</p>
               </CardContent>
             </Card>
 
@@ -65,7 +65,7 @@ export default function SupportPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm font-medium">+1 (555) 123-4567</p>
+                <p className="text-sm font-medium">+234(0)8144954091</p>
               </CardContent>
             </Card>
 

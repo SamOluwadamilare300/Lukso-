@@ -3,6 +3,7 @@ import { SharedLayout } from "@/components/shared-layout";
 import type { Metadata } from "next";
 // import { Inter, Roboto_Mono } from "next/font/google";
 import { Inter, Roboto_Mono } from "next/font/google";
+import { Toaster } from "@/components/ui/sonner"
 
 const GeistSans = Inter({
   variable: "--font-geist-sans",
@@ -56,6 +57,7 @@ export default function RootLayout({
             <main className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
               {children}
             </main>
+            <Toaster />
           </SharedLayout>
           </LuksoProvider>
         </ThemeProvider>

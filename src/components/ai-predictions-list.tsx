@@ -293,7 +293,7 @@ export function AIPredictionsList({ selectedModels = [] }: AIPredictionsListProp
         toast({
           title: "Error",
           description: "Failed to generate predictions",
-          // variant: "destructive",
+          variant: "destructive",
         })
       } finally {
         setLoading(false)

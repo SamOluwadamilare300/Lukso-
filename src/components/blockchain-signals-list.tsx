@@ -29,7 +29,7 @@ export function BlockchainSignalsList() {
         toast({
           title: "Error",
           description: "Failed to fetch signals from the blockchain",
-        //   variant: "destructive",
+          variant: "destructive",
         })
       } finally {
         setLoading(false)

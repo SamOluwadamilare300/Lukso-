@@ -32,7 +32,7 @@ export function CreateBlockchainSignalForm() {
       toast({
         title: "Validation Error",
         description: "Please fill in all required fields",
-        // variant: "destructive",
+        variant: "destructive",
       })
       return
     }
@@ -59,7 +59,7 @@ export function CreateBlockchainSignalForm() {
       toast({
         title: "Error",
         description: "Failed to create signal. Please check your wallet connection and try again.",
-        // variant: "destructive",
+        variant: "destructive",
       })
     } finally {
       setIsSubmitting(false)
