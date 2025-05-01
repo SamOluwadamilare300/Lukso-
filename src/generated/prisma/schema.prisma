@@ -34,6 +34,8 @@ model AIPrediction {
   id          Int      @id @default(autoincrement())
   model       AIModel  @relation(fields: [modelId], references: [id])
   modelId     Int
+  modelType   String
+  p0          Float?
   asset       String
   action      String // 'buy' | 'sell' | 'hold'
   confidence  Float

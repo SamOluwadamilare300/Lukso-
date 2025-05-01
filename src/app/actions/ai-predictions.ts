@@ -45,13 +45,13 @@ export async function createAIPrediction(modelId: number, asset: string, timefra
       prediction.confidence,
       prediction.action,
       prediction.reasoning,
-      0, // p0 parameter (not used)
-      prediction.model,
+      prediction.p0 || 0,   // Provide default if nullable
+      prediction.model,      // Must provide
       timeframe,
       prediction.priceTarget,
     )
 
-    revalidatePath("/dashboard/ai-predictions")
+    revalidatePath("/app/ai-predictions")
 
     return { success: true, prediction: savedPrediction }
   } catch (error) {

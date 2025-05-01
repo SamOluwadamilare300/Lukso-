@@ -241,8 +241,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.6.0
-   * Query Engine version: f676762280b54cd07c770017ed3711ddde35f37a
+   * Prisma Client JS version: 6.7.0
+   * Query Engine version: 3cff47a7f5d65c3ea74883f1d736e41d68ce91ed
    */
   export type PrismaVersion = {
     client: string
@@ -2285,6 +2285,7 @@ export namespace Prisma {
   export type AIPredictionAvgAggregateOutputType = {
     id: number | null
     modelId: number | null
+    p0: number | null
     confidence: number | null
     priceTarget: number | null
     performance: number | null
@@ -2293,6 +2294,7 @@ export namespace Prisma {
   export type AIPredictionSumAggregateOutputType = {
     id: number | null
     modelId: number | null
+    p0: number | null
     confidence: number | null
     priceTarget: number | null
     performance: number | null
@@ -2301,6 +2303,8 @@ export namespace Prisma {
   export type AIPredictionMinAggregateOutputType = {
     id: number | null
     modelId: number | null
+    modelType: string | null
+    p0: number | null
     asset: string | null
     action: string | null
     confidence: number | null
@@ -2316,6 +2320,8 @@ export namespace Prisma {
   export type AIPredictionMaxAggregateOutputType = {
     id: number | null
     modelId: number | null
+    modelType: string | null
+    p0: number | null
     asset: string | null
     action: string | null
     confidence: number | null
@@ -2331,6 +2337,8 @@ export namespace Prisma {
   export type AIPredictionCountAggregateOutputType = {
     id: number
     modelId: number
+    modelType: number
+    p0: number
     asset: number
     action: number
     confidence: number
@@ -2348,6 +2356,7 @@ export namespace Prisma {
   export type AIPredictionAvgAggregateInputType = {
     id?: true
     modelId?: true
+    p0?: true
     confidence?: true
     priceTarget?: true
     performance?: true
@@ -2356,6 +2365,7 @@ export namespace Prisma {
   export type AIPredictionSumAggregateInputType = {
     id?: true
     modelId?: true
+    p0?: true
     confidence?: true
     priceTarget?: true
     performance?: true
@@ -2364,6 +2374,8 @@ export namespace Prisma {
   export type AIPredictionMinAggregateInputType = {
     id?: true
     modelId?: true
+    modelType?: true
+    p0?: true
     asset?: true
     action?: true
     confidence?: true
@@ -2379,6 +2391,8 @@ export namespace Prisma {
   export type AIPredictionMaxAggregateInputType = {
     id?: true
     modelId?: true
+    modelType?: true
+    p0?: true
     asset?: true
     action?: true
     confidence?: true
@@ -2394,6 +2408,8 @@ export namespace Prisma {
   export type AIPredictionCountAggregateInputType = {
     id?: true
     modelId?: true
+    modelType?: true
+    p0?: true
     asset?: true
     action?: true
     confidence?: true
@@ -2496,6 +2512,8 @@ export namespace Prisma {
   export type AIPredictionGroupByOutputType = {
     id: number
     modelId: number
+    modelType: string
+    p0: number | null
     asset: string
     action: string
     confidence: number
@@ -2530,6 +2548,8 @@ export namespace Prisma {
   export type AIPredictionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     modelId?: boolean
+    modelType?: boolean
+    p0?: boolean
     asset?: boolean
     action?: boolean
     confidence?: boolean
@@ -2546,6 +2566,8 @@ export namespace Prisma {
   export type AIPredictionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     modelId?: boolean
+    modelType?: boolean
+    p0?: boolean
     asset?: boolean
     action?: boolean
     confidence?: boolean
@@ -2562,6 +2584,8 @@ export namespace Prisma {
   export type AIPredictionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     modelId?: boolean
+    modelType?: boolean
+    p0?: boolean
     asset?: boolean
     action?: boolean
     confidence?: boolean
@@ -2578,6 +2602,8 @@ export namespace Prisma {
   export type AIPredictionSelectScalar = {
     id?: boolean
     modelId?: boolean
+    modelType?: boolean
+    p0?: boolean
     asset?: boolean
     action?: boolean
     confidence?: boolean
@@ -2590,7 +2616,7 @@ export namespace Prisma {
     createdAt?: boolean
   }
 
-  export type AIPredictionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "modelId" | "asset" | "action" | "confidence" | "timeframe" | "reasoning" | "priceTarget" | "performance" | "verified" | "modelSource" | "createdAt", ExtArgs["result"]["aIPrediction"]>
+  export type AIPredictionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "modelId" | "modelType" | "p0" | "asset" | "action" | "confidence" | "timeframe" | "reasoning" | "priceTarget" | "performance" | "verified" | "modelSource" | "createdAt", ExtArgs["result"]["aIPrediction"]>
   export type AIPredictionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     model?: boolean | AIModelDefaultArgs<ExtArgs>
   }
@@ -2609,6 +2635,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       modelId: number
+      modelType: string
+      p0: number | null
       asset: string
       action: string
       confidence: number
@@ -3045,6 +3073,8 @@ export namespace Prisma {
   interface AIPredictionFieldRefs {
     readonly id: FieldRef<"AIPrediction", 'Int'>
     readonly modelId: FieldRef<"AIPrediction", 'Int'>
+    readonly modelType: FieldRef<"AIPrediction", 'String'>
+    readonly p0: FieldRef<"AIPrediction", 'Float'>
     readonly asset: FieldRef<"AIPrediction", 'String'>
     readonly action: FieldRef<"AIPrediction", 'String'>
     readonly confidence: FieldRef<"AIPrediction", 'Float'>
@@ -4610,6 +4640,8 @@ export namespace Prisma {
   export const AIPredictionScalarFieldEnum: {
     id: 'id',
     modelId: 'modelId',
+    modelType: 'modelType',
+    p0: 'p0',
     asset: 'asset',
     action: 'action',
     confidence: 'confidence',
@@ -4849,6 +4881,8 @@ export namespace Prisma {
     NOT?: AIPredictionWhereInput | AIPredictionWhereInput[]
     id?: IntFilter<"AIPrediction"> | number
     modelId?: IntFilter<"AIPrediction"> | number
+    modelType?: StringFilter<"AIPrediction"> | string
+    p0?: FloatNullableFilter<"AIPrediction"> | number | null
     asset?: StringFilter<"AIPrediction"> | string
     action?: StringFilter<"AIPrediction"> | string
     confidence?: FloatFilter<"AIPrediction"> | number
@@ -4865,6 +4899,8 @@ export namespace Prisma {
   export type AIPredictionOrderByWithRelationInput = {
     id?: SortOrder
     modelId?: SortOrder
+    modelType?: SortOrder
+    p0?: SortOrderInput | SortOrder
     asset?: SortOrder
     action?: SortOrder
     confidence?: SortOrder
@@ -4884,6 +4920,8 @@ export namespace Prisma {
     OR?: AIPredictionWhereInput[]
     NOT?: AIPredictionWhereInput | AIPredictionWhereInput[]
     modelId?: IntFilter<"AIPrediction"> | number
+    modelType?: StringFilter<"AIPrediction"> | string
+    p0?: FloatNullableFilter<"AIPrediction"> | number | null
     asset?: StringFilter<"AIPrediction"> | string
     action?: StringFilter<"AIPrediction"> | string
     confidence?: FloatFilter<"AIPrediction"> | number
@@ -4900,6 +4938,8 @@ export namespace Prisma {
   export type AIPredictionOrderByWithAggregationInput = {
     id?: SortOrder
     modelId?: SortOrder
+    modelType?: SortOrder
+    p0?: SortOrderInput | SortOrder
     asset?: SortOrder
     action?: SortOrder
     confidence?: SortOrder
@@ -4923,6 +4963,8 @@ export namespace Prisma {
     NOT?: AIPredictionScalarWhereWithAggregatesInput | AIPredictionScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"AIPrediction"> | number
     modelId?: IntWithAggregatesFilter<"AIPrediction"> | number
+    modelType?: StringWithAggregatesFilter<"AIPrediction"> | string
+    p0?: FloatNullableWithAggregatesFilter<"AIPrediction"> | number | null
     asset?: StringWithAggregatesFilter<"AIPrediction"> | string
     action?: StringWithAggregatesFilter<"AIPrediction"> | string
     confidence?: FloatWithAggregatesFilter<"AIPrediction"> | number
@@ -5088,6 +5130,8 @@ export namespace Prisma {
   }
 
   export type AIPredictionCreateInput = {
+    modelType: string
+    p0?: number | null
     asset: string
     action: string
     confidence: number
@@ -5104,6 +5148,8 @@ export namespace Prisma {
   export type AIPredictionUncheckedCreateInput = {
     id?: number
     modelId: number
+    modelType: string
+    p0?: number | null
     asset: string
     action: string
     confidence: number
@@ -5117,6 +5163,8 @@ export namespace Prisma {
   }
 
   export type AIPredictionUpdateInput = {
+    modelType?: StringFieldUpdateOperationsInput | string
+    p0?: NullableFloatFieldUpdateOperationsInput | number | null
     asset?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     confidence?: FloatFieldUpdateOperationsInput | number
@@ -5133,6 +5181,8 @@ export namespace Prisma {
   export type AIPredictionUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     modelId?: IntFieldUpdateOperationsInput | number
+    modelType?: StringFieldUpdateOperationsInput | string
+    p0?: NullableFloatFieldUpdateOperationsInput | number | null
     asset?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     confidence?: FloatFieldUpdateOperationsInput | number
@@ -5148,6 +5198,8 @@ export namespace Prisma {
   export type AIPredictionCreateManyInput = {
     id?: number
     modelId: number
+    modelType: string
+    p0?: number | null
     asset: string
     action: string
     confidence: number
@@ -5161,6 +5213,8 @@ export namespace Prisma {
   }
 
   export type AIPredictionUpdateManyMutationInput = {
+    modelType?: StringFieldUpdateOperationsInput | string
+    p0?: NullableFloatFieldUpdateOperationsInput | number | null
     asset?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     confidence?: FloatFieldUpdateOperationsInput | number
@@ -5176,6 +5230,8 @@ export namespace Prisma {
   export type AIPredictionUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     modelId?: IntFieldUpdateOperationsInput | number
+    modelType?: StringFieldUpdateOperationsInput | string
+    p0?: NullableFloatFieldUpdateOperationsInput | number | null
     asset?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     confidence?: FloatFieldUpdateOperationsInput | number
@@ -5494,17 +5550,6 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type FloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
-  }
-
   export type FloatNullableFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
     in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
@@ -5516,6 +5561,17 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
   export type AIModelScalarRelationFilter = {
     is?: AIModelWhereInput
     isNot?: AIModelWhereInput
@@ -5524,6 +5580,8 @@ export namespace Prisma {
   export type AIPredictionCountOrderByAggregateInput = {
     id?: SortOrder
     modelId?: SortOrder
+    modelType?: SortOrder
+    p0?: SortOrder
     asset?: SortOrder
     action?: SortOrder
     confidence?: SortOrder
@@ -5539,6 +5597,7 @@ export namespace Prisma {
   export type AIPredictionAvgOrderByAggregateInput = {
     id?: SortOrder
     modelId?: SortOrder
+    p0?: SortOrder
     confidence?: SortOrder
     priceTarget?: SortOrder
     performance?: SortOrder
@@ -5547,6 +5606,8 @@ export namespace Prisma {
   export type AIPredictionMaxOrderByAggregateInput = {
     id?: SortOrder
     modelId?: SortOrder
+    modelType?: SortOrder
+    p0?: SortOrder
     asset?: SortOrder
     action?: SortOrder
     confidence?: SortOrder
@@ -5562,6 +5623,8 @@ export namespace Prisma {
   export type AIPredictionMinOrderByAggregateInput = {
     id?: SortOrder
     modelId?: SortOrder
+    modelType?: SortOrder
+    p0?: SortOrder
     asset?: SortOrder
     action?: SortOrder
     confidence?: SortOrder
@@ -5577,25 +5640,10 @@ export namespace Prisma {
   export type AIPredictionSumOrderByAggregateInput = {
     id?: SortOrder
     modelId?: SortOrder
+    p0?: SortOrder
     confidence?: SortOrder
     priceTarget?: SortOrder
     performance?: SortOrder
-  }
-
-  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedFloatFilter<$PrismaModel>
-    _min?: NestedFloatFilter<$PrismaModel>
-    _max?: NestedFloatFilter<$PrismaModel>
   }
 
   export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -5612,6 +5660,22 @@ export namespace Prisma {
     _sum?: NestedFloatNullableFilter<$PrismaModel>
     _min?: NestedFloatNullableFilter<$PrismaModel>
     _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
   }
 
   export type UserModelPreferenceUserAddress_modelIdCompoundUniqueInput = {
@@ -5770,16 +5834,16 @@ export namespace Prisma {
     connect?: AIModelWhereUniqueInput
   }
 
-  export type FloatFieldUpdateOperationsInput = {
-    set?: number
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
   }
 
-  export type NullableFloatFieldUpdateOperationsInput = {
-    set?: number | null
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
     increment?: number
     decrement?: number
     multiply?: number
@@ -5991,22 +6055,6 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedFloatFilter<$PrismaModel>
-    _min?: NestedFloatFilter<$PrismaModel>
-    _max?: NestedFloatFilter<$PrismaModel>
-  }
-
   export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
     in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
@@ -6023,7 +6071,25 @@ export namespace Prisma {
     _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
   export type AIPredictionCreateWithoutModelInput = {
+    modelType: string
+    p0?: number | null
     asset: string
     action: string
     confidence: number
@@ -6038,6 +6104,8 @@ export namespace Prisma {
 
   export type AIPredictionUncheckedCreateWithoutModelInput = {
     id?: number
+    modelType: string
+    p0?: number | null
     asset: string
     action: string
     confidence: number
@@ -6107,6 +6175,8 @@ export namespace Prisma {
     NOT?: AIPredictionScalarWhereInput | AIPredictionScalarWhereInput[]
     id?: IntFilter<"AIPrediction"> | number
     modelId?: IntFilter<"AIPrediction"> | number
+    modelType?: StringFilter<"AIPrediction"> | string
+    p0?: FloatNullableFilter<"AIPrediction"> | number | null
     asset?: StringFilter<"AIPrediction"> | string
     action?: StringFilter<"AIPrediction"> | string
     confidence?: FloatFilter<"AIPrediction"> | number
@@ -6281,6 +6351,8 @@ export namespace Prisma {
 
   export type AIPredictionCreateManyModelInput = {
     id?: number
+    modelType: string
+    p0?: number | null
     asset: string
     action: string
     confidence: number
@@ -6302,6 +6374,8 @@ export namespace Prisma {
   }
 
   export type AIPredictionUpdateWithoutModelInput = {
+    modelType?: StringFieldUpdateOperationsInput | string
+    p0?: NullableFloatFieldUpdateOperationsInput | number | null
     asset?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     confidence?: FloatFieldUpdateOperationsInput | number
@@ -6316,6 +6390,8 @@ export namespace Prisma {
 
   export type AIPredictionUncheckedUpdateWithoutModelInput = {
     id?: IntFieldUpdateOperationsInput | number
+    modelType?: StringFieldUpdateOperationsInput | string
+    p0?: NullableFloatFieldUpdateOperationsInput | number | null
     asset?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     confidence?: FloatFieldUpdateOperationsInput | number
@@ -6330,6 +6406,8 @@ export namespace Prisma {
 
   export type AIPredictionUncheckedUpdateManyWithoutModelInput = {
     id?: IntFieldUpdateOperationsInput | number
+    modelType?: StringFieldUpdateOperationsInput | string
+    p0?: NullableFloatFieldUpdateOperationsInput | number | null
     asset?: StringFieldUpdateOperationsInput | string
     action?: StringFieldUpdateOperationsInput | string
     confidence?: FloatFieldUpdateOperationsInput | number

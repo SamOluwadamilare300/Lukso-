@@ -33,8 +33,8 @@ export async function toggleModelPreference(userAddress: string, modelId: number
       result = await removeUserModelPreference(userAddress, modelId)
     }
 
-    revalidatePath("/dashboard/ai-predictions")
-    revalidatePath("/dashboard/ai-predictions/models")
+    revalidatePath("/app/ai-predictions")
+    revalidatePath("/app/ai-predictions/models")
 
     return { success: true, result }
   } catch (error) {
@@ -48,8 +48,8 @@ export async function setDefaultModel(userAddress: string, modelId: number) {
     // First, reset all default flags for this user
     await setUserModelPreference(userAddress, modelId, true)
 
-    revalidatePath("/dashboard/ai-predictions")
-    revalidatePath("/dashboard/ai-predictions/models")
+    revalidatePath("/app/ai-predictions")
+    revalidatePath("/app/ai-predictions/models")
 
     return { success: true }
   } catch (error) {

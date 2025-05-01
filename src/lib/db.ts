@@ -168,9 +168,12 @@ export async function saveAIPrediction(
       data: {
         modelId,
         asset,
+        modelType,  // Must match schema
+        // model,     
         action,
         confidence,
         timeframe,
+        p0,        
         reasoning,
         priceTarget: priceTarget ?? null,
       },

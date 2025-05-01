@@ -50,23 +50,6 @@ model AIPrediction {
   @@map("ai_predictions")
 }
 
-model AIPrediction {
-  id           Int      @id @default(autoincrement())
-  modelId      Int
-  modelType    String   // Make sure these fields exist
-  model        String   //
-  asset        String
-  action       String
-  confidence   Float
-  reasoning    String
-  p0           Float?   // Nullable if optional
-  timeframe    String
-  priceTarget  Float?
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  performance  Float?
-  verified     Boolean  @default(false)
-}
 
 model UserModelPreference {
   id          Int       @id @default(autoincrement())
