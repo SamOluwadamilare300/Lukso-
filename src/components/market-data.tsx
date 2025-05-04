@@ -43,7 +43,7 @@ export function MarketData() {
       toast({
         title: "Error",
         description: "Failed to fetch market data. Please try again.",
-        // variant: "destructive",
+        variant: "destructive",
       })
     } finally {
       setLoading(false)

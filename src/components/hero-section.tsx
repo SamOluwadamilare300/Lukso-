@@ -110,7 +110,7 @@ export default function HeroSection() {
                   className="mt-8 text-balance text-blue-600 font-bold text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem]"
                 >
               
-                   LUKSO Social DeFi Analytics Dashboard 
+                   LUKSO Social DApp Analytics Dashboard 
                 </TextEffect>
                 <TextEffect
                   per="line"
@@ -120,7 +120,7 @@ export default function HeroSection() {
                   as="p"
                   className="mx-auto mt-8 max-w-2xl text-balance text-lg"
                 >
-                   Leverage advanced analytics and AI-driven insights to explore trading signal, Universal Profiles, and digital assets on the LUKSO blockchain.
+                   Leverage advanced analytics and AI-driven insights to explore trading signal on the LUKSO blockchain.
                 </TextEffect>
 
                 <AnimatedGroup

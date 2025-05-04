@@ -158,6 +158,38 @@ exports.Prisma.UserModelPreferenceScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.SignalScalarFieldEnum = {
+  id: 'id',
+  asset: 'asset',
+  action: 'action',
+  timeframe: 'timeframe',
+  priceTarget: 'priceTarget',
+  confidenceLevel: 'confidenceLevel',
+  analysis: 'analysis',
+  creatorName: 'creatorName',
+  creatorAddress: 'creatorAddress',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CommentScalarFieldEnum = {
+  id: 'id',
+  content: 'content',
+  authorName: 'authorName',
+  authorAddress: 'authorAddress',
+  createdAt: 'createdAt',
+  signalId: 'signalId',
+  network: 'network'
+};
+
+exports.Prisma.LikeScalarFieldEnum = {
+  id: 'id',
+  userAddress: 'userAddress',
+  userName: 'userName',
+  createdAt: 'createdAt',
+  signalId: 'signalId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -188,7 +220,10 @@ exports.Prisma.NullsOrder = {
 exports.Prisma.ModelName = {
   AIModel: 'AIModel',
   AIPrediction: 'AIPrediction',
-  UserModelPreference: 'UserModelPreference'
+  UserModelPreference: 'UserModelPreference',
+  Signal: 'Signal',
+  Comment: 'Comment',
+  Like: 'Like'
 };
 
 /**

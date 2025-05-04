@@ -28,6 +28,21 @@ export type AIPrediction = $Result.DefaultSelection<Prisma.$AIPredictionPayload>
  * 
  */
 export type UserModelPreference = $Result.DefaultSelection<Prisma.$UserModelPreferencePayload>
+/**
+ * Model Signal
+ * 
+ */
+export type Signal = $Result.DefaultSelection<Prisma.$SignalPayload>
+/**
+ * Model Comment
+ * 
+ */
+export type Comment = $Result.DefaultSelection<Prisma.$CommentPayload>
+/**
+ * Model Like
+ * 
+ */
+export type Like = $Result.DefaultSelection<Prisma.$LikePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -183,6 +198,36 @@ export class PrismaClient<
     * ```
     */
   get userModelPreference(): Prisma.UserModelPreferenceDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.signal`: Exposes CRUD operations for the **Signal** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Signals
+    * const signals = await prisma.signal.findMany()
+    * ```
+    */
+  get signal(): Prisma.SignalDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.comment`: Exposes CRUD operations for the **Comment** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Comments
+    * const comments = await prisma.comment.findMany()
+    * ```
+    */
+  get comment(): Prisma.CommentDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.like`: Exposes CRUD operations for the **Like** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Likes
+    * const likes = await prisma.like.findMany()
+    * ```
+    */
+  get like(): Prisma.LikeDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -625,7 +670,10 @@ export namespace Prisma {
   export const ModelName: {
     AIModel: 'AIModel',
     AIPrediction: 'AIPrediction',
-    UserModelPreference: 'UserModelPreference'
+    UserModelPreference: 'UserModelPreference',
+    Signal: 'Signal',
+    Comment: 'Comment',
+    Like: 'Like'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -644,7 +692,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "aIModel" | "aIPrediction" | "userModelPreference"
+      modelProps: "aIModel" | "aIPrediction" | "userModelPreference" | "signal" | "comment" | "like"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -870,6 +918,228 @@ export namespace Prisma {
           }
         }
       }
+      Signal: {
+        payload: Prisma.$SignalPayload<ExtArgs>
+        fields: Prisma.SignalFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SignalFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SignalPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SignalFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SignalPayload>
+          }
+          findFirst: {
+            args: Prisma.SignalFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SignalPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SignalFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SignalPayload>
+          }
+          findMany: {
+            args: Prisma.SignalFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SignalPayload>[]
+          }
+          create: {
+            args: Prisma.SignalCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SignalPayload>
+          }
+          createMany: {
+            args: Prisma.SignalCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SignalCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SignalPayload>[]
+          }
+          delete: {
+            args: Prisma.SignalDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SignalPayload>
+          }
+          update: {
+            args: Prisma.SignalUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SignalPayload>
+          }
+          deleteMany: {
+            args: Prisma.SignalDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SignalUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SignalUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SignalPayload>[]
+          }
+          upsert: {
+            args: Prisma.SignalUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SignalPayload>
+          }
+          aggregate: {
+            args: Prisma.SignalAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSignal>
+          }
+          groupBy: {
+            args: Prisma.SignalGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SignalGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SignalCountArgs<ExtArgs>
+            result: $Utils.Optional<SignalCountAggregateOutputType> | number
+          }
+        }
+      }
+      Comment: {
+        payload: Prisma.$CommentPayload<ExtArgs>
+        fields: Prisma.CommentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CommentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CommentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload>
+          }
+          findFirst: {
+            args: Prisma.CommentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CommentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload>
+          }
+          findMany: {
+            args: Prisma.CommentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload>[]
+          }
+          create: {
+            args: Prisma.CommentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload>
+          }
+          createMany: {
+            args: Prisma.CommentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CommentCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload>[]
+          }
+          delete: {
+            args: Prisma.CommentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload>
+          }
+          update: {
+            args: Prisma.CommentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload>
+          }
+          deleteMany: {
+            args: Prisma.CommentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CommentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CommentUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload>[]
+          }
+          upsert: {
+            args: Prisma.CommentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload>
+          }
+          aggregate: {
+            args: Prisma.CommentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateComment>
+          }
+          groupBy: {
+            args: Prisma.CommentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CommentGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CommentCountArgs<ExtArgs>
+            result: $Utils.Optional<CommentCountAggregateOutputType> | number
+          }
+        }
+      }
+      Like: {
+        payload: Prisma.$LikePayload<ExtArgs>
+        fields: Prisma.LikeFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LikeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LikePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LikeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LikePayload>
+          }
+          findFirst: {
+            args: Prisma.LikeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LikePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LikeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LikePayload>
+          }
+          findMany: {
+            args: Prisma.LikeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LikePayload>[]
+          }
+          create: {
+            args: Prisma.LikeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LikePayload>
+          }
+          createMany: {
+            args: Prisma.LikeCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LikeCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LikePayload>[]
+          }
+          delete: {
+            args: Prisma.LikeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LikePayload>
+          }
+          update: {
+            args: Prisma.LikeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LikePayload>
+          }
+          deleteMany: {
+            args: Prisma.LikeDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LikeUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LikeUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LikePayload>[]
+          }
+          upsert: {
+            args: Prisma.LikeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LikePayload>
+          }
+          aggregate: {
+            args: Prisma.LikeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLike>
+          }
+          groupBy: {
+            args: Prisma.LikeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LikeGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LikeCountArgs<ExtArgs>
+            result: $Utils.Optional<LikeCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -957,6 +1227,9 @@ export namespace Prisma {
     aIModel?: AIModelOmit
     aIPrediction?: AIPredictionOmit
     userModelPreference?: UserModelPreferenceOmit
+    signal?: SignalOmit
+    comment?: CommentOmit
+    like?: LikeOmit
   }
 
   /* Types for Logging */
@@ -1083,6 +1356,46 @@ export namespace Prisma {
    */
   export type AIModelCountOutputTypeCountUserPreferencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserModelPreferenceWhereInput
+  }
+
+
+  /**
+   * Count Type SignalCountOutputType
+   */
+
+  export type SignalCountOutputType = {
+    comments: number
+    likes: number
+  }
+
+  export type SignalCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    comments?: boolean | SignalCountOutputTypeCountCommentsArgs
+    likes?: boolean | SignalCountOutputTypeCountLikesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * SignalCountOutputType without action
+   */
+  export type SignalCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SignalCountOutputType
+     */
+    select?: SignalCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * SignalCountOutputType without action
+   */
+  export type SignalCountOutputTypeCountCommentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CommentWhereInput
+  }
+
+  /**
+   * SignalCountOutputType without action
+   */
+  export type SignalCountOutputTypeCountLikesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LikeWhereInput
   }
 
 
@@ -4609,6 +4922,3438 @@ export namespace Prisma {
 
 
   /**
+   * Model Signal
+   */
+
+  export type AggregateSignal = {
+    _count: SignalCountAggregateOutputType | null
+    _avg: SignalAvgAggregateOutputType | null
+    _sum: SignalSumAggregateOutputType | null
+    _min: SignalMinAggregateOutputType | null
+    _max: SignalMaxAggregateOutputType | null
+  }
+
+  export type SignalAvgAggregateOutputType = {
+    id: number | null
+    confidenceLevel: number | null
+  }
+
+  export type SignalSumAggregateOutputType = {
+    id: number | null
+    confidenceLevel: number | null
+  }
+
+  export type SignalMinAggregateOutputType = {
+    id: number | null
+    asset: string | null
+    action: string | null
+    timeframe: string | null
+    priceTarget: string | null
+    confidenceLevel: number | null
+    analysis: string | null
+    creatorName: string | null
+    creatorAddress: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SignalMaxAggregateOutputType = {
+    id: number | null
+    asset: string | null
+    action: string | null
+    timeframe: string | null
+    priceTarget: string | null
+    confidenceLevel: number | null
+    analysis: string | null
+    creatorName: string | null
+    creatorAddress: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SignalCountAggregateOutputType = {
+    id: number
+    asset: number
+    action: number
+    timeframe: number
+    priceTarget: number
+    confidenceLevel: number
+    analysis: number
+    creatorName: number
+    creatorAddress: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type SignalAvgAggregateInputType = {
+    id?: true
+    confidenceLevel?: true
+  }
+
+  export type SignalSumAggregateInputType = {
+    id?: true
+    confidenceLevel?: true
+  }
+
+  export type SignalMinAggregateInputType = {
+    id?: true
+    asset?: true
+    action?: true
+    timeframe?: true
+    priceTarget?: true
+    confidenceLevel?: true
+    analysis?: true
+    creatorName?: true
+    creatorAddress?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SignalMaxAggregateInputType = {
+    id?: true
+    asset?: true
+    action?: true
+    timeframe?: true
+    priceTarget?: true
+    confidenceLevel?: true
+    analysis?: true
+    creatorName?: true
+    creatorAddress?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SignalCountAggregateInputType = {
+    id?: true
+    asset?: true
+    action?: true
+    timeframe?: true
+    priceTarget?: true
+    confidenceLevel?: true
+    analysis?: true
+    creatorName?: true
+    creatorAddress?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type SignalAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Signal to aggregate.
+     */
+    where?: SignalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Signals to fetch.
+     */
+    orderBy?: SignalOrderByWithRelationInput | SignalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SignalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Signals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Signals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Signals
+    **/
+    _count?: true | SignalCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SignalAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SignalSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SignalMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SignalMaxAggregateInputType
+  }
+
+  export type GetSignalAggregateType<T extends SignalAggregateArgs> = {
+        [P in keyof T & keyof AggregateSignal]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSignal[P]>
+      : GetScalarType<T[P], AggregateSignal[P]>
+  }
+
+
+
+
+  export type SignalGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SignalWhereInput
+    orderBy?: SignalOrderByWithAggregationInput | SignalOrderByWithAggregationInput[]
+    by: SignalScalarFieldEnum[] | SignalScalarFieldEnum
+    having?: SignalScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SignalCountAggregateInputType | true
+    _avg?: SignalAvgAggregateInputType
+    _sum?: SignalSumAggregateInputType
+    _min?: SignalMinAggregateInputType
+    _max?: SignalMaxAggregateInputType
+  }
+
+  export type SignalGroupByOutputType = {
+    id: number
+    asset: string
+    action: string
+    timeframe: string
+    priceTarget: string | null
+    confidenceLevel: number
+    analysis: string
+    creatorName: string
+    creatorAddress: string
+    createdAt: Date
+    updatedAt: Date
+    _count: SignalCountAggregateOutputType | null
+    _avg: SignalAvgAggregateOutputType | null
+    _sum: SignalSumAggregateOutputType | null
+    _min: SignalMinAggregateOutputType | null
+    _max: SignalMaxAggregateOutputType | null
+  }
+
+  type GetSignalGroupByPayload<T extends SignalGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SignalGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SignalGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SignalGroupByOutputType[P]>
+            : GetScalarType<T[P], SignalGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SignalSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    asset?: boolean
+    action?: boolean
+    timeframe?: boolean
+    priceTarget?: boolean
+    confidenceLevel?: boolean
+    analysis?: boolean
+    creatorName?: boolean
+    creatorAddress?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    comments?: boolean | Signal$commentsArgs<ExtArgs>
+    likes?: boolean | Signal$likesArgs<ExtArgs>
+    _count?: boolean | SignalCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["signal"]>
+
+  export type SignalSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    asset?: boolean
+    action?: boolean
+    timeframe?: boolean
+    priceTarget?: boolean
+    confidenceLevel?: boolean
+    analysis?: boolean
+    creatorName?: boolean
+    creatorAddress?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["signal"]>
+
+  export type SignalSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    asset?: boolean
+    action?: boolean
+    timeframe?: boolean
+    priceTarget?: boolean
+    confidenceLevel?: boolean
+    analysis?: boolean
+    creatorName?: boolean
+    creatorAddress?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["signal"]>
+
+  export type SignalSelectScalar = {
+    id?: boolean
+    asset?: boolean
+    action?: boolean
+    timeframe?: boolean
+    priceTarget?: boolean
+    confidenceLevel?: boolean
+    analysis?: boolean
+    creatorName?: boolean
+    creatorAddress?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type SignalOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "asset" | "action" | "timeframe" | "priceTarget" | "confidenceLevel" | "analysis" | "creatorName" | "creatorAddress" | "createdAt" | "updatedAt", ExtArgs["result"]["signal"]>
+  export type SignalInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    comments?: boolean | Signal$commentsArgs<ExtArgs>
+    likes?: boolean | Signal$likesArgs<ExtArgs>
+    _count?: boolean | SignalCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type SignalIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type SignalIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $SignalPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Signal"
+    objects: {
+      comments: Prisma.$CommentPayload<ExtArgs>[]
+      likes: Prisma.$LikePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      asset: string
+      action: string
+      timeframe: string
+      priceTarget: string | null
+      confidenceLevel: number
+      analysis: string
+      creatorName: string
+      creatorAddress: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["signal"]>
+    composites: {}
+  }
+
+  type SignalGetPayload<S extends boolean | null | undefined | SignalDefaultArgs> = $Result.GetResult<Prisma.$SignalPayload, S>
+
+  type SignalCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SignalFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SignalCountAggregateInputType | true
+    }
+
+  export interface SignalDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Signal'], meta: { name: 'Signal' } }
+    /**
+     * Find zero or one Signal that matches the filter.
+     * @param {SignalFindUniqueArgs} args - Arguments to find a Signal
+     * @example
+     * // Get one Signal
+     * const signal = await prisma.signal.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SignalFindUniqueArgs>(args: SelectSubset<T, SignalFindUniqueArgs<ExtArgs>>): Prisma__SignalClient<$Result.GetResult<Prisma.$SignalPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Signal that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SignalFindUniqueOrThrowArgs} args - Arguments to find a Signal
+     * @example
+     * // Get one Signal
+     * const signal = await prisma.signal.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SignalFindUniqueOrThrowArgs>(args: SelectSubset<T, SignalFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SignalClient<$Result.GetResult<Prisma.$SignalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Signal that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SignalFindFirstArgs} args - Arguments to find a Signal
+     * @example
+     * // Get one Signal
+     * const signal = await prisma.signal.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SignalFindFirstArgs>(args?: SelectSubset<T, SignalFindFirstArgs<ExtArgs>>): Prisma__SignalClient<$Result.GetResult<Prisma.$SignalPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Signal that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SignalFindFirstOrThrowArgs} args - Arguments to find a Signal
+     * @example
+     * // Get one Signal
+     * const signal = await prisma.signal.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SignalFindFirstOrThrowArgs>(args?: SelectSubset<T, SignalFindFirstOrThrowArgs<ExtArgs>>): Prisma__SignalClient<$Result.GetResult<Prisma.$SignalPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Signals that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SignalFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Signals
+     * const signals = await prisma.signal.findMany()
+     * 
+     * // Get first 10 Signals
+     * const signals = await prisma.signal.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const signalWithIdOnly = await prisma.signal.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SignalFindManyArgs>(args?: SelectSubset<T, SignalFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SignalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Signal.
+     * @param {SignalCreateArgs} args - Arguments to create a Signal.
+     * @example
+     * // Create one Signal
+     * const Signal = await prisma.signal.create({
+     *   data: {
+     *     // ... data to create a Signal
+     *   }
+     * })
+     * 
+     */
+    create<T extends SignalCreateArgs>(args: SelectSubset<T, SignalCreateArgs<ExtArgs>>): Prisma__SignalClient<$Result.GetResult<Prisma.$SignalPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Signals.
+     * @param {SignalCreateManyArgs} args - Arguments to create many Signals.
+     * @example
+     * // Create many Signals
+     * const signal = await prisma.signal.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SignalCreateManyArgs>(args?: SelectSubset<T, SignalCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Signals and returns the data saved in the database.
+     * @param {SignalCreateManyAndReturnArgs} args - Arguments to create many Signals.
+     * @example
+     * // Create many Signals
+     * const signal = await prisma.signal.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Signals and only return the `id`
+     * const signalWithIdOnly = await prisma.signal.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SignalCreateManyAndReturnArgs>(args?: SelectSubset<T, SignalCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SignalPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Signal.
+     * @param {SignalDeleteArgs} args - Arguments to delete one Signal.
+     * @example
+     * // Delete one Signal
+     * const Signal = await prisma.signal.delete({
+     *   where: {
+     *     // ... filter to delete one Signal
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SignalDeleteArgs>(args: SelectSubset<T, SignalDeleteArgs<ExtArgs>>): Prisma__SignalClient<$Result.GetResult<Prisma.$SignalPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Signal.
+     * @param {SignalUpdateArgs} args - Arguments to update one Signal.
+     * @example
+     * // Update one Signal
+     * const signal = await prisma.signal.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SignalUpdateArgs>(args: SelectSubset<T, SignalUpdateArgs<ExtArgs>>): Prisma__SignalClient<$Result.GetResult<Prisma.$SignalPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Signals.
+     * @param {SignalDeleteManyArgs} args - Arguments to filter Signals to delete.
+     * @example
+     * // Delete a few Signals
+     * const { count } = await prisma.signal.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SignalDeleteManyArgs>(args?: SelectSubset<T, SignalDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Signals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SignalUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Signals
+     * const signal = await prisma.signal.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SignalUpdateManyArgs>(args: SelectSubset<T, SignalUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Signals and returns the data updated in the database.
+     * @param {SignalUpdateManyAndReturnArgs} args - Arguments to update many Signals.
+     * @example
+     * // Update many Signals
+     * const signal = await prisma.signal.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Signals and only return the `id`
+     * const signalWithIdOnly = await prisma.signal.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SignalUpdateManyAndReturnArgs>(args: SelectSubset<T, SignalUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SignalPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Signal.
+     * @param {SignalUpsertArgs} args - Arguments to update or create a Signal.
+     * @example
+     * // Update or create a Signal
+     * const signal = await prisma.signal.upsert({
+     *   create: {
+     *     // ... data to create a Signal
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Signal we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SignalUpsertArgs>(args: SelectSubset<T, SignalUpsertArgs<ExtArgs>>): Prisma__SignalClient<$Result.GetResult<Prisma.$SignalPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Signals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SignalCountArgs} args - Arguments to filter Signals to count.
+     * @example
+     * // Count the number of Signals
+     * const count = await prisma.signal.count({
+     *   where: {
+     *     // ... the filter for the Signals we want to count
+     *   }
+     * })
+    **/
+    count<T extends SignalCountArgs>(
+      args?: Subset<T, SignalCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SignalCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Signal.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SignalAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SignalAggregateArgs>(args: Subset<T, SignalAggregateArgs>): Prisma.PrismaPromise<GetSignalAggregateType<T>>
+
+    /**
+     * Group by Signal.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SignalGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SignalGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SignalGroupByArgs['orderBy'] }
+        : { orderBy?: SignalGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SignalGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSignalGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Signal model
+   */
+  readonly fields: SignalFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Signal.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SignalClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    comments<T extends Signal$commentsArgs<ExtArgs> = {}>(args?: Subset<T, Signal$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    likes<T extends Signal$likesArgs<ExtArgs> = {}>(args?: Subset<T, Signal$likesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Signal model
+   */
+  interface SignalFieldRefs {
+    readonly id: FieldRef<"Signal", 'Int'>
+    readonly asset: FieldRef<"Signal", 'String'>
+    readonly action: FieldRef<"Signal", 'String'>
+    readonly timeframe: FieldRef<"Signal", 'String'>
+    readonly priceTarget: FieldRef<"Signal", 'String'>
+    readonly confidenceLevel: FieldRef<"Signal", 'Int'>
+    readonly analysis: FieldRef<"Signal", 'String'>
+    readonly creatorName: FieldRef<"Signal", 'String'>
+    readonly creatorAddress: FieldRef<"Signal", 'String'>
+    readonly createdAt: FieldRef<"Signal", 'DateTime'>
+    readonly updatedAt: FieldRef<"Signal", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Signal findUnique
+   */
+  export type SignalFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Signal
+     */
+    select?: SignalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Signal
+     */
+    omit?: SignalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SignalInclude<ExtArgs> | null
+    /**
+     * Filter, which Signal to fetch.
+     */
+    where: SignalWhereUniqueInput
+  }
+
+  /**
+   * Signal findUniqueOrThrow
+   */
+  export type SignalFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Signal
+     */
+    select?: SignalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Signal
+     */
+    omit?: SignalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SignalInclude<ExtArgs> | null
+    /**
+     * Filter, which Signal to fetch.
+     */
+    where: SignalWhereUniqueInput
+  }
+
+  /**
+   * Signal findFirst
+   */
+  export type SignalFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Signal
+     */
+    select?: SignalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Signal
+     */
+    omit?: SignalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SignalInclude<ExtArgs> | null
+    /**
+     * Filter, which Signal to fetch.
+     */
+    where?: SignalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Signals to fetch.
+     */
+    orderBy?: SignalOrderByWithRelationInput | SignalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Signals.
+     */
+    cursor?: SignalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Signals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Signals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Signals.
+     */
+    distinct?: SignalScalarFieldEnum | SignalScalarFieldEnum[]
+  }
+
+  /**
+   * Signal findFirstOrThrow
+   */
+  export type SignalFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Signal
+     */
+    select?: SignalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Signal
+     */
+    omit?: SignalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SignalInclude<ExtArgs> | null
+    /**
+     * Filter, which Signal to fetch.
+     */
+    where?: SignalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Signals to fetch.
+     */
+    orderBy?: SignalOrderByWithRelationInput | SignalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Signals.
+     */
+    cursor?: SignalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Signals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Signals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Signals.
+     */
+    distinct?: SignalScalarFieldEnum | SignalScalarFieldEnum[]
+  }
+
+  /**
+   * Signal findMany
+   */
+  export type SignalFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Signal
+     */
+    select?: SignalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Signal
+     */
+    omit?: SignalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SignalInclude<ExtArgs> | null
+    /**
+     * Filter, which Signals to fetch.
+     */
+    where?: SignalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Signals to fetch.
+     */
+    orderBy?: SignalOrderByWithRelationInput | SignalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Signals.
+     */
+    cursor?: SignalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Signals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Signals.
+     */
+    skip?: number
+    distinct?: SignalScalarFieldEnum | SignalScalarFieldEnum[]
+  }
+
+  /**
+   * Signal create
+   */
+  export type SignalCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Signal
+     */
+    select?: SignalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Signal
+     */
+    omit?: SignalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SignalInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Signal.
+     */
+    data: XOR<SignalCreateInput, SignalUncheckedCreateInput>
+  }
+
+  /**
+   * Signal createMany
+   */
+  export type SignalCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Signals.
+     */
+    data: SignalCreateManyInput | SignalCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Signal createManyAndReturn
+   */
+  export type SignalCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Signal
+     */
+    select?: SignalSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Signal
+     */
+    omit?: SignalOmit<ExtArgs> | null
+    /**
+     * The data used to create many Signals.
+     */
+    data: SignalCreateManyInput | SignalCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Signal update
+   */
+  export type SignalUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Signal
+     */
+    select?: SignalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Signal
+     */
+    omit?: SignalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SignalInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Signal.
+     */
+    data: XOR<SignalUpdateInput, SignalUncheckedUpdateInput>
+    /**
+     * Choose, which Signal to update.
+     */
+    where: SignalWhereUniqueInput
+  }
+
+  /**
+   * Signal updateMany
+   */
+  export type SignalUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Signals.
+     */
+    data: XOR<SignalUpdateManyMutationInput, SignalUncheckedUpdateManyInput>
+    /**
+     * Filter which Signals to update
+     */
+    where?: SignalWhereInput
+    /**
+     * Limit how many Signals to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Signal updateManyAndReturn
+   */
+  export type SignalUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Signal
+     */
+    select?: SignalSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Signal
+     */
+    omit?: SignalOmit<ExtArgs> | null
+    /**
+     * The data used to update Signals.
+     */
+    data: XOR<SignalUpdateManyMutationInput, SignalUncheckedUpdateManyInput>
+    /**
+     * Filter which Signals to update
+     */
+    where?: SignalWhereInput
+    /**
+     * Limit how many Signals to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Signal upsert
+   */
+  export type SignalUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Signal
+     */
+    select?: SignalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Signal
+     */
+    omit?: SignalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SignalInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Signal to update in case it exists.
+     */
+    where: SignalWhereUniqueInput
+    /**
+     * In case the Signal found by the `where` argument doesn't exist, create a new Signal with this data.
+     */
+    create: XOR<SignalCreateInput, SignalUncheckedCreateInput>
+    /**
+     * In case the Signal was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SignalUpdateInput, SignalUncheckedUpdateInput>
+  }
+
+  /**
+   * Signal delete
+   */
+  export type SignalDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Signal
+     */
+    select?: SignalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Signal
+     */
+    omit?: SignalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SignalInclude<ExtArgs> | null
+    /**
+     * Filter which Signal to delete.
+     */
+    where: SignalWhereUniqueInput
+  }
+
+  /**
+   * Signal deleteMany
+   */
+  export type SignalDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Signals to delete
+     */
+    where?: SignalWhereInput
+    /**
+     * Limit how many Signals to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Signal.comments
+   */
+  export type Signal$commentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    where?: CommentWhereInput
+    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
+    cursor?: CommentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
+  }
+
+  /**
+   * Signal.likes
+   */
+  export type Signal$likesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Like
+     */
+    select?: LikeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Like
+     */
+    omit?: LikeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LikeInclude<ExtArgs> | null
+    where?: LikeWhereInput
+    orderBy?: LikeOrderByWithRelationInput | LikeOrderByWithRelationInput[]
+    cursor?: LikeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LikeScalarFieldEnum | LikeScalarFieldEnum[]
+  }
+
+  /**
+   * Signal without action
+   */
+  export type SignalDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Signal
+     */
+    select?: SignalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Signal
+     */
+    omit?: SignalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SignalInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Comment
+   */
+
+  export type AggregateComment = {
+    _count: CommentCountAggregateOutputType | null
+    _avg: CommentAvgAggregateOutputType | null
+    _sum: CommentSumAggregateOutputType | null
+    _min: CommentMinAggregateOutputType | null
+    _max: CommentMaxAggregateOutputType | null
+  }
+
+  export type CommentAvgAggregateOutputType = {
+    id: number | null
+    signalId: number | null
+  }
+
+  export type CommentSumAggregateOutputType = {
+    id: number | null
+    signalId: number | null
+  }
+
+  export type CommentMinAggregateOutputType = {
+    id: number | null
+    content: string | null
+    authorName: string | null
+    authorAddress: string | null
+    createdAt: Date | null
+    signalId: number | null
+    network: string | null
+  }
+
+  export type CommentMaxAggregateOutputType = {
+    id: number | null
+    content: string | null
+    authorName: string | null
+    authorAddress: string | null
+    createdAt: Date | null
+    signalId: number | null
+    network: string | null
+  }
+
+  export type CommentCountAggregateOutputType = {
+    id: number
+    content: number
+    authorName: number
+    authorAddress: number
+    createdAt: number
+    signalId: number
+    network: number
+    _all: number
+  }
+
+
+  export type CommentAvgAggregateInputType = {
+    id?: true
+    signalId?: true
+  }
+
+  export type CommentSumAggregateInputType = {
+    id?: true
+    signalId?: true
+  }
+
+  export type CommentMinAggregateInputType = {
+    id?: true
+    content?: true
+    authorName?: true
+    authorAddress?: true
+    createdAt?: true
+    signalId?: true
+    network?: true
+  }
+
+  export type CommentMaxAggregateInputType = {
+    id?: true
+    content?: true
+    authorName?: true
+    authorAddress?: true
+    createdAt?: true
+    signalId?: true
+    network?: true
+  }
+
+  export type CommentCountAggregateInputType = {
+    id?: true
+    content?: true
+    authorName?: true
+    authorAddress?: true
+    createdAt?: true
+    signalId?: true
+    network?: true
+    _all?: true
+  }
+
+  export type CommentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Comment to aggregate.
+     */
+    where?: CommentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Comments to fetch.
+     */
+    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CommentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Comments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Comments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Comments
+    **/
+    _count?: true | CommentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CommentAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CommentSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CommentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CommentMaxAggregateInputType
+  }
+
+  export type GetCommentAggregateType<T extends CommentAggregateArgs> = {
+        [P in keyof T & keyof AggregateComment]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateComment[P]>
+      : GetScalarType<T[P], AggregateComment[P]>
+  }
+
+
+
+
+  export type CommentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CommentWhereInput
+    orderBy?: CommentOrderByWithAggregationInput | CommentOrderByWithAggregationInput[]
+    by: CommentScalarFieldEnum[] | CommentScalarFieldEnum
+    having?: CommentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CommentCountAggregateInputType | true
+    _avg?: CommentAvgAggregateInputType
+    _sum?: CommentSumAggregateInputType
+    _min?: CommentMinAggregateInputType
+    _max?: CommentMaxAggregateInputType
+  }
+
+  export type CommentGroupByOutputType = {
+    id: number
+    content: string
+    authorName: string
+    authorAddress: string
+    createdAt: Date
+    signalId: number
+    network: string
+    _count: CommentCountAggregateOutputType | null
+    _avg: CommentAvgAggregateOutputType | null
+    _sum: CommentSumAggregateOutputType | null
+    _min: CommentMinAggregateOutputType | null
+    _max: CommentMaxAggregateOutputType | null
+  }
+
+  type GetCommentGroupByPayload<T extends CommentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CommentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CommentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CommentGroupByOutputType[P]>
+            : GetScalarType<T[P], CommentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CommentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    content?: boolean
+    authorName?: boolean
+    authorAddress?: boolean
+    createdAt?: boolean
+    signalId?: boolean
+    network?: boolean
+    signal?: boolean | SignalDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["comment"]>
+
+  export type CommentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    content?: boolean
+    authorName?: boolean
+    authorAddress?: boolean
+    createdAt?: boolean
+    signalId?: boolean
+    network?: boolean
+    signal?: boolean | SignalDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["comment"]>
+
+  export type CommentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    content?: boolean
+    authorName?: boolean
+    authorAddress?: boolean
+    createdAt?: boolean
+    signalId?: boolean
+    network?: boolean
+    signal?: boolean | SignalDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["comment"]>
+
+  export type CommentSelectScalar = {
+    id?: boolean
+    content?: boolean
+    authorName?: boolean
+    authorAddress?: boolean
+    createdAt?: boolean
+    signalId?: boolean
+    network?: boolean
+  }
+
+  export type CommentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "content" | "authorName" | "authorAddress" | "createdAt" | "signalId" | "network", ExtArgs["result"]["comment"]>
+  export type CommentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    signal?: boolean | SignalDefaultArgs<ExtArgs>
+  }
+  export type CommentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    signal?: boolean | SignalDefaultArgs<ExtArgs>
+  }
+  export type CommentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    signal?: boolean | SignalDefaultArgs<ExtArgs>
+  }
+
+  export type $CommentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Comment"
+    objects: {
+      signal: Prisma.$SignalPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      content: string
+      authorName: string
+      authorAddress: string
+      createdAt: Date
+      signalId: number
+      network: string
+    }, ExtArgs["result"]["comment"]>
+    composites: {}
+  }
+
+  type CommentGetPayload<S extends boolean | null | undefined | CommentDefaultArgs> = $Result.GetResult<Prisma.$CommentPayload, S>
+
+  type CommentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CommentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CommentCountAggregateInputType | true
+    }
+
+  export interface CommentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Comment'], meta: { name: 'Comment' } }
+    /**
+     * Find zero or one Comment that matches the filter.
+     * @param {CommentFindUniqueArgs} args - Arguments to find a Comment
+     * @example
+     * // Get one Comment
+     * const comment = await prisma.comment.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CommentFindUniqueArgs>(args: SelectSubset<T, CommentFindUniqueArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Comment that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CommentFindUniqueOrThrowArgs} args - Arguments to find a Comment
+     * @example
+     * // Get one Comment
+     * const comment = await prisma.comment.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CommentFindUniqueOrThrowArgs>(args: SelectSubset<T, CommentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Comment that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentFindFirstArgs} args - Arguments to find a Comment
+     * @example
+     * // Get one Comment
+     * const comment = await prisma.comment.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CommentFindFirstArgs>(args?: SelectSubset<T, CommentFindFirstArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Comment that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentFindFirstOrThrowArgs} args - Arguments to find a Comment
+     * @example
+     * // Get one Comment
+     * const comment = await prisma.comment.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CommentFindFirstOrThrowArgs>(args?: SelectSubset<T, CommentFindFirstOrThrowArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Comments that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Comments
+     * const comments = await prisma.comment.findMany()
+     * 
+     * // Get first 10 Comments
+     * const comments = await prisma.comment.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const commentWithIdOnly = await prisma.comment.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CommentFindManyArgs>(args?: SelectSubset<T, CommentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Comment.
+     * @param {CommentCreateArgs} args - Arguments to create a Comment.
+     * @example
+     * // Create one Comment
+     * const Comment = await prisma.comment.create({
+     *   data: {
+     *     // ... data to create a Comment
+     *   }
+     * })
+     * 
+     */
+    create<T extends CommentCreateArgs>(args: SelectSubset<T, CommentCreateArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Comments.
+     * @param {CommentCreateManyArgs} args - Arguments to create many Comments.
+     * @example
+     * // Create many Comments
+     * const comment = await prisma.comment.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CommentCreateManyArgs>(args?: SelectSubset<T, CommentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Comments and returns the data saved in the database.
+     * @param {CommentCreateManyAndReturnArgs} args - Arguments to create many Comments.
+     * @example
+     * // Create many Comments
+     * const comment = await prisma.comment.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Comments and only return the `id`
+     * const commentWithIdOnly = await prisma.comment.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CommentCreateManyAndReturnArgs>(args?: SelectSubset<T, CommentCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Comment.
+     * @param {CommentDeleteArgs} args - Arguments to delete one Comment.
+     * @example
+     * // Delete one Comment
+     * const Comment = await prisma.comment.delete({
+     *   where: {
+     *     // ... filter to delete one Comment
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CommentDeleteArgs>(args: SelectSubset<T, CommentDeleteArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Comment.
+     * @param {CommentUpdateArgs} args - Arguments to update one Comment.
+     * @example
+     * // Update one Comment
+     * const comment = await prisma.comment.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CommentUpdateArgs>(args: SelectSubset<T, CommentUpdateArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Comments.
+     * @param {CommentDeleteManyArgs} args - Arguments to filter Comments to delete.
+     * @example
+     * // Delete a few Comments
+     * const { count } = await prisma.comment.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CommentDeleteManyArgs>(args?: SelectSubset<T, CommentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Comments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Comments
+     * const comment = await prisma.comment.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CommentUpdateManyArgs>(args: SelectSubset<T, CommentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Comments and returns the data updated in the database.
+     * @param {CommentUpdateManyAndReturnArgs} args - Arguments to update many Comments.
+     * @example
+     * // Update many Comments
+     * const comment = await prisma.comment.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Comments and only return the `id`
+     * const commentWithIdOnly = await prisma.comment.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CommentUpdateManyAndReturnArgs>(args: SelectSubset<T, CommentUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Comment.
+     * @param {CommentUpsertArgs} args - Arguments to update or create a Comment.
+     * @example
+     * // Update or create a Comment
+     * const comment = await prisma.comment.upsert({
+     *   create: {
+     *     // ... data to create a Comment
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Comment we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CommentUpsertArgs>(args: SelectSubset<T, CommentUpsertArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Comments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentCountArgs} args - Arguments to filter Comments to count.
+     * @example
+     * // Count the number of Comments
+     * const count = await prisma.comment.count({
+     *   where: {
+     *     // ... the filter for the Comments we want to count
+     *   }
+     * })
+    **/
+    count<T extends CommentCountArgs>(
+      args?: Subset<T, CommentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CommentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Comment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CommentAggregateArgs>(args: Subset<T, CommentAggregateArgs>): Prisma.PrismaPromise<GetCommentAggregateType<T>>
+
+    /**
+     * Group by Comment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CommentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CommentGroupByArgs['orderBy'] }
+        : { orderBy?: CommentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CommentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCommentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Comment model
+   */
+  readonly fields: CommentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Comment.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CommentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    signal<T extends SignalDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SignalDefaultArgs<ExtArgs>>): Prisma__SignalClient<$Result.GetResult<Prisma.$SignalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Comment model
+   */
+  interface CommentFieldRefs {
+    readonly id: FieldRef<"Comment", 'Int'>
+    readonly content: FieldRef<"Comment", 'String'>
+    readonly authorName: FieldRef<"Comment", 'String'>
+    readonly authorAddress: FieldRef<"Comment", 'String'>
+    readonly createdAt: FieldRef<"Comment", 'DateTime'>
+    readonly signalId: FieldRef<"Comment", 'Int'>
+    readonly network: FieldRef<"Comment", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Comment findUnique
+   */
+  export type CommentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    /**
+     * Filter, which Comment to fetch.
+     */
+    where: CommentWhereUniqueInput
+  }
+
+  /**
+   * Comment findUniqueOrThrow
+   */
+  export type CommentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    /**
+     * Filter, which Comment to fetch.
+     */
+    where: CommentWhereUniqueInput
+  }
+
+  /**
+   * Comment findFirst
+   */
+  export type CommentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    /**
+     * Filter, which Comment to fetch.
+     */
+    where?: CommentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Comments to fetch.
+     */
+    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Comments.
+     */
+    cursor?: CommentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Comments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Comments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Comments.
+     */
+    distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
+  }
+
+  /**
+   * Comment findFirstOrThrow
+   */
+  export type CommentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    /**
+     * Filter, which Comment to fetch.
+     */
+    where?: CommentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Comments to fetch.
+     */
+    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Comments.
+     */
+    cursor?: CommentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Comments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Comments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Comments.
+     */
+    distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
+  }
+
+  /**
+   * Comment findMany
+   */
+  export type CommentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    /**
+     * Filter, which Comments to fetch.
+     */
+    where?: CommentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Comments to fetch.
+     */
+    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Comments.
+     */
+    cursor?: CommentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Comments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Comments.
+     */
+    skip?: number
+    distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
+  }
+
+  /**
+   * Comment create
+   */
+  export type CommentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Comment.
+     */
+    data: XOR<CommentCreateInput, CommentUncheckedCreateInput>
+  }
+
+  /**
+   * Comment createMany
+   */
+  export type CommentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Comments.
+     */
+    data: CommentCreateManyInput | CommentCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Comment createManyAndReturn
+   */
+  export type CommentCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * The data used to create many Comments.
+     */
+    data: CommentCreateManyInput | CommentCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Comment update
+   */
+  export type CommentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Comment.
+     */
+    data: XOR<CommentUpdateInput, CommentUncheckedUpdateInput>
+    /**
+     * Choose, which Comment to update.
+     */
+    where: CommentWhereUniqueInput
+  }
+
+  /**
+   * Comment updateMany
+   */
+  export type CommentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Comments.
+     */
+    data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyInput>
+    /**
+     * Filter which Comments to update
+     */
+    where?: CommentWhereInput
+    /**
+     * Limit how many Comments to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Comment updateManyAndReturn
+   */
+  export type CommentUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * The data used to update Comments.
+     */
+    data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyInput>
+    /**
+     * Filter which Comments to update
+     */
+    where?: CommentWhereInput
+    /**
+     * Limit how many Comments to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Comment upsert
+   */
+  export type CommentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Comment to update in case it exists.
+     */
+    where: CommentWhereUniqueInput
+    /**
+     * In case the Comment found by the `where` argument doesn't exist, create a new Comment with this data.
+     */
+    create: XOR<CommentCreateInput, CommentUncheckedCreateInput>
+    /**
+     * In case the Comment was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CommentUpdateInput, CommentUncheckedUpdateInput>
+  }
+
+  /**
+   * Comment delete
+   */
+  export type CommentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    /**
+     * Filter which Comment to delete.
+     */
+    where: CommentWhereUniqueInput
+  }
+
+  /**
+   * Comment deleteMany
+   */
+  export type CommentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Comments to delete
+     */
+    where?: CommentWhereInput
+    /**
+     * Limit how many Comments to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Comment without action
+   */
+  export type CommentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Like
+   */
+
+  export type AggregateLike = {
+    _count: LikeCountAggregateOutputType | null
+    _avg: LikeAvgAggregateOutputType | null
+    _sum: LikeSumAggregateOutputType | null
+    _min: LikeMinAggregateOutputType | null
+    _max: LikeMaxAggregateOutputType | null
+  }
+
+  export type LikeAvgAggregateOutputType = {
+    id: number | null
+    signalId: number | null
+  }
+
+  export type LikeSumAggregateOutputType = {
+    id: number | null
+    signalId: number | null
+  }
+
+  export type LikeMinAggregateOutputType = {
+    id: number | null
+    userAddress: string | null
+    userName: string | null
+    createdAt: Date | null
+    signalId: number | null
+  }
+
+  export type LikeMaxAggregateOutputType = {
+    id: number | null
+    userAddress: string | null
+    userName: string | null
+    createdAt: Date | null
+    signalId: number | null
+  }
+
+  export type LikeCountAggregateOutputType = {
+    id: number
+    userAddress: number
+    userName: number
+    createdAt: number
+    signalId: number
+    _all: number
+  }
+
+
+  export type LikeAvgAggregateInputType = {
+    id?: true
+    signalId?: true
+  }
+
+  export type LikeSumAggregateInputType = {
+    id?: true
+    signalId?: true
+  }
+
+  export type LikeMinAggregateInputType = {
+    id?: true
+    userAddress?: true
+    userName?: true
+    createdAt?: true
+    signalId?: true
+  }
+
+  export type LikeMaxAggregateInputType = {
+    id?: true
+    userAddress?: true
+    userName?: true
+    createdAt?: true
+    signalId?: true
+  }
+
+  export type LikeCountAggregateInputType = {
+    id?: true
+    userAddress?: true
+    userName?: true
+    createdAt?: true
+    signalId?: true
+    _all?: true
+  }
+
+  export type LikeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Like to aggregate.
+     */
+    where?: LikeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Likes to fetch.
+     */
+    orderBy?: LikeOrderByWithRelationInput | LikeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LikeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Likes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Likes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Likes
+    **/
+    _count?: true | LikeCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LikeAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LikeSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LikeMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LikeMaxAggregateInputType
+  }
+
+  export type GetLikeAggregateType<T extends LikeAggregateArgs> = {
+        [P in keyof T & keyof AggregateLike]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLike[P]>
+      : GetScalarType<T[P], AggregateLike[P]>
+  }
+
+
+
+
+  export type LikeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LikeWhereInput
+    orderBy?: LikeOrderByWithAggregationInput | LikeOrderByWithAggregationInput[]
+    by: LikeScalarFieldEnum[] | LikeScalarFieldEnum
+    having?: LikeScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LikeCountAggregateInputType | true
+    _avg?: LikeAvgAggregateInputType
+    _sum?: LikeSumAggregateInputType
+    _min?: LikeMinAggregateInputType
+    _max?: LikeMaxAggregateInputType
+  }
+
+  export type LikeGroupByOutputType = {
+    id: number
+    userAddress: string
+    userName: string
+    createdAt: Date
+    signalId: number
+    _count: LikeCountAggregateOutputType | null
+    _avg: LikeAvgAggregateOutputType | null
+    _sum: LikeSumAggregateOutputType | null
+    _min: LikeMinAggregateOutputType | null
+    _max: LikeMaxAggregateOutputType | null
+  }
+
+  type GetLikeGroupByPayload<T extends LikeGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LikeGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LikeGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LikeGroupByOutputType[P]>
+            : GetScalarType<T[P], LikeGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LikeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userAddress?: boolean
+    userName?: boolean
+    createdAt?: boolean
+    signalId?: boolean
+    signal?: boolean | SignalDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["like"]>
+
+  export type LikeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userAddress?: boolean
+    userName?: boolean
+    createdAt?: boolean
+    signalId?: boolean
+    signal?: boolean | SignalDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["like"]>
+
+  export type LikeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userAddress?: boolean
+    userName?: boolean
+    createdAt?: boolean
+    signalId?: boolean
+    signal?: boolean | SignalDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["like"]>
+
+  export type LikeSelectScalar = {
+    id?: boolean
+    userAddress?: boolean
+    userName?: boolean
+    createdAt?: boolean
+    signalId?: boolean
+  }
+
+  export type LikeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userAddress" | "userName" | "createdAt" | "signalId", ExtArgs["result"]["like"]>
+  export type LikeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    signal?: boolean | SignalDefaultArgs<ExtArgs>
+  }
+  export type LikeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    signal?: boolean | SignalDefaultArgs<ExtArgs>
+  }
+  export type LikeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    signal?: boolean | SignalDefaultArgs<ExtArgs>
+  }
+
+  export type $LikePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Like"
+    objects: {
+      signal: Prisma.$SignalPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      userAddress: string
+      userName: string
+      createdAt: Date
+      signalId: number
+    }, ExtArgs["result"]["like"]>
+    composites: {}
+  }
+
+  type LikeGetPayload<S extends boolean | null | undefined | LikeDefaultArgs> = $Result.GetResult<Prisma.$LikePayload, S>
+
+  type LikeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LikeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LikeCountAggregateInputType | true
+    }
+
+  export interface LikeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Like'], meta: { name: 'Like' } }
+    /**
+     * Find zero or one Like that matches the filter.
+     * @param {LikeFindUniqueArgs} args - Arguments to find a Like
+     * @example
+     * // Get one Like
+     * const like = await prisma.like.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LikeFindUniqueArgs>(args: SelectSubset<T, LikeFindUniqueArgs<ExtArgs>>): Prisma__LikeClient<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Like that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LikeFindUniqueOrThrowArgs} args - Arguments to find a Like
+     * @example
+     * // Get one Like
+     * const like = await prisma.like.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LikeFindUniqueOrThrowArgs>(args: SelectSubset<T, LikeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LikeClient<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Like that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LikeFindFirstArgs} args - Arguments to find a Like
+     * @example
+     * // Get one Like
+     * const like = await prisma.like.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LikeFindFirstArgs>(args?: SelectSubset<T, LikeFindFirstArgs<ExtArgs>>): Prisma__LikeClient<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Like that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LikeFindFirstOrThrowArgs} args - Arguments to find a Like
+     * @example
+     * // Get one Like
+     * const like = await prisma.like.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LikeFindFirstOrThrowArgs>(args?: SelectSubset<T, LikeFindFirstOrThrowArgs<ExtArgs>>): Prisma__LikeClient<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Likes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LikeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Likes
+     * const likes = await prisma.like.findMany()
+     * 
+     * // Get first 10 Likes
+     * const likes = await prisma.like.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const likeWithIdOnly = await prisma.like.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LikeFindManyArgs>(args?: SelectSubset<T, LikeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Like.
+     * @param {LikeCreateArgs} args - Arguments to create a Like.
+     * @example
+     * // Create one Like
+     * const Like = await prisma.like.create({
+     *   data: {
+     *     // ... data to create a Like
+     *   }
+     * })
+     * 
+     */
+    create<T extends LikeCreateArgs>(args: SelectSubset<T, LikeCreateArgs<ExtArgs>>): Prisma__LikeClient<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Likes.
+     * @param {LikeCreateManyArgs} args - Arguments to create many Likes.
+     * @example
+     * // Create many Likes
+     * const like = await prisma.like.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LikeCreateManyArgs>(args?: SelectSubset<T, LikeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Likes and returns the data saved in the database.
+     * @param {LikeCreateManyAndReturnArgs} args - Arguments to create many Likes.
+     * @example
+     * // Create many Likes
+     * const like = await prisma.like.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Likes and only return the `id`
+     * const likeWithIdOnly = await prisma.like.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LikeCreateManyAndReturnArgs>(args?: SelectSubset<T, LikeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Like.
+     * @param {LikeDeleteArgs} args - Arguments to delete one Like.
+     * @example
+     * // Delete one Like
+     * const Like = await prisma.like.delete({
+     *   where: {
+     *     // ... filter to delete one Like
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LikeDeleteArgs>(args: SelectSubset<T, LikeDeleteArgs<ExtArgs>>): Prisma__LikeClient<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Like.
+     * @param {LikeUpdateArgs} args - Arguments to update one Like.
+     * @example
+     * // Update one Like
+     * const like = await prisma.like.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LikeUpdateArgs>(args: SelectSubset<T, LikeUpdateArgs<ExtArgs>>): Prisma__LikeClient<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Likes.
+     * @param {LikeDeleteManyArgs} args - Arguments to filter Likes to delete.
+     * @example
+     * // Delete a few Likes
+     * const { count } = await prisma.like.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LikeDeleteManyArgs>(args?: SelectSubset<T, LikeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Likes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LikeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Likes
+     * const like = await prisma.like.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LikeUpdateManyArgs>(args: SelectSubset<T, LikeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Likes and returns the data updated in the database.
+     * @param {LikeUpdateManyAndReturnArgs} args - Arguments to update many Likes.
+     * @example
+     * // Update many Likes
+     * const like = await prisma.like.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Likes and only return the `id`
+     * const likeWithIdOnly = await prisma.like.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LikeUpdateManyAndReturnArgs>(args: SelectSubset<T, LikeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Like.
+     * @param {LikeUpsertArgs} args - Arguments to update or create a Like.
+     * @example
+     * // Update or create a Like
+     * const like = await prisma.like.upsert({
+     *   create: {
+     *     // ... data to create a Like
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Like we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LikeUpsertArgs>(args: SelectSubset<T, LikeUpsertArgs<ExtArgs>>): Prisma__LikeClient<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Likes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LikeCountArgs} args - Arguments to filter Likes to count.
+     * @example
+     * // Count the number of Likes
+     * const count = await prisma.like.count({
+     *   where: {
+     *     // ... the filter for the Likes we want to count
+     *   }
+     * })
+    **/
+    count<T extends LikeCountArgs>(
+      args?: Subset<T, LikeCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LikeCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Like.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LikeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LikeAggregateArgs>(args: Subset<T, LikeAggregateArgs>): Prisma.PrismaPromise<GetLikeAggregateType<T>>
+
+    /**
+     * Group by Like.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LikeGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LikeGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LikeGroupByArgs['orderBy'] }
+        : { orderBy?: LikeGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LikeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLikeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Like model
+   */
+  readonly fields: LikeFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Like.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LikeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    signal<T extends SignalDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SignalDefaultArgs<ExtArgs>>): Prisma__SignalClient<$Result.GetResult<Prisma.$SignalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Like model
+   */
+  interface LikeFieldRefs {
+    readonly id: FieldRef<"Like", 'Int'>
+    readonly userAddress: FieldRef<"Like", 'String'>
+    readonly userName: FieldRef<"Like", 'String'>
+    readonly createdAt: FieldRef<"Like", 'DateTime'>
+    readonly signalId: FieldRef<"Like", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Like findUnique
+   */
+  export type LikeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Like
+     */
+    select?: LikeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Like
+     */
+    omit?: LikeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LikeInclude<ExtArgs> | null
+    /**
+     * Filter, which Like to fetch.
+     */
+    where: LikeWhereUniqueInput
+  }
+
+  /**
+   * Like findUniqueOrThrow
+   */
+  export type LikeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Like
+     */
+    select?: LikeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Like
+     */
+    omit?: LikeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LikeInclude<ExtArgs> | null
+    /**
+     * Filter, which Like to fetch.
+     */
+    where: LikeWhereUniqueInput
+  }
+
+  /**
+   * Like findFirst
+   */
+  export type LikeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Like
+     */
+    select?: LikeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Like
+     */
+    omit?: LikeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LikeInclude<ExtArgs> | null
+    /**
+     * Filter, which Like to fetch.
+     */
+    where?: LikeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Likes to fetch.
+     */
+    orderBy?: LikeOrderByWithRelationInput | LikeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Likes.
+     */
+    cursor?: LikeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Likes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Likes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Likes.
+     */
+    distinct?: LikeScalarFieldEnum | LikeScalarFieldEnum[]
+  }
+
+  /**
+   * Like findFirstOrThrow
+   */
+  export type LikeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Like
+     */
+    select?: LikeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Like
+     */
+    omit?: LikeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LikeInclude<ExtArgs> | null
+    /**
+     * Filter, which Like to fetch.
+     */
+    where?: LikeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Likes to fetch.
+     */
+    orderBy?: LikeOrderByWithRelationInput | LikeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Likes.
+     */
+    cursor?: LikeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Likes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Likes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Likes.
+     */
+    distinct?: LikeScalarFieldEnum | LikeScalarFieldEnum[]
+  }
+
+  /**
+   * Like findMany
+   */
+  export type LikeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Like
+     */
+    select?: LikeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Like
+     */
+    omit?: LikeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LikeInclude<ExtArgs> | null
+    /**
+     * Filter, which Likes to fetch.
+     */
+    where?: LikeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Likes to fetch.
+     */
+    orderBy?: LikeOrderByWithRelationInput | LikeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Likes.
+     */
+    cursor?: LikeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Likes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Likes.
+     */
+    skip?: number
+    distinct?: LikeScalarFieldEnum | LikeScalarFieldEnum[]
+  }
+
+  /**
+   * Like create
+   */
+  export type LikeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Like
+     */
+    select?: LikeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Like
+     */
+    omit?: LikeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LikeInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Like.
+     */
+    data: XOR<LikeCreateInput, LikeUncheckedCreateInput>
+  }
+
+  /**
+   * Like createMany
+   */
+  export type LikeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Likes.
+     */
+    data: LikeCreateManyInput | LikeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Like createManyAndReturn
+   */
+  export type LikeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Like
+     */
+    select?: LikeSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Like
+     */
+    omit?: LikeOmit<ExtArgs> | null
+    /**
+     * The data used to create many Likes.
+     */
+    data: LikeCreateManyInput | LikeCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LikeIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Like update
+   */
+  export type LikeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Like
+     */
+    select?: LikeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Like
+     */
+    omit?: LikeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LikeInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Like.
+     */
+    data: XOR<LikeUpdateInput, LikeUncheckedUpdateInput>
+    /**
+     * Choose, which Like to update.
+     */
+    where: LikeWhereUniqueInput
+  }
+
+  /**
+   * Like updateMany
+   */
+  export type LikeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Likes.
+     */
+    data: XOR<LikeUpdateManyMutationInput, LikeUncheckedUpdateManyInput>
+    /**
+     * Filter which Likes to update
+     */
+    where?: LikeWhereInput
+    /**
+     * Limit how many Likes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Like updateManyAndReturn
+   */
+  export type LikeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Like
+     */
+    select?: LikeSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Like
+     */
+    omit?: LikeOmit<ExtArgs> | null
+    /**
+     * The data used to update Likes.
+     */
+    data: XOR<LikeUpdateManyMutationInput, LikeUncheckedUpdateManyInput>
+    /**
+     * Filter which Likes to update
+     */
+    where?: LikeWhereInput
+    /**
+     * Limit how many Likes to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LikeIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Like upsert
+   */
+  export type LikeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Like
+     */
+    select?: LikeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Like
+     */
+    omit?: LikeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LikeInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Like to update in case it exists.
+     */
+    where: LikeWhereUniqueInput
+    /**
+     * In case the Like found by the `where` argument doesn't exist, create a new Like with this data.
+     */
+    create: XOR<LikeCreateInput, LikeUncheckedCreateInput>
+    /**
+     * In case the Like was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LikeUpdateInput, LikeUncheckedUpdateInput>
+  }
+
+  /**
+   * Like delete
+   */
+  export type LikeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Like
+     */
+    select?: LikeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Like
+     */
+    omit?: LikeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LikeInclude<ExtArgs> | null
+    /**
+     * Filter which Like to delete.
+     */
+    where: LikeWhereUniqueInput
+  }
+
+  /**
+   * Like deleteMany
+   */
+  export type LikeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Likes to delete
+     */
+    where?: LikeWhereInput
+    /**
+     * Limit how many Likes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Like without action
+   */
+  export type LikeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Like
+     */
+    select?: LikeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Like
+     */
+    omit?: LikeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LikeInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -4667,6 +8412,47 @@ export namespace Prisma {
   };
 
   export type UserModelPreferenceScalarFieldEnum = (typeof UserModelPreferenceScalarFieldEnum)[keyof typeof UserModelPreferenceScalarFieldEnum]
+
+
+  export const SignalScalarFieldEnum: {
+    id: 'id',
+    asset: 'asset',
+    action: 'action',
+    timeframe: 'timeframe',
+    priceTarget: 'priceTarget',
+    confidenceLevel: 'confidenceLevel',
+    analysis: 'analysis',
+    creatorName: 'creatorName',
+    creatorAddress: 'creatorAddress',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type SignalScalarFieldEnum = (typeof SignalScalarFieldEnum)[keyof typeof SignalScalarFieldEnum]
+
+
+  export const CommentScalarFieldEnum: {
+    id: 'id',
+    content: 'content',
+    authorName: 'authorName',
+    authorAddress: 'authorAddress',
+    createdAt: 'createdAt',
+    signalId: 'signalId',
+    network: 'network'
+  };
+
+  export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum]
+
+
+  export const LikeScalarFieldEnum: {
+    id: 'id',
+    userAddress: 'userAddress',
+    userName: 'userName',
+    createdAt: 'createdAt',
+    signalId: 'signalId'
+  };
+
+  export type LikeScalarFieldEnum = (typeof LikeScalarFieldEnum)[keyof typeof LikeScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5040,6 +8826,221 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"UserModelPreference"> | Date | string
   }
 
+  export type SignalWhereInput = {
+    AND?: SignalWhereInput | SignalWhereInput[]
+    OR?: SignalWhereInput[]
+    NOT?: SignalWhereInput | SignalWhereInput[]
+    id?: IntFilter<"Signal"> | number
+    asset?: StringFilter<"Signal"> | string
+    action?: StringFilter<"Signal"> | string
+    timeframe?: StringFilter<"Signal"> | string
+    priceTarget?: StringNullableFilter<"Signal"> | string | null
+    confidenceLevel?: IntFilter<"Signal"> | number
+    analysis?: StringFilter<"Signal"> | string
+    creatorName?: StringFilter<"Signal"> | string
+    creatorAddress?: StringFilter<"Signal"> | string
+    createdAt?: DateTimeFilter<"Signal"> | Date | string
+    updatedAt?: DateTimeFilter<"Signal"> | Date | string
+    comments?: CommentListRelationFilter
+    likes?: LikeListRelationFilter
+  }
+
+  export type SignalOrderByWithRelationInput = {
+    id?: SortOrder
+    asset?: SortOrder
+    action?: SortOrder
+    timeframe?: SortOrder
+    priceTarget?: SortOrderInput | SortOrder
+    confidenceLevel?: SortOrder
+    analysis?: SortOrder
+    creatorName?: SortOrder
+    creatorAddress?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    comments?: CommentOrderByRelationAggregateInput
+    likes?: LikeOrderByRelationAggregateInput
+  }
+
+  export type SignalWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: SignalWhereInput | SignalWhereInput[]
+    OR?: SignalWhereInput[]
+    NOT?: SignalWhereInput | SignalWhereInput[]
+    asset?: StringFilter<"Signal"> | string
+    action?: StringFilter<"Signal"> | string
+    timeframe?: StringFilter<"Signal"> | string
+    priceTarget?: StringNullableFilter<"Signal"> | string | null
+    confidenceLevel?: IntFilter<"Signal"> | number
+    analysis?: StringFilter<"Signal"> | string
+    creatorName?: StringFilter<"Signal"> | string
+    creatorAddress?: StringFilter<"Signal"> | string
+    createdAt?: DateTimeFilter<"Signal"> | Date | string
+    updatedAt?: DateTimeFilter<"Signal"> | Date | string
+    comments?: CommentListRelationFilter
+    likes?: LikeListRelationFilter
+  }, "id">
+
+  export type SignalOrderByWithAggregationInput = {
+    id?: SortOrder
+    asset?: SortOrder
+    action?: SortOrder
+    timeframe?: SortOrder
+    priceTarget?: SortOrderInput | SortOrder
+    confidenceLevel?: SortOrder
+    analysis?: SortOrder
+    creatorName?: SortOrder
+    creatorAddress?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: SignalCountOrderByAggregateInput
+    _avg?: SignalAvgOrderByAggregateInput
+    _max?: SignalMaxOrderByAggregateInput
+    _min?: SignalMinOrderByAggregateInput
+    _sum?: SignalSumOrderByAggregateInput
+  }
+
+  export type SignalScalarWhereWithAggregatesInput = {
+    AND?: SignalScalarWhereWithAggregatesInput | SignalScalarWhereWithAggregatesInput[]
+    OR?: SignalScalarWhereWithAggregatesInput[]
+    NOT?: SignalScalarWhereWithAggregatesInput | SignalScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Signal"> | number
+    asset?: StringWithAggregatesFilter<"Signal"> | string
+    action?: StringWithAggregatesFilter<"Signal"> | string
+    timeframe?: StringWithAggregatesFilter<"Signal"> | string
+    priceTarget?: StringNullableWithAggregatesFilter<"Signal"> | string | null
+    confidenceLevel?: IntWithAggregatesFilter<"Signal"> | number
+    analysis?: StringWithAggregatesFilter<"Signal"> | string
+    creatorName?: StringWithAggregatesFilter<"Signal"> | string
+    creatorAddress?: StringWithAggregatesFilter<"Signal"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Signal"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Signal"> | Date | string
+  }
+
+  export type CommentWhereInput = {
+    AND?: CommentWhereInput | CommentWhereInput[]
+    OR?: CommentWhereInput[]
+    NOT?: CommentWhereInput | CommentWhereInput[]
+    id?: IntFilter<"Comment"> | number
+    content?: StringFilter<"Comment"> | string
+    authorName?: StringFilter<"Comment"> | string
+    authorAddress?: StringFilter<"Comment"> | string
+    createdAt?: DateTimeFilter<"Comment"> | Date | string
+    signalId?: IntFilter<"Comment"> | number
+    network?: StringFilter<"Comment"> | string
+    signal?: XOR<SignalScalarRelationFilter, SignalWhereInput>
+  }
+
+  export type CommentOrderByWithRelationInput = {
+    id?: SortOrder
+    content?: SortOrder
+    authorName?: SortOrder
+    authorAddress?: SortOrder
+    createdAt?: SortOrder
+    signalId?: SortOrder
+    network?: SortOrder
+    signal?: SignalOrderByWithRelationInput
+  }
+
+  export type CommentWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: CommentWhereInput | CommentWhereInput[]
+    OR?: CommentWhereInput[]
+    NOT?: CommentWhereInput | CommentWhereInput[]
+    content?: StringFilter<"Comment"> | string
+    authorName?: StringFilter<"Comment"> | string
+    authorAddress?: StringFilter<"Comment"> | string
+    createdAt?: DateTimeFilter<"Comment"> | Date | string
+    signalId?: IntFilter<"Comment"> | number
+    network?: StringFilter<"Comment"> | string
+    signal?: XOR<SignalScalarRelationFilter, SignalWhereInput>
+  }, "id">
+
+  export type CommentOrderByWithAggregationInput = {
+    id?: SortOrder
+    content?: SortOrder
+    authorName?: SortOrder
+    authorAddress?: SortOrder
+    createdAt?: SortOrder
+    signalId?: SortOrder
+    network?: SortOrder
+    _count?: CommentCountOrderByAggregateInput
+    _avg?: CommentAvgOrderByAggregateInput
+    _max?: CommentMaxOrderByAggregateInput
+    _min?: CommentMinOrderByAggregateInput
+    _sum?: CommentSumOrderByAggregateInput
+  }
+
+  export type CommentScalarWhereWithAggregatesInput = {
+    AND?: CommentScalarWhereWithAggregatesInput | CommentScalarWhereWithAggregatesInput[]
+    OR?: CommentScalarWhereWithAggregatesInput[]
+    NOT?: CommentScalarWhereWithAggregatesInput | CommentScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Comment"> | number
+    content?: StringWithAggregatesFilter<"Comment"> | string
+    authorName?: StringWithAggregatesFilter<"Comment"> | string
+    authorAddress?: StringWithAggregatesFilter<"Comment"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Comment"> | Date | string
+    signalId?: IntWithAggregatesFilter<"Comment"> | number
+    network?: StringWithAggregatesFilter<"Comment"> | string
+  }
+
+  export type LikeWhereInput = {
+    AND?: LikeWhereInput | LikeWhereInput[]
+    OR?: LikeWhereInput[]
+    NOT?: LikeWhereInput | LikeWhereInput[]
+    id?: IntFilter<"Like"> | number
+    userAddress?: StringFilter<"Like"> | string
+    userName?: StringFilter<"Like"> | string
+    createdAt?: DateTimeFilter<"Like"> | Date | string
+    signalId?: IntFilter<"Like"> | number
+    signal?: XOR<SignalScalarRelationFilter, SignalWhereInput>
+  }
+
+  export type LikeOrderByWithRelationInput = {
+    id?: SortOrder
+    userAddress?: SortOrder
+    userName?: SortOrder
+    createdAt?: SortOrder
+    signalId?: SortOrder
+    signal?: SignalOrderByWithRelationInput
+  }
+
+  export type LikeWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    userAddress_signalId?: LikeUserAddressSignalIdCompoundUniqueInput
+    AND?: LikeWhereInput | LikeWhereInput[]
+    OR?: LikeWhereInput[]
+    NOT?: LikeWhereInput | LikeWhereInput[]
+    userAddress?: StringFilter<"Like"> | string
+    userName?: StringFilter<"Like"> | string
+    createdAt?: DateTimeFilter<"Like"> | Date | string
+    signalId?: IntFilter<"Like"> | number
+    signal?: XOR<SignalScalarRelationFilter, SignalWhereInput>
+  }, "id" | "userAddress_signalId">
+
+  export type LikeOrderByWithAggregationInput = {
+    id?: SortOrder
+    userAddress?: SortOrder
+    userName?: SortOrder
+    createdAt?: SortOrder
+    signalId?: SortOrder
+    _count?: LikeCountOrderByAggregateInput
+    _avg?: LikeAvgOrderByAggregateInput
+    _max?: LikeMaxOrderByAggregateInput
+    _min?: LikeMinOrderByAggregateInput
+    _sum?: LikeSumOrderByAggregateInput
+  }
+
+  export type LikeScalarWhereWithAggregatesInput = {
+    AND?: LikeScalarWhereWithAggregatesInput | LikeScalarWhereWithAggregatesInput[]
+    OR?: LikeScalarWhereWithAggregatesInput[]
+    NOT?: LikeScalarWhereWithAggregatesInput | LikeScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Like"> | number
+    userAddress?: StringWithAggregatesFilter<"Like"> | string
+    userName?: StringWithAggregatesFilter<"Like"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Like"> | Date | string
+    signalId?: IntWithAggregatesFilter<"Like"> | number
+  }
+
   export type AIModelCreateInput = {
     name: string
     description?: string | null
@@ -5301,6 +9302,227 @@ export namespace Prisma {
     isDefault?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SignalCreateInput = {
+    asset: string
+    action: string
+    timeframe: string
+    priceTarget?: string | null
+    confidenceLevel: number
+    analysis: string
+    creatorName?: string
+    creatorAddress?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    comments?: CommentCreateNestedManyWithoutSignalInput
+    likes?: LikeCreateNestedManyWithoutSignalInput
+  }
+
+  export type SignalUncheckedCreateInput = {
+    id?: number
+    asset: string
+    action: string
+    timeframe: string
+    priceTarget?: string | null
+    confidenceLevel: number
+    analysis: string
+    creatorName?: string
+    creatorAddress?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    comments?: CommentUncheckedCreateNestedManyWithoutSignalInput
+    likes?: LikeUncheckedCreateNestedManyWithoutSignalInput
+  }
+
+  export type SignalUpdateInput = {
+    asset?: StringFieldUpdateOperationsInput | string
+    action?: StringFieldUpdateOperationsInput | string
+    timeframe?: StringFieldUpdateOperationsInput | string
+    priceTarget?: NullableStringFieldUpdateOperationsInput | string | null
+    confidenceLevel?: IntFieldUpdateOperationsInput | number
+    analysis?: StringFieldUpdateOperationsInput | string
+    creatorName?: StringFieldUpdateOperationsInput | string
+    creatorAddress?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    comments?: CommentUpdateManyWithoutSignalNestedInput
+    likes?: LikeUpdateManyWithoutSignalNestedInput
+  }
+
+  export type SignalUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    asset?: StringFieldUpdateOperationsInput | string
+    action?: StringFieldUpdateOperationsInput | string
+    timeframe?: StringFieldUpdateOperationsInput | string
+    priceTarget?: NullableStringFieldUpdateOperationsInput | string | null
+    confidenceLevel?: IntFieldUpdateOperationsInput | number
+    analysis?: StringFieldUpdateOperationsInput | string
+    creatorName?: StringFieldUpdateOperationsInput | string
+    creatorAddress?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    comments?: CommentUncheckedUpdateManyWithoutSignalNestedInput
+    likes?: LikeUncheckedUpdateManyWithoutSignalNestedInput
+  }
+
+  export type SignalCreateManyInput = {
+    id?: number
+    asset: string
+    action: string
+    timeframe: string
+    priceTarget?: string | null
+    confidenceLevel: number
+    analysis: string
+    creatorName?: string
+    creatorAddress?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SignalUpdateManyMutationInput = {
+    asset?: StringFieldUpdateOperationsInput | string
+    action?: StringFieldUpdateOperationsInput | string
+    timeframe?: StringFieldUpdateOperationsInput | string
+    priceTarget?: NullableStringFieldUpdateOperationsInput | string | null
+    confidenceLevel?: IntFieldUpdateOperationsInput | number
+    analysis?: StringFieldUpdateOperationsInput | string
+    creatorName?: StringFieldUpdateOperationsInput | string
+    creatorAddress?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SignalUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    asset?: StringFieldUpdateOperationsInput | string
+    action?: StringFieldUpdateOperationsInput | string
+    timeframe?: StringFieldUpdateOperationsInput | string
+    priceTarget?: NullableStringFieldUpdateOperationsInput | string | null
+    confidenceLevel?: IntFieldUpdateOperationsInput | number
+    analysis?: StringFieldUpdateOperationsInput | string
+    creatorName?: StringFieldUpdateOperationsInput | string
+    creatorAddress?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CommentCreateInput = {
+    content: string
+    authorName: string
+    authorAddress: string
+    createdAt?: Date | string
+    network: string
+    signal: SignalCreateNestedOneWithoutCommentsInput
+  }
+
+  export type CommentUncheckedCreateInput = {
+    id?: number
+    content: string
+    authorName: string
+    authorAddress: string
+    createdAt?: Date | string
+    signalId: number
+    network: string
+  }
+
+  export type CommentUpdateInput = {
+    content?: StringFieldUpdateOperationsInput | string
+    authorName?: StringFieldUpdateOperationsInput | string
+    authorAddress?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    network?: StringFieldUpdateOperationsInput | string
+    signal?: SignalUpdateOneRequiredWithoutCommentsNestedInput
+  }
+
+  export type CommentUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    content?: StringFieldUpdateOperationsInput | string
+    authorName?: StringFieldUpdateOperationsInput | string
+    authorAddress?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    signalId?: IntFieldUpdateOperationsInput | number
+    network?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CommentCreateManyInput = {
+    id?: number
+    content: string
+    authorName: string
+    authorAddress: string
+    createdAt?: Date | string
+    signalId: number
+    network: string
+  }
+
+  export type CommentUpdateManyMutationInput = {
+    content?: StringFieldUpdateOperationsInput | string
+    authorName?: StringFieldUpdateOperationsInput | string
+    authorAddress?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    network?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CommentUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    content?: StringFieldUpdateOperationsInput | string
+    authorName?: StringFieldUpdateOperationsInput | string
+    authorAddress?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    signalId?: IntFieldUpdateOperationsInput | number
+    network?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LikeCreateInput = {
+    userAddress: string
+    userName: string
+    createdAt?: Date | string
+    signal: SignalCreateNestedOneWithoutLikesInput
+  }
+
+  export type LikeUncheckedCreateInput = {
+    id?: number
+    userAddress: string
+    userName: string
+    createdAt?: Date | string
+    signalId: number
+  }
+
+  export type LikeUpdateInput = {
+    userAddress?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    signal?: SignalUpdateOneRequiredWithoutLikesNestedInput
+  }
+
+  export type LikeUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userAddress?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    signalId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LikeCreateManyInput = {
+    id?: number
+    userAddress: string
+    userName: string
+    createdAt?: Date | string
+    signalId: number
+  }
+
+  export type LikeUpdateManyMutationInput = {
+    userAddress?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LikeUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userAddress?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    signalId?: IntFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -5720,6 +9942,162 @@ export namespace Prisma {
     modelId?: SortOrder
   }
 
+  export type CommentListRelationFilter = {
+    every?: CommentWhereInput
+    some?: CommentWhereInput
+    none?: CommentWhereInput
+  }
+
+  export type LikeListRelationFilter = {
+    every?: LikeWhereInput
+    some?: LikeWhereInput
+    none?: LikeWhereInput
+  }
+
+  export type CommentOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LikeOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SignalCountOrderByAggregateInput = {
+    id?: SortOrder
+    asset?: SortOrder
+    action?: SortOrder
+    timeframe?: SortOrder
+    priceTarget?: SortOrder
+    confidenceLevel?: SortOrder
+    analysis?: SortOrder
+    creatorName?: SortOrder
+    creatorAddress?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SignalAvgOrderByAggregateInput = {
+    id?: SortOrder
+    confidenceLevel?: SortOrder
+  }
+
+  export type SignalMaxOrderByAggregateInput = {
+    id?: SortOrder
+    asset?: SortOrder
+    action?: SortOrder
+    timeframe?: SortOrder
+    priceTarget?: SortOrder
+    confidenceLevel?: SortOrder
+    analysis?: SortOrder
+    creatorName?: SortOrder
+    creatorAddress?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SignalMinOrderByAggregateInput = {
+    id?: SortOrder
+    asset?: SortOrder
+    action?: SortOrder
+    timeframe?: SortOrder
+    priceTarget?: SortOrder
+    confidenceLevel?: SortOrder
+    analysis?: SortOrder
+    creatorName?: SortOrder
+    creatorAddress?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SignalSumOrderByAggregateInput = {
+    id?: SortOrder
+    confidenceLevel?: SortOrder
+  }
+
+  export type SignalScalarRelationFilter = {
+    is?: SignalWhereInput
+    isNot?: SignalWhereInput
+  }
+
+  export type CommentCountOrderByAggregateInput = {
+    id?: SortOrder
+    content?: SortOrder
+    authorName?: SortOrder
+    authorAddress?: SortOrder
+    createdAt?: SortOrder
+    signalId?: SortOrder
+    network?: SortOrder
+  }
+
+  export type CommentAvgOrderByAggregateInput = {
+    id?: SortOrder
+    signalId?: SortOrder
+  }
+
+  export type CommentMaxOrderByAggregateInput = {
+    id?: SortOrder
+    content?: SortOrder
+    authorName?: SortOrder
+    authorAddress?: SortOrder
+    createdAt?: SortOrder
+    signalId?: SortOrder
+    network?: SortOrder
+  }
+
+  export type CommentMinOrderByAggregateInput = {
+    id?: SortOrder
+    content?: SortOrder
+    authorName?: SortOrder
+    authorAddress?: SortOrder
+    createdAt?: SortOrder
+    signalId?: SortOrder
+    network?: SortOrder
+  }
+
+  export type CommentSumOrderByAggregateInput = {
+    id?: SortOrder
+    signalId?: SortOrder
+  }
+
+  export type LikeUserAddressSignalIdCompoundUniqueInput = {
+    userAddress: string
+    signalId: number
+  }
+
+  export type LikeCountOrderByAggregateInput = {
+    id?: SortOrder
+    userAddress?: SortOrder
+    userName?: SortOrder
+    createdAt?: SortOrder
+    signalId?: SortOrder
+  }
+
+  export type LikeAvgOrderByAggregateInput = {
+    id?: SortOrder
+    signalId?: SortOrder
+  }
+
+  export type LikeMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userAddress?: SortOrder
+    userName?: SortOrder
+    createdAt?: SortOrder
+    signalId?: SortOrder
+  }
+
+  export type LikeMinOrderByAggregateInput = {
+    id?: SortOrder
+    userAddress?: SortOrder
+    userName?: SortOrder
+    createdAt?: SortOrder
+    signalId?: SortOrder
+  }
+
+  export type LikeSumOrderByAggregateInput = {
+    id?: SortOrder
+    signalId?: SortOrder
+  }
+
   export type AIPredictionCreateNestedManyWithoutModelInput = {
     create?: XOR<AIPredictionCreateWithoutModelInput, AIPredictionUncheckedCreateWithoutModelInput> | AIPredictionCreateWithoutModelInput[] | AIPredictionUncheckedCreateWithoutModelInput[]
     connectOrCreate?: AIPredictionCreateOrConnectWithoutModelInput | AIPredictionCreateOrConnectWithoutModelInput[]
@@ -5870,6 +10248,118 @@ export namespace Prisma {
     upsert?: AIModelUpsertWithoutUserPreferencesInput
     connect?: AIModelWhereUniqueInput
     update?: XOR<XOR<AIModelUpdateToOneWithWhereWithoutUserPreferencesInput, AIModelUpdateWithoutUserPreferencesInput>, AIModelUncheckedUpdateWithoutUserPreferencesInput>
+  }
+
+  export type CommentCreateNestedManyWithoutSignalInput = {
+    create?: XOR<CommentCreateWithoutSignalInput, CommentUncheckedCreateWithoutSignalInput> | CommentCreateWithoutSignalInput[] | CommentUncheckedCreateWithoutSignalInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutSignalInput | CommentCreateOrConnectWithoutSignalInput[]
+    createMany?: CommentCreateManySignalInputEnvelope
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+  }
+
+  export type LikeCreateNestedManyWithoutSignalInput = {
+    create?: XOR<LikeCreateWithoutSignalInput, LikeUncheckedCreateWithoutSignalInput> | LikeCreateWithoutSignalInput[] | LikeUncheckedCreateWithoutSignalInput[]
+    connectOrCreate?: LikeCreateOrConnectWithoutSignalInput | LikeCreateOrConnectWithoutSignalInput[]
+    createMany?: LikeCreateManySignalInputEnvelope
+    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+  }
+
+  export type CommentUncheckedCreateNestedManyWithoutSignalInput = {
+    create?: XOR<CommentCreateWithoutSignalInput, CommentUncheckedCreateWithoutSignalInput> | CommentCreateWithoutSignalInput[] | CommentUncheckedCreateWithoutSignalInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutSignalInput | CommentCreateOrConnectWithoutSignalInput[]
+    createMany?: CommentCreateManySignalInputEnvelope
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+  }
+
+  export type LikeUncheckedCreateNestedManyWithoutSignalInput = {
+    create?: XOR<LikeCreateWithoutSignalInput, LikeUncheckedCreateWithoutSignalInput> | LikeCreateWithoutSignalInput[] | LikeUncheckedCreateWithoutSignalInput[]
+    connectOrCreate?: LikeCreateOrConnectWithoutSignalInput | LikeCreateOrConnectWithoutSignalInput[]
+    createMany?: LikeCreateManySignalInputEnvelope
+    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+  }
+
+  export type CommentUpdateManyWithoutSignalNestedInput = {
+    create?: XOR<CommentCreateWithoutSignalInput, CommentUncheckedCreateWithoutSignalInput> | CommentCreateWithoutSignalInput[] | CommentUncheckedCreateWithoutSignalInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutSignalInput | CommentCreateOrConnectWithoutSignalInput[]
+    upsert?: CommentUpsertWithWhereUniqueWithoutSignalInput | CommentUpsertWithWhereUniqueWithoutSignalInput[]
+    createMany?: CommentCreateManySignalInputEnvelope
+    set?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    disconnect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    delete?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    update?: CommentUpdateWithWhereUniqueWithoutSignalInput | CommentUpdateWithWhereUniqueWithoutSignalInput[]
+    updateMany?: CommentUpdateManyWithWhereWithoutSignalInput | CommentUpdateManyWithWhereWithoutSignalInput[]
+    deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
+  }
+
+  export type LikeUpdateManyWithoutSignalNestedInput = {
+    create?: XOR<LikeCreateWithoutSignalInput, LikeUncheckedCreateWithoutSignalInput> | LikeCreateWithoutSignalInput[] | LikeUncheckedCreateWithoutSignalInput[]
+    connectOrCreate?: LikeCreateOrConnectWithoutSignalInput | LikeCreateOrConnectWithoutSignalInput[]
+    upsert?: LikeUpsertWithWhereUniqueWithoutSignalInput | LikeUpsertWithWhereUniqueWithoutSignalInput[]
+    createMany?: LikeCreateManySignalInputEnvelope
+    set?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    disconnect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    delete?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    update?: LikeUpdateWithWhereUniqueWithoutSignalInput | LikeUpdateWithWhereUniqueWithoutSignalInput[]
+    updateMany?: LikeUpdateManyWithWhereWithoutSignalInput | LikeUpdateManyWithWhereWithoutSignalInput[]
+    deleteMany?: LikeScalarWhereInput | LikeScalarWhereInput[]
+  }
+
+  export type CommentUncheckedUpdateManyWithoutSignalNestedInput = {
+    create?: XOR<CommentCreateWithoutSignalInput, CommentUncheckedCreateWithoutSignalInput> | CommentCreateWithoutSignalInput[] | CommentUncheckedCreateWithoutSignalInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutSignalInput | CommentCreateOrConnectWithoutSignalInput[]
+    upsert?: CommentUpsertWithWhereUniqueWithoutSignalInput | CommentUpsertWithWhereUniqueWithoutSignalInput[]
+    createMany?: CommentCreateManySignalInputEnvelope
+    set?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    disconnect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    delete?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    update?: CommentUpdateWithWhereUniqueWithoutSignalInput | CommentUpdateWithWhereUniqueWithoutSignalInput[]
+    updateMany?: CommentUpdateManyWithWhereWithoutSignalInput | CommentUpdateManyWithWhereWithoutSignalInput[]
+    deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
+  }
+
+  export type LikeUncheckedUpdateManyWithoutSignalNestedInput = {
+    create?: XOR<LikeCreateWithoutSignalInput, LikeUncheckedCreateWithoutSignalInput> | LikeCreateWithoutSignalInput[] | LikeUncheckedCreateWithoutSignalInput[]
+    connectOrCreate?: LikeCreateOrConnectWithoutSignalInput | LikeCreateOrConnectWithoutSignalInput[]
+    upsert?: LikeUpsertWithWhereUniqueWithoutSignalInput | LikeUpsertWithWhereUniqueWithoutSignalInput[]
+    createMany?: LikeCreateManySignalInputEnvelope
+    set?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    disconnect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    delete?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    update?: LikeUpdateWithWhereUniqueWithoutSignalInput | LikeUpdateWithWhereUniqueWithoutSignalInput[]
+    updateMany?: LikeUpdateManyWithWhereWithoutSignalInput | LikeUpdateManyWithWhereWithoutSignalInput[]
+    deleteMany?: LikeScalarWhereInput | LikeScalarWhereInput[]
+  }
+
+  export type SignalCreateNestedOneWithoutCommentsInput = {
+    create?: XOR<SignalCreateWithoutCommentsInput, SignalUncheckedCreateWithoutCommentsInput>
+    connectOrCreate?: SignalCreateOrConnectWithoutCommentsInput
+    connect?: SignalWhereUniqueInput
+  }
+
+  export type SignalUpdateOneRequiredWithoutCommentsNestedInput = {
+    create?: XOR<SignalCreateWithoutCommentsInput, SignalUncheckedCreateWithoutCommentsInput>
+    connectOrCreate?: SignalCreateOrConnectWithoutCommentsInput
+    upsert?: SignalUpsertWithoutCommentsInput
+    connect?: SignalWhereUniqueInput
+    update?: XOR<XOR<SignalUpdateToOneWithWhereWithoutCommentsInput, SignalUpdateWithoutCommentsInput>, SignalUncheckedUpdateWithoutCommentsInput>
+  }
+
+  export type SignalCreateNestedOneWithoutLikesInput = {
+    create?: XOR<SignalCreateWithoutLikesInput, SignalUncheckedCreateWithoutLikesInput>
+    connectOrCreate?: SignalCreateOrConnectWithoutLikesInput
+    connect?: SignalWhereUniqueInput
+  }
+
+  export type SignalUpdateOneRequiredWithoutLikesNestedInput = {
+    create?: XOR<SignalCreateWithoutLikesInput, SignalUncheckedCreateWithoutLikesInput>
+    connectOrCreate?: SignalCreateOrConnectWithoutLikesInput
+    upsert?: SignalUpsertWithoutLikesInput
+    connect?: SignalWhereUniqueInput
+    update?: XOR<XOR<SignalUpdateToOneWithWhereWithoutLikesInput, SignalUpdateWithoutLikesInput>, SignalUncheckedUpdateWithoutLikesInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -6349,6 +10839,260 @@ export namespace Prisma {
     predictions?: AIPredictionUncheckedUpdateManyWithoutModelNestedInput
   }
 
+  export type CommentCreateWithoutSignalInput = {
+    content: string
+    authorName: string
+    authorAddress: string
+    createdAt?: Date | string
+    network: string
+  }
+
+  export type CommentUncheckedCreateWithoutSignalInput = {
+    id?: number
+    content: string
+    authorName: string
+    authorAddress: string
+    createdAt?: Date | string
+    network: string
+  }
+
+  export type CommentCreateOrConnectWithoutSignalInput = {
+    where: CommentWhereUniqueInput
+    create: XOR<CommentCreateWithoutSignalInput, CommentUncheckedCreateWithoutSignalInput>
+  }
+
+  export type CommentCreateManySignalInputEnvelope = {
+    data: CommentCreateManySignalInput | CommentCreateManySignalInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LikeCreateWithoutSignalInput = {
+    userAddress: string
+    userName: string
+    createdAt?: Date | string
+  }
+
+  export type LikeUncheckedCreateWithoutSignalInput = {
+    id?: number
+    userAddress: string
+    userName: string
+    createdAt?: Date | string
+  }
+
+  export type LikeCreateOrConnectWithoutSignalInput = {
+    where: LikeWhereUniqueInput
+    create: XOR<LikeCreateWithoutSignalInput, LikeUncheckedCreateWithoutSignalInput>
+  }
+
+  export type LikeCreateManySignalInputEnvelope = {
+    data: LikeCreateManySignalInput | LikeCreateManySignalInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CommentUpsertWithWhereUniqueWithoutSignalInput = {
+    where: CommentWhereUniqueInput
+    update: XOR<CommentUpdateWithoutSignalInput, CommentUncheckedUpdateWithoutSignalInput>
+    create: XOR<CommentCreateWithoutSignalInput, CommentUncheckedCreateWithoutSignalInput>
+  }
+
+  export type CommentUpdateWithWhereUniqueWithoutSignalInput = {
+    where: CommentWhereUniqueInput
+    data: XOR<CommentUpdateWithoutSignalInput, CommentUncheckedUpdateWithoutSignalInput>
+  }
+
+  export type CommentUpdateManyWithWhereWithoutSignalInput = {
+    where: CommentScalarWhereInput
+    data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyWithoutSignalInput>
+  }
+
+  export type CommentScalarWhereInput = {
+    AND?: CommentScalarWhereInput | CommentScalarWhereInput[]
+    OR?: CommentScalarWhereInput[]
+    NOT?: CommentScalarWhereInput | CommentScalarWhereInput[]
+    id?: IntFilter<"Comment"> | number
+    content?: StringFilter<"Comment"> | string
+    authorName?: StringFilter<"Comment"> | string
+    authorAddress?: StringFilter<"Comment"> | string
+    createdAt?: DateTimeFilter<"Comment"> | Date | string
+    signalId?: IntFilter<"Comment"> | number
+    network?: StringFilter<"Comment"> | string
+  }
+
+  export type LikeUpsertWithWhereUniqueWithoutSignalInput = {
+    where: LikeWhereUniqueInput
+    update: XOR<LikeUpdateWithoutSignalInput, LikeUncheckedUpdateWithoutSignalInput>
+    create: XOR<LikeCreateWithoutSignalInput, LikeUncheckedCreateWithoutSignalInput>
+  }
+
+  export type LikeUpdateWithWhereUniqueWithoutSignalInput = {
+    where: LikeWhereUniqueInput
+    data: XOR<LikeUpdateWithoutSignalInput, LikeUncheckedUpdateWithoutSignalInput>
+  }
+
+  export type LikeUpdateManyWithWhereWithoutSignalInput = {
+    where: LikeScalarWhereInput
+    data: XOR<LikeUpdateManyMutationInput, LikeUncheckedUpdateManyWithoutSignalInput>
+  }
+
+  export type LikeScalarWhereInput = {
+    AND?: LikeScalarWhereInput | LikeScalarWhereInput[]
+    OR?: LikeScalarWhereInput[]
+    NOT?: LikeScalarWhereInput | LikeScalarWhereInput[]
+    id?: IntFilter<"Like"> | number
+    userAddress?: StringFilter<"Like"> | string
+    userName?: StringFilter<"Like"> | string
+    createdAt?: DateTimeFilter<"Like"> | Date | string
+    signalId?: IntFilter<"Like"> | number
+  }
+
+  export type SignalCreateWithoutCommentsInput = {
+    asset: string
+    action: string
+    timeframe: string
+    priceTarget?: string | null
+    confidenceLevel: number
+    analysis: string
+    creatorName?: string
+    creatorAddress?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    likes?: LikeCreateNestedManyWithoutSignalInput
+  }
+
+  export type SignalUncheckedCreateWithoutCommentsInput = {
+    id?: number
+    asset: string
+    action: string
+    timeframe: string
+    priceTarget?: string | null
+    confidenceLevel: number
+    analysis: string
+    creatorName?: string
+    creatorAddress?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    likes?: LikeUncheckedCreateNestedManyWithoutSignalInput
+  }
+
+  export type SignalCreateOrConnectWithoutCommentsInput = {
+    where: SignalWhereUniqueInput
+    create: XOR<SignalCreateWithoutCommentsInput, SignalUncheckedCreateWithoutCommentsInput>
+  }
+
+  export type SignalUpsertWithoutCommentsInput = {
+    update: XOR<SignalUpdateWithoutCommentsInput, SignalUncheckedUpdateWithoutCommentsInput>
+    create: XOR<SignalCreateWithoutCommentsInput, SignalUncheckedCreateWithoutCommentsInput>
+    where?: SignalWhereInput
+  }
+
+  export type SignalUpdateToOneWithWhereWithoutCommentsInput = {
+    where?: SignalWhereInput
+    data: XOR<SignalUpdateWithoutCommentsInput, SignalUncheckedUpdateWithoutCommentsInput>
+  }
+
+  export type SignalUpdateWithoutCommentsInput = {
+    asset?: StringFieldUpdateOperationsInput | string
+    action?: StringFieldUpdateOperationsInput | string
+    timeframe?: StringFieldUpdateOperationsInput | string
+    priceTarget?: NullableStringFieldUpdateOperationsInput | string | null
+    confidenceLevel?: IntFieldUpdateOperationsInput | number
+    analysis?: StringFieldUpdateOperationsInput | string
+    creatorName?: StringFieldUpdateOperationsInput | string
+    creatorAddress?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    likes?: LikeUpdateManyWithoutSignalNestedInput
+  }
+
+  export type SignalUncheckedUpdateWithoutCommentsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    asset?: StringFieldUpdateOperationsInput | string
+    action?: StringFieldUpdateOperationsInput | string
+    timeframe?: StringFieldUpdateOperationsInput | string
+    priceTarget?: NullableStringFieldUpdateOperationsInput | string | null
+    confidenceLevel?: IntFieldUpdateOperationsInput | number
+    analysis?: StringFieldUpdateOperationsInput | string
+    creatorName?: StringFieldUpdateOperationsInput | string
+    creatorAddress?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    likes?: LikeUncheckedUpdateManyWithoutSignalNestedInput
+  }
+
+  export type SignalCreateWithoutLikesInput = {
+    asset: string
+    action: string
+    timeframe: string
+    priceTarget?: string | null
+    confidenceLevel: number
+    analysis: string
+    creatorName?: string
+    creatorAddress?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    comments?: CommentCreateNestedManyWithoutSignalInput
+  }
+
+  export type SignalUncheckedCreateWithoutLikesInput = {
+    id?: number
+    asset: string
+    action: string
+    timeframe: string
+    priceTarget?: string | null
+    confidenceLevel: number
+    analysis: string
+    creatorName?: string
+    creatorAddress?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    comments?: CommentUncheckedCreateNestedManyWithoutSignalInput
+  }
+
+  export type SignalCreateOrConnectWithoutLikesInput = {
+    where: SignalWhereUniqueInput
+    create: XOR<SignalCreateWithoutLikesInput, SignalUncheckedCreateWithoutLikesInput>
+  }
+
+  export type SignalUpsertWithoutLikesInput = {
+    update: XOR<SignalUpdateWithoutLikesInput, SignalUncheckedUpdateWithoutLikesInput>
+    create: XOR<SignalCreateWithoutLikesInput, SignalUncheckedCreateWithoutLikesInput>
+    where?: SignalWhereInput
+  }
+
+  export type SignalUpdateToOneWithWhereWithoutLikesInput = {
+    where?: SignalWhereInput
+    data: XOR<SignalUpdateWithoutLikesInput, SignalUncheckedUpdateWithoutLikesInput>
+  }
+
+  export type SignalUpdateWithoutLikesInput = {
+    asset?: StringFieldUpdateOperationsInput | string
+    action?: StringFieldUpdateOperationsInput | string
+    timeframe?: StringFieldUpdateOperationsInput | string
+    priceTarget?: NullableStringFieldUpdateOperationsInput | string | null
+    confidenceLevel?: IntFieldUpdateOperationsInput | number
+    analysis?: StringFieldUpdateOperationsInput | string
+    creatorName?: StringFieldUpdateOperationsInput | string
+    creatorAddress?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    comments?: CommentUpdateManyWithoutSignalNestedInput
+  }
+
+  export type SignalUncheckedUpdateWithoutLikesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    asset?: StringFieldUpdateOperationsInput | string
+    action?: StringFieldUpdateOperationsInput | string
+    timeframe?: StringFieldUpdateOperationsInput | string
+    priceTarget?: NullableStringFieldUpdateOperationsInput | string | null
+    confidenceLevel?: IntFieldUpdateOperationsInput | number
+    analysis?: StringFieldUpdateOperationsInput | string
+    creatorName?: StringFieldUpdateOperationsInput | string
+    creatorAddress?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    comments?: CommentUncheckedUpdateManyWithoutSignalNestedInput
+  }
+
   export type AIPredictionCreateManyModelInput = {
     id?: number
     modelType: string
@@ -6441,6 +11185,68 @@ export namespace Prisma {
     isDefault?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CommentCreateManySignalInput = {
+    id?: number
+    content: string
+    authorName: string
+    authorAddress: string
+    createdAt?: Date | string
+    network: string
+  }
+
+  export type LikeCreateManySignalInput = {
+    id?: number
+    userAddress: string
+    userName: string
+    createdAt?: Date | string
+  }
+
+  export type CommentUpdateWithoutSignalInput = {
+    content?: StringFieldUpdateOperationsInput | string
+    authorName?: StringFieldUpdateOperationsInput | string
+    authorAddress?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    network?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CommentUncheckedUpdateWithoutSignalInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    content?: StringFieldUpdateOperationsInput | string
+    authorName?: StringFieldUpdateOperationsInput | string
+    authorAddress?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    network?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CommentUncheckedUpdateManyWithoutSignalInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    content?: StringFieldUpdateOperationsInput | string
+    authorName?: StringFieldUpdateOperationsInput | string
+    authorAddress?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    network?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LikeUpdateWithoutSignalInput = {
+    userAddress?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LikeUncheckedUpdateWithoutSignalInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userAddress?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LikeUncheckedUpdateManyWithoutSignalInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userAddress?: StringFieldUpdateOperationsInput | string
+    userName?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

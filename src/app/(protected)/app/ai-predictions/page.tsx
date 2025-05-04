@@ -44,7 +44,7 @@ export default function AIPredictionsPage() {
     <div className="space-y-6">
       <AIPredictionsHeader />
       <div className="flex justify-end">
-        <Link href="/dashboard/ai-predictions/models">
+        <Link href="/app/ai-predictions/models">
           <Button variant="outline" className="flex items-center gap-2">
             <BrainCircuit className="h-4 w-4" />
             Manage AI Models
@@ -53,7 +53,14 @@ export default function AIPredictionsPage() {
       </div>
       <AIPredictionsStats />
       <div className="grid gap-6 md:grid-cols-2">
-        <AIPredictionsList />
+      <AIPredictionsList 
+      availableModels={[
+      { id: 1, name: "DeepSeek-V3-0324" },
+      { id: 2, name: "GPT-4" }
+       ]}
+      selectedModels={[1]}
+       onModelSelectionChange={(models) => console.log(models)}
+         />
         <div className="space-y-6">
           <MarketData />
         </div>

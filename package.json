@@ -8,9 +8,7 @@
     "start": "next start",
     "lint": "biome check app",
     "format": "biome check --write app",
-    "clean": "rm -rf .next .turbo .vercel node_modules",
-    "generate-prisma": "ts-node --transpile-only src/scripts/generate-prisma.ts",
-    "postinstall": "npm run generate-prisma"
+    "clean": "rm -rf .next .turbo .vercel node_modules"
   },
   "dependencies": {
     "@ai-sdk/xai": "^1.2.15",
@@ -18,7 +16,10 @@
     "@dnd-kit/modifiers": "^9.0.0",
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
+    "@erc725/erc725.js": "^0.27.2",
+    "@lukso/data-provider-ipfs-http-client": "^0.1.0",
     "@lukso/lsp-smart-contracts": "^0.14.0",
+    "@lukso/up-provider": "^0.3.5",
     "@neondatabase/serverless": "^1.0.0",
     "@next/font": "^14.2.15",
     "@prisma/client": "^6.7.0",
@@ -72,12 +73,13 @@
     "@eslint/eslintrc": "^3",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^20.17.32",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9.23.0",
     "prisma": "^6.7.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }

@@ -44,8 +44,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 export const navigationData = {
   user: {
     name: "Lukso",
-    email: "damilarea71@gmail.com",
-    avatar: "https://github.com/shadcn.png",
+    email: "",
+    avatar: "",
   },
   navMain: [
     {
@@ -61,11 +61,7 @@ export const navigationData = {
     {
       label: "Market Insights",
       items: [
-        // {
-        //   name: "Global Markets",
-        //   url: "/app/global",
-        //   icon: Globe,
-        // },
+
         {
           name: "Signal Feed",
           url: "/app/signals",
@@ -224,7 +220,7 @@ export function AppSidebar({ pathname = "", ...props }: AppSidebarProps) {
         {walletAddress ? (
           <div className="flex items-center gap-2 w-full">
             <Avatar className="h-8 w-8">
-              <AvatarImage src={navigationData.user.avatar} alt={navigationData.user.name} />
+              <AvatarImage src={navigationData.user.avatar ?? ""} alt={navigationData.user.name} />
               <AvatarFallback>{navigationData.user.name.charAt(0)}</AvatarFallback>
             </Avatar>
             <div className="flex-1 min-w-0">
@@ -249,7 +245,7 @@ export function AppSidebar({ pathname = "", ...props }: AppSidebarProps) {
             Connect Wallet
           </Button>
         )}
-        <NavUser user={navigationData.user} />
+        <NavUser user={navigationData.user ?? ""} />
       </SidebarFooter>
     </Sidebar>
   );

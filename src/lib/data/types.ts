@@ -104,3 +104,12 @@ export interface TechnicalIndicator {
   description: string;
   type: 'momentum' | 'trend' | 'volatility' | 'volume';
 }
+
+export interface Prediction {
+  id: string;
+  asset: string;
+  timeframe: string;
+  content: string;
+  createdAt: string;
+  model: string;
+}

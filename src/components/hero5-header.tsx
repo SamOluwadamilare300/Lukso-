@@ -136,51 +136,6 @@ export const HeroHeader = () => {
                 </ul>
               </div>
               <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                {/* <Button
-                                    asChild
-                                    variant="outline"
-                                    size="sm"
-                                    className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="/login">
-                                        <span>Login</span>
-                                    </Link>
-                                </Button>
-                                <Button
-                                    asChild
-                                    size="sm"
-                                    className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="/signup">
-                                        <span>Sign Up</span>
-                                    </Link>
-                                </Button> */}
-                {/* <Button
-                  asChild
-                  size="sm"
-                  className={cn(isScrolled && "lg:hidden")}
-                >
-                  <Link href="/app">
-                    <span>Dashboard</span>
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="sm"
-                  className={cn(
-                    isScrolled ? "lg:inline-flex hidden" : "hidden"
-                  )}
-                >
-                  <Link href="/app">
-                    <span>Dashboard</span>
-                  </Link>
-                </Button> */}
-                {/* <Button
-                  size="sm"
-                  onClick={handleConnect}
-                  disabled={isConnecting}
-                  className={cn(isScrolled && "lg:hidden")}
-                >
-                  {isConnecting ? "Connecting..." : "Dashboard"}
-                </Button> */}
                 <Button
                  size="sm"
                 onClick={handleConnect}
@@ -194,16 +149,14 @@ export const HeroHeader = () => {
                   : "Connect UPs"}
                  </Button>
 
-                {/* <Button
-                  size="sm"
-                  onClick={handleConnect}
-                  disabled={isConnecting}
-                  className={cn(
-                    isScrolled ? "lg:inline-flex hidden" : "hidden"
-                  )}
-                >
-                  {isConnecting ? "Connecting..." : "Dashboard"}
-                </Button> */}
+                 {/* <a
+  href="https://the.grid.lukso.network/add-mini-app?url=https://lukso-eight.vercel.app/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block px-4 py-2 bg-[#6e47ff] text-white rounded-lg font-semibold mt-4"
+>
+  🪄 Clone to My Grid
+</a> */}
               </div>
             </div>
           </div>

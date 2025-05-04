@@ -22,7 +22,7 @@ export function LuksoProvider({ children }: { children: ReactNode }) {
   const [universalProfile, setUniversalProfile] = useState<UniversalProfile | null>(null)
   const [isConnecting, setIsConnecting] = useState(false)
 
-  // Check if user was previously connected
+
   useEffect(() => {
     const storedProfile = localStorage.getItem("luksoProfile")
     if (storedProfile) {
@@ -34,8 +34,7 @@ export function LuksoProvider({ children }: { children: ReactNode }) {
     setIsConnecting(true)
 
     try {
-      // Simulate connection to LUKSO Universal Profile
-      // In a real implementation, this would use @up-provider
+      
       await new Promise((resolve) => setTimeout(resolve, 1000))
 
       const mockProfile = {

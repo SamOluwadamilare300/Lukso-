@@ -62,3 +62,46 @@ model UserModelPreference {
   @@unique([userAddress, modelId], name: "userAddress_modelId")
   @@map("user_model_preferences")
 }
+
+model Signal {
+  id              Int       @id @default(autoincrement())
+  asset           String
+  action          String
+  timeframe       String
+  priceTarget     String?
+  confidenceLevel Int
+  analysis        String
+  creatorName     String    @default("Anonymous")
+  creatorAddress  String    @default("0x0000000000000000000000000000000000000000")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @default(now()) @updatedAt @map("updated_at")
+  comments        Comment[]
+  likes           Like[]
+
+  @@map("signals")
+}
+
+model Comment {
+  id            Int      @id @default(autoincrement())
+  content       String
+  authorName    String
+  authorAddress String
+  createdAt     DateTime @default(now()) @map("created_at")
+  signal        Signal   @relation(fields: [signalId], references: [id], onDelete: Cascade)
+  signalId      Int      @map("signal_id")
+  network       String
+
+  @@map("comments")
+}
+
+model Like {
+  id          Int      @id @default(autoincrement())
+  userAddress String
+  userName    String
+  createdAt   DateTime @default(now()) @map("created_at")
+  signal      Signal   @relation(fields: [signalId], references: [id], onDelete: Cascade)
+  signalId    Int      @map("signal_id")
+
+  @@unique([userAddress, signalId])
+  @@map("likes")
+}

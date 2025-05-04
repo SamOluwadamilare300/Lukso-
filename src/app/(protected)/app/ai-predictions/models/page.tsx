@@ -53,7 +53,7 @@ export default function AIModelsPage() {
       toast({
         title: "Not connected",
         description: "Please connect your Universal Profile to manage AI models.",
-        // variant: "destructive",
+        variant: "destructive",
       })
       return
     }

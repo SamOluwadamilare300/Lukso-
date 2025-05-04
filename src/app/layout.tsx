@@ -19,19 +19,9 @@ import { Providers } from "@/hooks/providers/providers";
 import { LuksoProvider } from "@/components/lukso-provider"
 
 
-// const geistSans = Inter({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Roboto_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
 export const metadata: Metadata = {
   title: "LUKSO Grid Signal",
-  description: "Social DeFi Analytics Dashboard powered by LUKSO Universal Profiles",
+  description: "Social DApp Analytics Dashboard powered by LUKSO Universal Profiles",
 };
 
 export default function RootLayout({
@@ -45,6 +35,7 @@ export default function RootLayout({
       <body  className={`${GeistSans.variable} ${GeistMono.variable}`}
         
       >
+      
          <Providers> 
         <ThemeProvider
           attribute="class"
@@ -52,6 +43,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+
            <LuksoProvider> 
           <SharedLayout>
             <main className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
@@ -62,6 +54,7 @@ export default function RootLayout({
           </LuksoProvider>
         </ThemeProvider>
         </Providers>
+   
       </body>
     </html>
   );

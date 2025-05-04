@@ -1,6 +1,5 @@
-"use client"
 
-import type React from "react"
+"use client"
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -9,16 +8,15 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Slider } from "@/components/ui/slider"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Loader2 } from "lucide-react"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { BrainCircuit, Loader2 } from "lucide-react"
 import { createSignal } from "@/lib/lukso-contract"
 import { useToast } from "@/hooks/use-toast"
-
 
 export function CreateBlockchainSignalForm() {
   const [asset, setAsset] = useState("")
   const [action, setAction] = useState("buy")
-  const [timeframe, setTimeframe] = useState("86400") // 1 day in seconds
+  const [timeframe, setTimeframe] = useState("86400") 
   const [priceTarget, setPriceTarget] = useState("")
   const [confidenceLevel, setConfidenceLevel] = useState([75])
   const [analysis, setAnalysis] = useState("")
@@ -68,112 +66,110 @@ export function CreateBlockchainSignalForm() {
 
   return (
     <Card>
-      <CardHeader>
+       <CardHeader>
         <CardTitle>Create On-Chain Trading Signal</CardTitle>
-        <CardDescription>
-          Create a new trading signal that will be stored on the LUKSO blockchain as an LSP7 Digital Asset
-        </CardDescription>
-      </CardHeader>
+         <CardDescription>
+           Create a new trading signal that will be stored on the LUKSO blockchain Digital Asset         </CardDescription>
+       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="space-y-2">
-            <Label htmlFor="asset">Asset Address</Label>
-            <Input id="asset" placeholder="0x..." value={asset} onChange={(e) => setAsset(e.target.value)} required />
-            <p className="text-xs text-muted-foreground">
-              Enter the contract address of the asset you're creating a signal for
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+       
+            <div className="grid gap-4 md:grid-cols-2">
+                      <div className="space-y-2">
+                        <Label htmlFor="asset">Asset</Label>
+                        <Select value={timeframe} onValueChange={setTimeframe} required>
+                          <SelectTrigger id="asset">
+                            <SelectValue placeholder="Select asset" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="btc">Bitcoin (BTC)</SelectItem>
+                            <SelectItem value="eth">Ethereum (ETH)</SelectItem>
+                            <SelectItem value="lyx">LUKSO (LYX)</SelectItem>
+                            <SelectItem value="other">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="action">Action</Label>
+                        <Select value={timeframe} onValueChange={setTimeframe} required>
+                          <SelectTrigger id="action">
+                            <SelectValue placeholder="Select action" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="buy">Buy</SelectItem>
+                            <SelectItem value="sell">Sell</SelectItem>
+                            <SelectItem value="hold">Hold</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+                    <div className="grid gap-4 md:grid-cols-2">
+                      <div className="space-y-2">
+                        <Label htmlFor="timeframe">Timeframe</Label>
+                        <Select value={timeframe} onValueChange={setTimeframe} required>
+                          <SelectTrigger id="timeframe">
+                            <SelectValue placeholder="Select timeframe" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="1h">1 Hour</SelectItem>
+                            <SelectItem value="4h">4 Hours</SelectItem>
+                            <SelectItem value="1d">1 Day</SelectItem>
+                            <SelectItem value="1w">1 Week</SelectItem>
+                            <SelectItem value="1m">1 Month</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="price-target">Price Target (optional)</Label>
+                        <Input
+                          id="price-target"
+                          type="text"
+                          placeholder="e.g. $65,000"
+                          value={priceTarget}
+                          onChange={(e) => setPriceTarget(e.target.value)}
+                        />
+                      </div>
+                    </div>
             <div className="space-y-2">
-              <Label htmlFor="action">Action</Label>
-              <Select value={action} onValueChange={setAction} required>
-                <SelectTrigger id="action">
-                  <SelectValue placeholder="Select action" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="buy">Buy</SelectItem>
-                  <SelectItem value="sell">Sell</SelectItem>
-                  <SelectItem value="hold">Hold</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+                      <div className="flex items-center justify-between">
+                        <Label htmlFor="confidence">Confidence Level</Label>
+                        <span className="text-sm">{confidenceLevel[0]}%</span>
+                      </div>
+                      <Slider id="confidence" min={0} max={100} step={1}value={confidenceLevel}
+              onValueChange={setConfidenceLevel} />
+                      <div className="flex justify-between text-xs text-muted-foreground">
+                        <span>Low</span>
+                        <span>Medium</span>
+                        <span>High</span>
+                      </div>
+                    </div>
+          
+                    <div className="space-y-2">
+                      <Label htmlFor="analysis">Analysis & Rationale</Label>
+                      <Textarea
+                        id="analysis"
+                        placeholder="Provide your detailed analysis and reasoning for this signal..."
+                        rows={5}
+                        required
+                        value={analysis}
+                        onChange={(e) => setAnalysis(e.target.value)}
+                      />
+                    </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="timeframe">Timeframe</Label>
-              <Select value={timeframe} onValueChange={setTimeframe} required>
-                <SelectTrigger id="timeframe">
-                  <SelectValue placeholder="Select timeframe" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="3600">1 Hour</SelectItem>
-                  <SelectItem value="14400">4 Hours</SelectItem>
-                  <SelectItem value="86400">1 Day</SelectItem>
-                  <SelectItem value="604800">1 Week</SelectItem>
-                  <SelectItem value="2592000">1 Month</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="priceTarget">Price Target</Label>
-            <Input
-              id="priceTarget"
-              type="number"
-              step="0.01"
-              placeholder="0.00"
-              value={priceTarget}
-              onChange={(e) => setPriceTarget(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="space-y-2">
-            <div className="flex justify-between">
-              <Label htmlFor="confidenceLevel">Confidence Level</Label>
-              <span className="text-sm">{confidenceLevel[0]}%</span>
-            </div>
-            <Slider
-              id="confidenceLevel"
-              min={1}
-              max={100}
-              step={1}
-              value={confidenceLevel}
-              onValueChange={setConfidenceLevel}
-            />
-            <div className="flex justify-between text-xs text-muted-foreground">
-              <span>Low</span>
-              <span>Medium</span>
-              <span>High</span>
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="analysis">Analysis</Label>
-            <Textarea
-              id="analysis"
-              placeholder="Provide your detailed analysis and reasoning for this signal..."
-              rows={5}
-              value={analysis}
-              onChange={(e) => setAnalysis(e.target.value)}
-              required
-            />
+          <div className="flex justify-end">
+            <Button type="submit" disabled={isSubmitting} className="w-full md:w-auto">
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Creating Signal...
+                </>
+              ) : (
+                "Create On-Chain Signal"
+              )}
+            </Button>
           </div>
         </form>
       </CardContent>
-      <CardFooter>
-        <Button onClick={handleSubmit} disabled={isSubmitting} className="w-full">
-          {isSubmitting ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Creating Signal...
-            </>
-          ) : (
-            "Create On-Chain Signal"
-          )}
-        </Button>
-      </CardFooter>
     </Card>
   )
 }
