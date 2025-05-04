@@ -72,8 +72,6 @@ model Signal {
   priceTarget    String?
   confidenceLevel Int
   analysis       String
-  creatorName    String    @default("Anonymous")
-  creatorAddress String    @default("0x0000000000000000000000000000000000000000")
   createdAt      DateTime  @default(now()) @map("created_at")
   updatedAt      DateTime  @default(now()) @updatedAt @map("updated_at")
   comments       Comment[]
@@ -91,7 +89,6 @@ model Comment {
   signal    Signal   @relation(fields: [signalId], references: [id], onDelete: Cascade)
   signalId  Int      @map("signal_id")
   network       String 
-
   @@map("comments")
 }
 

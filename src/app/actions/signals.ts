@@ -18,8 +18,6 @@ export async function createSignal(
         priceTarget,
         confidenceLevel,
         analysis,
-        creatorName: creatorName || "Anonymous",
-        creatorAddress: creatorAddress || "0x0000000000000000000000000000000000000000",
       },
     })
 
@@ -37,8 +35,7 @@ export async function createSignal(
         priceTarget: newSignal.priceTarget || undefined,
         confidenceLevel: newSignal.confidenceLevel,
         analysis: newSignal.analysis,
-        creatorName: newSignal.creatorName,
-        creatorAddress: newSignal.creatorAddress,
+  
         createdAt: newSignal.createdAt,
         updatedAt: newSignal.updatedAt,
       },
@@ -99,8 +96,6 @@ export async function getSignals(filters?: FilterOptions): Promise<Signal[]> {
       priceTarget: signal.priceTarget || undefined,
       confidenceLevel: signal.confidenceLevel,
       analysis: signal.analysis,
-      creatorName: signal.creatorName,
-      creatorAddress: signal.creatorAddress,
       createdAt: signal.createdAt,
       updatedAt: signal.updatedAt,
       comments: signal.comments.map((comment) => ({
@@ -153,8 +148,6 @@ export async function getSignalById(id: number): Promise<Signal | null> {
       priceTarget: signal.priceTarget || undefined,
       confidenceLevel: signal.confidenceLevel,
       analysis: signal.analysis,
-      creatorName: signal.creatorName,
-      creatorAddress: signal.creatorAddress,
       createdAt: signal.createdAt,
       updatedAt: signal.updatedAt,
       comments: signal.comments.map((comment) => ({

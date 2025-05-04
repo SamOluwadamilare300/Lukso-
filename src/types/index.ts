@@ -9,8 +9,6 @@ export interface SignalFormData {
   priceTarget?: string
   confidenceLevel: number
   analysis: string
-  creatorName: string
-  creatorAddress: string
   useAI?: boolean
 }
 

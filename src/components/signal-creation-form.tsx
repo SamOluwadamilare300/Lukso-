@@ -40,7 +40,7 @@ export function SignalCreationForm() {
     e.preventDefault()
 
     // Use profile?.name and address directly
-    if (!asset || !action || !timeframe || !analysis || !profile?.name || !address) {
+    if (!asset || !action || !timeframe || !analysis) {
       toast({
         title: "Validation Error",
         description: "Please fill in all required fields",
@@ -56,9 +56,8 @@ export function SignalCreationForm() {
       priceTarget: priceTarget || undefined,
       confidenceLevel: confidence[0],
       analysis,
-      creatorName: profile.name,
-      creatorAddress: address,
       useAI,
+  
     }
 
     startTransition(async () => {
