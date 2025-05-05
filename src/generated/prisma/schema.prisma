@@ -71,8 +71,11 @@ model Signal {
   priceTarget     String?
   confidenceLevel Int
   analysis        String
+<<<<<<< HEAD
   // creatorName    String    @default("Anonymous")
   // creatorAddress String    @default("0x0000000000000000000000000000000000000000")
+=======
+>>>>>>> 6404de567c355d9382f283c7254c1bf6b6c7a7a3
   createdAt       DateTime  @default(now()) @map("created_at")
   updatedAt       DateTime  @default(now()) @updatedAt @map("updated_at")
   comments        Comment[]
