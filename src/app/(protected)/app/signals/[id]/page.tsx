@@ -70,9 +70,11 @@ const truncateAddress = (address: string): string => {
 }
 
 interface SignalPageProps {
-  params: {
-    id: string
-  }
+  // params: {
+  //   id: string
+ // }
+ params: { id: string }
+ searchParams?: { [key: string]: string | string[] | undefined }
 }
 
 export default async function SignalPage({ params }: SignalPageProps) {

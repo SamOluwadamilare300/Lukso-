@@ -4951,8 +4951,6 @@ export namespace Prisma {
     priceTarget: string | null
     confidenceLevel: number | null
     analysis: string | null
-    creatorName: string | null
-    creatorAddress: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -4965,8 +4963,6 @@ export namespace Prisma {
     priceTarget: string | null
     confidenceLevel: number | null
     analysis: string | null
-    creatorName: string | null
-    creatorAddress: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -4979,8 +4975,6 @@ export namespace Prisma {
     priceTarget: number
     confidenceLevel: number
     analysis: number
-    creatorName: number
-    creatorAddress: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -5005,8 +4999,6 @@ export namespace Prisma {
     priceTarget?: true
     confidenceLevel?: true
     analysis?: true
-    creatorName?: true
-    creatorAddress?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5019,8 +5011,6 @@ export namespace Prisma {
     priceTarget?: true
     confidenceLevel?: true
     analysis?: true
-    creatorName?: true
-    creatorAddress?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5033,8 +5023,6 @@ export namespace Prisma {
     priceTarget?: true
     confidenceLevel?: true
     analysis?: true
-    creatorName?: true
-    creatorAddress?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -5134,8 +5122,6 @@ export namespace Prisma {
     priceTarget: string | null
     confidenceLevel: number
     analysis: string
-    creatorName: string
-    creatorAddress: string
     createdAt: Date
     updatedAt: Date
     _count: SignalCountAggregateOutputType | null
@@ -5167,8 +5153,6 @@ export namespace Prisma {
     priceTarget?: boolean
     confidenceLevel?: boolean
     analysis?: boolean
-    creatorName?: boolean
-    creatorAddress?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     comments?: boolean | Signal$commentsArgs<ExtArgs>
@@ -5184,8 +5168,6 @@ export namespace Prisma {
     priceTarget?: boolean
     confidenceLevel?: boolean
     analysis?: boolean
-    creatorName?: boolean
-    creatorAddress?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["signal"]>
@@ -5198,8 +5180,6 @@ export namespace Prisma {
     priceTarget?: boolean
     confidenceLevel?: boolean
     analysis?: boolean
-    creatorName?: boolean
-    creatorAddress?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["signal"]>
@@ -5212,13 +5192,11 @@ export namespace Prisma {
     priceTarget?: boolean
     confidenceLevel?: boolean
     analysis?: boolean
-    creatorName?: boolean
-    creatorAddress?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type SignalOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "asset" | "action" | "timeframe" | "priceTarget" | "confidenceLevel" | "analysis" | "creatorName" | "creatorAddress" | "createdAt" | "updatedAt", ExtArgs["result"]["signal"]>
+  export type SignalOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "asset" | "action" | "timeframe" | "priceTarget" | "confidenceLevel" | "analysis" | "createdAt" | "updatedAt", ExtArgs["result"]["signal"]>
   export type SignalInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     comments?: boolean | Signal$commentsArgs<ExtArgs>
     likes?: boolean | Signal$likesArgs<ExtArgs>
@@ -5241,8 +5219,6 @@ export namespace Prisma {
       priceTarget: string | null
       confidenceLevel: number
       analysis: string
-      creatorName: string
-      creatorAddress: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["signal"]>
@@ -5677,8 +5653,6 @@ export namespace Prisma {
     readonly priceTarget: FieldRef<"Signal", 'String'>
     readonly confidenceLevel: FieldRef<"Signal", 'Int'>
     readonly analysis: FieldRef<"Signal", 'String'>
-    readonly creatorName: FieldRef<"Signal", 'String'>
-    readonly creatorAddress: FieldRef<"Signal", 'String'>
     readonly createdAt: FieldRef<"Signal", 'DateTime'>
     readonly updatedAt: FieldRef<"Signal", 'DateTime'>
   }
@@ -6164,7 +6138,6 @@ export namespace Prisma {
     authorAddress: string | null
     createdAt: Date | null
     signalId: number | null
-    network: string | null
   }
 
   export type CommentMaxAggregateOutputType = {
@@ -6174,7 +6147,6 @@ export namespace Prisma {
     authorAddress: string | null
     createdAt: Date | null
     signalId: number | null
-    network: string | null
   }
 
   export type CommentCountAggregateOutputType = {
@@ -6184,7 +6156,6 @@ export namespace Prisma {
     authorAddress: number
     createdAt: number
     signalId: number
-    network: number
     _all: number
   }
 
@@ -6206,7 +6177,6 @@ export namespace Prisma {
     authorAddress?: true
     createdAt?: true
     signalId?: true
-    network?: true
   }
 
   export type CommentMaxAggregateInputType = {
@@ -6216,7 +6186,6 @@ export namespace Prisma {
     authorAddress?: true
     createdAt?: true
     signalId?: true
-    network?: true
   }
 
   export type CommentCountAggregateInputType = {
@@ -6226,7 +6195,6 @@ export namespace Prisma {
     authorAddress?: true
     createdAt?: true
     signalId?: true
-    network?: true
     _all?: true
   }
 
@@ -6323,7 +6291,6 @@ export namespace Prisma {
     authorAddress: string
     createdAt: Date
     signalId: number
-    network: string
     _count: CommentCountAggregateOutputType | null
     _avg: CommentAvgAggregateOutputType | null
     _sum: CommentSumAggregateOutputType | null
@@ -6352,7 +6319,6 @@ export namespace Prisma {
     authorAddress?: boolean
     createdAt?: boolean
     signalId?: boolean
-    network?: boolean
     signal?: boolean | SignalDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["comment"]>
 
@@ -6363,7 +6329,6 @@ export namespace Prisma {
     authorAddress?: boolean
     createdAt?: boolean
     signalId?: boolean
-    network?: boolean
     signal?: boolean | SignalDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["comment"]>
 
@@ -6374,7 +6339,6 @@ export namespace Prisma {
     authorAddress?: boolean
     createdAt?: boolean
     signalId?: boolean
-    network?: boolean
     signal?: boolean | SignalDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["comment"]>
 
@@ -6385,10 +6349,9 @@ export namespace Prisma {
     authorAddress?: boolean
     createdAt?: boolean
     signalId?: boolean
-    network?: boolean
   }
 
-  export type CommentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "content" | "authorName" | "authorAddress" | "createdAt" | "signalId" | "network", ExtArgs["result"]["comment"]>
+  export type CommentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "content" | "authorName" | "authorAddress" | "createdAt" | "signalId", ExtArgs["result"]["comment"]>
   export type CommentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     signal?: boolean | SignalDefaultArgs<ExtArgs>
   }
@@ -6411,7 +6374,6 @@ export namespace Prisma {
       authorAddress: string
       createdAt: Date
       signalId: number
-      network: string
     }, ExtArgs["result"]["comment"]>
     composites: {}
   }
@@ -6842,7 +6804,6 @@ export namespace Prisma {
     readonly authorAddress: FieldRef<"Comment", 'String'>
     readonly createdAt: FieldRef<"Comment", 'DateTime'>
     readonly signalId: FieldRef<"Comment", 'Int'>
-    readonly network: FieldRef<"Comment", 'String'>
   }
     
 
@@ -8422,8 +8383,6 @@ export namespace Prisma {
     priceTarget: 'priceTarget',
     confidenceLevel: 'confidenceLevel',
     analysis: 'analysis',
-    creatorName: 'creatorName',
-    creatorAddress: 'creatorAddress',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -8437,8 +8396,7 @@ export namespace Prisma {
     authorName: 'authorName',
     authorAddress: 'authorAddress',
     createdAt: 'createdAt',
-    signalId: 'signalId',
-    network: 'network'
+    signalId: 'signalId'
   };
 
   export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum]
@@ -8837,8 +8795,6 @@ export namespace Prisma {
     priceTarget?: StringNullableFilter<"Signal"> | string | null
     confidenceLevel?: IntFilter<"Signal"> | number
     analysis?: StringFilter<"Signal"> | string
-    creatorName?: StringFilter<"Signal"> | string
-    creatorAddress?: StringFilter<"Signal"> | string
     createdAt?: DateTimeFilter<"Signal"> | Date | string
     updatedAt?: DateTimeFilter<"Signal"> | Date | string
     comments?: CommentListRelationFilter
@@ -8853,8 +8809,6 @@ export namespace Prisma {
     priceTarget?: SortOrderInput | SortOrder
     confidenceLevel?: SortOrder
     analysis?: SortOrder
-    creatorName?: SortOrder
-    creatorAddress?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     comments?: CommentOrderByRelationAggregateInput
@@ -8872,8 +8826,6 @@ export namespace Prisma {
     priceTarget?: StringNullableFilter<"Signal"> | string | null
     confidenceLevel?: IntFilter<"Signal"> | number
     analysis?: StringFilter<"Signal"> | string
-    creatorName?: StringFilter<"Signal"> | string
-    creatorAddress?: StringFilter<"Signal"> | string
     createdAt?: DateTimeFilter<"Signal"> | Date | string
     updatedAt?: DateTimeFilter<"Signal"> | Date | string
     comments?: CommentListRelationFilter
@@ -8888,8 +8840,6 @@ export namespace Prisma {
     priceTarget?: SortOrderInput | SortOrder
     confidenceLevel?: SortOrder
     analysis?: SortOrder
-    creatorName?: SortOrder
-    creatorAddress?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: SignalCountOrderByAggregateInput
@@ -8910,8 +8860,6 @@ export namespace Prisma {
     priceTarget?: StringNullableWithAggregatesFilter<"Signal"> | string | null
     confidenceLevel?: IntWithAggregatesFilter<"Signal"> | number
     analysis?: StringWithAggregatesFilter<"Signal"> | string
-    creatorName?: StringWithAggregatesFilter<"Signal"> | string
-    creatorAddress?: StringWithAggregatesFilter<"Signal"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Signal"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Signal"> | Date | string
   }
@@ -8926,7 +8874,6 @@ export namespace Prisma {
     authorAddress?: StringFilter<"Comment"> | string
     createdAt?: DateTimeFilter<"Comment"> | Date | string
     signalId?: IntFilter<"Comment"> | number
-    network?: StringFilter<"Comment"> | string
     signal?: XOR<SignalScalarRelationFilter, SignalWhereInput>
   }
 
@@ -8937,7 +8884,6 @@ export namespace Prisma {
     authorAddress?: SortOrder
     createdAt?: SortOrder
     signalId?: SortOrder
-    network?: SortOrder
     signal?: SignalOrderByWithRelationInput
   }
 
@@ -8951,7 +8897,6 @@ export namespace Prisma {
     authorAddress?: StringFilter<"Comment"> | string
     createdAt?: DateTimeFilter<"Comment"> | Date | string
     signalId?: IntFilter<"Comment"> | number
-    network?: StringFilter<"Comment"> | string
     signal?: XOR<SignalScalarRelationFilter, SignalWhereInput>
   }, "id">
 
@@ -8962,7 +8907,6 @@ export namespace Prisma {
     authorAddress?: SortOrder
     createdAt?: SortOrder
     signalId?: SortOrder
-    network?: SortOrder
     _count?: CommentCountOrderByAggregateInput
     _avg?: CommentAvgOrderByAggregateInput
     _max?: CommentMaxOrderByAggregateInput
@@ -8980,7 +8924,6 @@ export namespace Prisma {
     authorAddress?: StringWithAggregatesFilter<"Comment"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Comment"> | Date | string
     signalId?: IntWithAggregatesFilter<"Comment"> | number
-    network?: StringWithAggregatesFilter<"Comment"> | string
   }
 
   export type LikeWhereInput = {
@@ -9311,8 +9254,6 @@ export namespace Prisma {
     priceTarget?: string | null
     confidenceLevel: number
     analysis: string
-    creatorName?: string
-    creatorAddress?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     comments?: CommentCreateNestedManyWithoutSignalInput
@@ -9327,8 +9268,6 @@ export namespace Prisma {
     priceTarget?: string | null
     confidenceLevel: number
     analysis: string
-    creatorName?: string
-    creatorAddress?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     comments?: CommentUncheckedCreateNestedManyWithoutSignalInput
@@ -9342,8 +9281,6 @@ export namespace Prisma {
     priceTarget?: NullableStringFieldUpdateOperationsInput | string | null
     confidenceLevel?: IntFieldUpdateOperationsInput | number
     analysis?: StringFieldUpdateOperationsInput | string
-    creatorName?: StringFieldUpdateOperationsInput | string
-    creatorAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     comments?: CommentUpdateManyWithoutSignalNestedInput
@@ -9358,8 +9295,6 @@ export namespace Prisma {
     priceTarget?: NullableStringFieldUpdateOperationsInput | string | null
     confidenceLevel?: IntFieldUpdateOperationsInput | number
     analysis?: StringFieldUpdateOperationsInput | string
-    creatorName?: StringFieldUpdateOperationsInput | string
-    creatorAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     comments?: CommentUncheckedUpdateManyWithoutSignalNestedInput
@@ -9374,8 +9309,6 @@ export namespace Prisma {
     priceTarget?: string | null
     confidenceLevel: number
     analysis: string
-    creatorName?: string
-    creatorAddress?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -9387,8 +9320,6 @@ export namespace Prisma {
     priceTarget?: NullableStringFieldUpdateOperationsInput | string | null
     confidenceLevel?: IntFieldUpdateOperationsInput | number
     analysis?: StringFieldUpdateOperationsInput | string
-    creatorName?: StringFieldUpdateOperationsInput | string
-    creatorAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -9401,8 +9332,6 @@ export namespace Prisma {
     priceTarget?: NullableStringFieldUpdateOperationsInput | string | null
     confidenceLevel?: IntFieldUpdateOperationsInput | number
     analysis?: StringFieldUpdateOperationsInput | string
-    creatorName?: StringFieldUpdateOperationsInput | string
-    creatorAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -9412,7 +9341,6 @@ export namespace Prisma {
     authorName: string
     authorAddress: string
     createdAt?: Date | string
-    network: string
     signal: SignalCreateNestedOneWithoutCommentsInput
   }
 
@@ -9423,7 +9351,6 @@ export namespace Prisma {
     authorAddress: string
     createdAt?: Date | string
     signalId: number
-    network: string
   }
 
   export type CommentUpdateInput = {
@@ -9431,7 +9358,6 @@ export namespace Prisma {
     authorName?: StringFieldUpdateOperationsInput | string
     authorAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    network?: StringFieldUpdateOperationsInput | string
     signal?: SignalUpdateOneRequiredWithoutCommentsNestedInput
   }
 
@@ -9442,7 +9368,6 @@ export namespace Prisma {
     authorAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     signalId?: IntFieldUpdateOperationsInput | number
-    network?: StringFieldUpdateOperationsInput | string
   }
 
   export type CommentCreateManyInput = {
@@ -9452,7 +9377,6 @@ export namespace Prisma {
     authorAddress: string
     createdAt?: Date | string
     signalId: number
-    network: string
   }
 
   export type CommentUpdateManyMutationInput = {
@@ -9460,7 +9384,6 @@ export namespace Prisma {
     authorName?: StringFieldUpdateOperationsInput | string
     authorAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    network?: StringFieldUpdateOperationsInput | string
   }
 
   export type CommentUncheckedUpdateManyInput = {
@@ -9470,7 +9393,6 @@ export namespace Prisma {
     authorAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     signalId?: IntFieldUpdateOperationsInput | number
-    network?: StringFieldUpdateOperationsInput | string
   }
 
   export type LikeCreateInput = {
@@ -9970,8 +9892,6 @@ export namespace Prisma {
     priceTarget?: SortOrder
     confidenceLevel?: SortOrder
     analysis?: SortOrder
-    creatorName?: SortOrder
-    creatorAddress?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -9989,8 +9909,6 @@ export namespace Prisma {
     priceTarget?: SortOrder
     confidenceLevel?: SortOrder
     analysis?: SortOrder
-    creatorName?: SortOrder
-    creatorAddress?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -10003,8 +9921,6 @@ export namespace Prisma {
     priceTarget?: SortOrder
     confidenceLevel?: SortOrder
     analysis?: SortOrder
-    creatorName?: SortOrder
-    creatorAddress?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -10026,7 +9942,6 @@ export namespace Prisma {
     authorAddress?: SortOrder
     createdAt?: SortOrder
     signalId?: SortOrder
-    network?: SortOrder
   }
 
   export type CommentAvgOrderByAggregateInput = {
@@ -10041,7 +9956,6 @@ export namespace Prisma {
     authorAddress?: SortOrder
     createdAt?: SortOrder
     signalId?: SortOrder
-    network?: SortOrder
   }
 
   export type CommentMinOrderByAggregateInput = {
@@ -10051,7 +9965,6 @@ export namespace Prisma {
     authorAddress?: SortOrder
     createdAt?: SortOrder
     signalId?: SortOrder
-    network?: SortOrder
   }
 
   export type CommentSumOrderByAggregateInput = {
@@ -10844,7 +10757,6 @@ export namespace Prisma {
     authorName: string
     authorAddress: string
     createdAt?: Date | string
-    network: string
   }
 
   export type CommentUncheckedCreateWithoutSignalInput = {
@@ -10853,7 +10765,6 @@ export namespace Prisma {
     authorName: string
     authorAddress: string
     createdAt?: Date | string
-    network: string
   }
 
   export type CommentCreateOrConnectWithoutSignalInput = {
@@ -10915,7 +10826,6 @@ export namespace Prisma {
     authorAddress?: StringFilter<"Comment"> | string
     createdAt?: DateTimeFilter<"Comment"> | Date | string
     signalId?: IntFilter<"Comment"> | number
-    network?: StringFilter<"Comment"> | string
   }
 
   export type LikeUpsertWithWhereUniqueWithoutSignalInput = {
@@ -10952,8 +10862,6 @@ export namespace Prisma {
     priceTarget?: string | null
     confidenceLevel: number
     analysis: string
-    creatorName?: string
-    creatorAddress?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     likes?: LikeCreateNestedManyWithoutSignalInput
@@ -10967,8 +10875,6 @@ export namespace Prisma {
     priceTarget?: string | null
     confidenceLevel: number
     analysis: string
-    creatorName?: string
-    creatorAddress?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     likes?: LikeUncheckedCreateNestedManyWithoutSignalInput
@@ -10997,8 +10903,6 @@ export namespace Prisma {
     priceTarget?: NullableStringFieldUpdateOperationsInput | string | null
     confidenceLevel?: IntFieldUpdateOperationsInput | number
     analysis?: StringFieldUpdateOperationsInput | string
-    creatorName?: StringFieldUpdateOperationsInput | string
-    creatorAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     likes?: LikeUpdateManyWithoutSignalNestedInput
@@ -11012,8 +10916,6 @@ export namespace Prisma {
     priceTarget?: NullableStringFieldUpdateOperationsInput | string | null
     confidenceLevel?: IntFieldUpdateOperationsInput | number
     analysis?: StringFieldUpdateOperationsInput | string
-    creatorName?: StringFieldUpdateOperationsInput | string
-    creatorAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     likes?: LikeUncheckedUpdateManyWithoutSignalNestedInput
@@ -11026,8 +10928,6 @@ export namespace Prisma {
     priceTarget?: string | null
     confidenceLevel: number
     analysis: string
-    creatorName?: string
-    creatorAddress?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     comments?: CommentCreateNestedManyWithoutSignalInput
@@ -11041,8 +10941,6 @@ export namespace Prisma {
     priceTarget?: string | null
     confidenceLevel: number
     analysis: string
-    creatorName?: string
-    creatorAddress?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     comments?: CommentUncheckedCreateNestedManyWithoutSignalInput
@@ -11071,8 +10969,6 @@ export namespace Prisma {
     priceTarget?: NullableStringFieldUpdateOperationsInput | string | null
     confidenceLevel?: IntFieldUpdateOperationsInput | number
     analysis?: StringFieldUpdateOperationsInput | string
-    creatorName?: StringFieldUpdateOperationsInput | string
-    creatorAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     comments?: CommentUpdateManyWithoutSignalNestedInput
@@ -11086,8 +10982,6 @@ export namespace Prisma {
     priceTarget?: NullableStringFieldUpdateOperationsInput | string | null
     confidenceLevel?: IntFieldUpdateOperationsInput | number
     analysis?: StringFieldUpdateOperationsInput | string
-    creatorName?: StringFieldUpdateOperationsInput | string
-    creatorAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     comments?: CommentUncheckedUpdateManyWithoutSignalNestedInput
@@ -11193,7 +11087,6 @@ export namespace Prisma {
     authorName: string
     authorAddress: string
     createdAt?: Date | string
-    network: string
   }
 
   export type LikeCreateManySignalInput = {
@@ -11208,7 +11101,6 @@ export namespace Prisma {
     authorName?: StringFieldUpdateOperationsInput | string
     authorAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    network?: StringFieldUpdateOperationsInput | string
   }
 
   export type CommentUncheckedUpdateWithoutSignalInput = {
@@ -11217,7 +11109,6 @@ export namespace Prisma {
     authorName?: StringFieldUpdateOperationsInput | string
     authorAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    network?: StringFieldUpdateOperationsInput | string
   }
 
   export type CommentUncheckedUpdateManyWithoutSignalInput = {
@@ -11226,7 +11117,6 @@ export namespace Prisma {
     authorName?: StringFieldUpdateOperationsInput | string
     authorAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    network?: StringFieldUpdateOperationsInput | string
   }
 
   export type LikeUpdateWithoutSignalInput = {

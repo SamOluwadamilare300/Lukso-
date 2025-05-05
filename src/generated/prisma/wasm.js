@@ -166,8 +166,6 @@ exports.Prisma.SignalScalarFieldEnum = {
   priceTarget: 'priceTarget',
   confidenceLevel: 'confidenceLevel',
   analysis: 'analysis',
-  creatorName: 'creatorName',
-  creatorAddress: 'creatorAddress',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -178,8 +176,7 @@ exports.Prisma.CommentScalarFieldEnum = {
   authorName: 'authorName',
   authorAddress: 'authorAddress',
   createdAt: 'createdAt',
-  signalId: 'signalId',
-  network: 'network'
+  signalId: 'signalId'
 };
 
 exports.Prisma.LikeScalarFieldEnum = {

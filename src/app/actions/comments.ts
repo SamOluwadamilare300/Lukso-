@@ -8,7 +8,7 @@ export async function createComment(
   formData: CommentFormData,
 ): Promise<{ success: boolean; message: string; comment?: Comment }> {
   try {
-    const { content, authorName, authorAddress, signalId, network } = formData
+    const { content, authorName, authorAddress, signalId } = formData
 
     const newComment = await prisma.comment.create({
       data: {
@@ -16,7 +16,6 @@ export async function createComment(
         authorName: authorName || "Anonymous",
         authorAddress: authorAddress || "0x0000000000000000000000000000000000000000",
         signalId,
-        network,
       },
     })
 
@@ -33,9 +32,6 @@ export async function createComment(
         authorAddress: newComment.authorAddress,
         createdAt: newComment.createdAt,
         signalId: newComment.signalId,
-        network: (["Mainnet", "Testnet", "Unknown"] as const).includes(newComment.network as any)
-          ? (newComment.network as "Mainnet" | "Testnet" | "Unknown")
-          : "Unknown",
       },
     }
   } catch (error) {
@@ -65,9 +61,6 @@ export async function getCommentsBySignalId(signalId: number): Promise<Comment[]
       authorAddress: comment.authorAddress,
       createdAt: comment.createdAt,
       signalId: comment.signalId,
-      network: (["Mainnet", "Testnet", "Unknown"] as const).includes(comment.network as any)
-        ? (comment.network as "Mainnet" | "Testnet" | "Unknown")
-        : "Unknown",
     }))
   } catch (error) {
     console.error(`Error fetching comments for signal ${signalId}:`, error)
