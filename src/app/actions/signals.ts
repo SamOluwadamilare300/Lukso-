@@ -18,11 +18,8 @@ export async function createSignal(
         priceTarget,
         confidenceLevel,
         analysis,
-<<<<<<< HEAD
         // creatorName: creatorName || "Anonymous",
         // creatorAddress: creatorAddress || "0x0000000000000000000000000000000000000000",
-=======
->>>>>>> 6404de567c355d9382f283c7254c1bf6b6c7a7a3
       },
     })
 
@@ -40,12 +37,8 @@ export async function createSignal(
         priceTarget: newSignal.priceTarget || undefined,
         confidenceLevel: newSignal.confidenceLevel,
         analysis: newSignal.analysis,
-<<<<<<< HEAD
         // creatorName: newSignal.creatorName,
         // creatorAddress: newSignal.creatorAddress,
-=======
-  
->>>>>>> 6404de567c355d9382f283c7254c1bf6b6c7a7a3
         createdAt: newSignal.createdAt,
         updatedAt: newSignal.updatedAt,
       },
@@ -106,11 +99,8 @@ export async function getSignals(filters?: FilterOptions): Promise<Signal[]> {
       priceTarget: signal.priceTarget || undefined,
       confidenceLevel: signal.confidenceLevel,
       analysis: signal.analysis,
-<<<<<<< HEAD
       // creatorName: signal.creatorName,
       // creatorAddress: signal.creatorAddress,
-=======
->>>>>>> 6404de567c355d9382f283c7254c1bf6b6c7a7a3
       createdAt: signal.createdAt,
       updatedAt: signal.updatedAt,
       comments: signal.comments.map((comment) => ({
@@ -163,11 +153,8 @@ export async function getSignalById(id: number): Promise<Signal | null> {
       priceTarget: signal.priceTarget || undefined,
       confidenceLevel: signal.confidenceLevel,
       analysis: signal.analysis,
-<<<<<<< HEAD
       // creatorName: signal.creatorName,
       // creatorAddress: signal.creatorAddress,
-=======
->>>>>>> 6404de567c355d9382f283c7254c1bf6b6c7a7a3
       createdAt: signal.createdAt,
       updatedAt: signal.updatedAt,
       comments: signal.comments.map((comment) => ({

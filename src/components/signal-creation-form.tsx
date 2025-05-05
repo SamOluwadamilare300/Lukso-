@@ -35,12 +35,7 @@ export function SignalCreationForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-<<<<<<< HEAD
     if (!asset || !action || !timeframe || !analysis ) {
-=======
-    // Use profile?.name and address directly
-    if (!asset || !action || !timeframe || !analysis) {
->>>>>>> 6404de567c355d9382f283c7254c1bf6b6c7a7a3
       toast({
         title: "Validation Error",
         description: "Please fill in all required fields",
@@ -56,13 +51,9 @@ export function SignalCreationForm() {
       priceTarget: priceTarget || undefined,
       confidenceLevel: confidence[0],
       analysis,
-<<<<<<< HEAD
       // creatorName,
       // creatorAddress,
-=======
->>>>>>> 6404de567c355d9382f283c7254c1bf6b6c7a7a3
       useAI,
-  
     }
 
     startTransition(async () => {
@@ -118,7 +109,7 @@ export function SignalCreationForm() {
                 value={creatorName}
                 onChange={(e) => setCreatorName(e.target.value)}
                 placeholder="Enter your name"
-                requireds
+                required
               />
             </div>
             <div className="space-y-2">
